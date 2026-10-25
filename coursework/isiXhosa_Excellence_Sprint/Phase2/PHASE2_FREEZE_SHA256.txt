@@ -1,0 +1,5 @@
+Phase 2 locked 2026-10-24 before any new held-out factorial evaluation.
+Phase 1 protocol SHA256 bc443d883fa1c2b8eb09ced5f87d8f65b352d55512ef2c594b1b23e64d496bf4
+fb6a8af93c55b628cf32903affd94791e953616f03e2a92dfe095409a4066a9c  Phase2/outputs/PHASE2_SELECTION_FREEZE.json
+e933487fe16bb171ddbd00d8f08186b5dbb4be6db7baf0b952b4bc4fe68c51e2  Phase2/outputs/model_training_manifest.csv
+2cc4a4a8161b35d4008fbf55914ca9ca4d11bfc94cb82adc28634070770be42b  Phase2/outputs/validation_scores.csv
