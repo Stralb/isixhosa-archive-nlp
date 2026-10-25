@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+.env
+.env.*
+.DS_Store
+*.swp
+*.tmp
+*_replay/
+_replay/
+TxtLangFiles1870-1894_TB.zip
+1. TxtFiles1870-1894_TB.zip
+source_data/
+data/raw/
