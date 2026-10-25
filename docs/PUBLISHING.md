@@ -1,12 +1,22 @@
 # Publish the complete research release
 
-The GitHub repository already exists at https://github.com/Stralb/isixhosa-archive-nlp. It is public and contains reviewer documentation. **The full experimental source and output files are still pending import.**
+The repository is live at https://github.com/Stralb/isixhosa-archive-nlp. Its initial reviewer documentation was committed through the connected GitHub account on 25 October 2026. The full 1,794-file research release still awaits import.
 
-1. Obtain the prepared ZIP `isixhosa-archive-nlp-public-release.zip` from the accompanying ChatGPT research handoff.
-2. Review author contributions and source-data redistribution permissions. The original newspaper transcriptions were intentionally excluded.
-3. Clone the existing repository and copy in the release, or use the safe existing-repository publisher in the revised ZIP. Do not create a fresh unrelated Git history or force-push.
-4. Run `python scripts/check_repository.py` and `python scripts/verify_saved_results.py` after extracting the research files.
-5. Push to `main` and verify that the source code, models, tables, plots, and reproducibility scripts appear online.
-6. Check GitHub Actions once the full code is present and confirm that links in the README resolve.
+The archive `isixhosa-archive-nlp-public-release.zip` contains the coursework experiments, trained tokenizers, numerical results, code, protocol files, figures and selected supplementary research. The original historical newspaper text archives are intentionally excluded.
 
-The public repository is not the final coursework submission. The two-page extended abstract and mandatory ethics and contribution forms remain separate.
+## Safe import into the existing GitHub repository
+
+1. Download the prepared public-release ZIP from the ChatGPT research handoff and extract it.
+2. Open a terminal inside the extracted `isixhosa-archive-nlp` folder.
+3. Verify that Git is installed and authenticated to the `Stralb` account.
+4. Run `sh scripts/publish_to_github.sh`.
+5. The script checks the package and saved numerical claims. It clones the existing `main` branch into a temporary directory, imports the files, commits and pushes without rewriting the Git history.
+6. Check that code, models, tables, plots, and the repository integrity workflow are available online.
+
+If Git reports missing author information, configure `git config --global user.name` and `git config --global user.email`. A permission failure may mean local Git is not authenticated, even when the ChatGPT GitHub connection is authenticated.
+
+## Limitations
+
+The offline checks cover saved results and model fingerprints, not fresh retraining of every model. Reproduction from historical text requires the separately supplied `TxtLangFiles1870-1894_TB.zip`.
+
+The repository does not constitute the final coursework submission. The two-page abstract and required ethics and contribution declarations remain separate.
