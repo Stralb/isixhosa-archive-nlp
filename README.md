@@ -24,7 +24,7 @@ There are two separate paths:
 python scripts/factory.py audit
 ```
 
-This restores the saved 60 model snapshots and 275 numerical records, verifies their checksums, and independently recalculates the 64 factorial point estimates from 99,720 paired score rows. It is not a retraining run. The same checks run in GitHub Actions.
+This restores the 60 saved tokenizer models and their vocabulary files and 275 saved output files, verifies their checksums, and independently recalculates the 64 factorial point estimates from 99,720 paired score rows. It is not a retraining run. The same checks run in GitHub Actions. See the [fresh 40-model training replay checkpoint](docs/FRESH_TRAINING_REPLAY_2026-10-25.md) for a separate clean-run comparison.
 
 You can verify original research files and key result tables without accessing
 the source text:
