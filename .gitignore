@@ -15,3 +15,7 @@ TxtLangFiles1870-1894_TB.zip
 1. TxtFiles1870-1894_TB.zip
 source_data/
 data/raw/
+
+# Reconstructed experimental outputs are already preserved by the
+# verified release archives. Avoid accidental commits of decoded duplicates.
+coursework/isiXhosa_Excellence_Sprint/Phase*/outputs/

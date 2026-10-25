@@ -1,0 +1,40 @@
+name: Saved research reproduction checks
+
+on:
+  push:
+    paths:
+      - "releases/**"
+      - "docs/SAVED_OUTPUT_CHUNKS.csv"
+      - "scripts/restore_saved_outputs.py"
+      - "scripts/verify_saved_results.py"
+      - "coursework/**"
+      - ".github/workflows/saved-results.yml"
+  pull_request:
+    paths:
+      - "releases/**"
+      - "docs/SAVED_OUTPUT_CHUNKS.csv"
+      - "scripts/restore_saved_outputs.py"
+      - "scripts/verify_saved_results.py"
+      - "coursework/**"
+
+jobs:
+  saved-output-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Verify original binary-model snapshots
+        run: python scripts/restore_saved_artifacts.py --verify-only
+      - name: Verify original numerical-results archive
+        run: python scripts/restore_saved_outputs.py --verify-only
+      - name: Restore original tokenizer binaries and result files
+        run: |
+          python scripts/restore_saved_artifacts.py
+          python scripts/restore_saved_outputs.py
+      - name: Verify published original models and scientific findings
+        run: |
+          python scripts/check_frozen_source.py
+          python scripts/verify_saved_results.py
