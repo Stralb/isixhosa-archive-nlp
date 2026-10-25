@@ -1,0 +1,24 @@
+name: Saved model and figure integrity
+
+on:
+  push:
+    paths:
+      - "**/*.b64"
+      - "docs/BINARY_ARTIFACT_MANIFEST.csv"
+      - "scripts/restore_saved_artifacts.py"
+      - ".github/workflows/artifact-integrity.yml"
+  pull_request:
+    paths:
+      - "**/*.b64"
+      - "docs/BINARY_ARTIFACT_MANIFEST.csv"
+      - "scripts/restore_saved_artifacts.py"
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python scripts/restore_saved_artifacts.py --verify-only
