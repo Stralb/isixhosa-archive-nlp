@@ -1,0 +1,27 @@
+name: Original study source checks
+
+on:
+  push:
+    paths:
+      - "coursework/**"
+      - "scripts/check_frozen_source.py"
+      - "scripts/reproduce_all.py"
+      - ".github/workflows/original-study.yml"
+  pull_request:
+    paths:
+      - "coursework/**"
+      - "scripts/check_frozen_source.py"
+      - "scripts/reproduce_all.py"
+
+jobs:
+  source-integrity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Validate original source hashes and saved result summaries
+        run: python scripts/check_frozen_source.py
+      - name: Show the actual complete reproduction procedure
+        run: python scripts/reproduce_all.py --archive dataset.zip --workdir /tmp/isiXhosa-fresh --dry-run
