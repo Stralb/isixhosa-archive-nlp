@@ -1,87 +1,165 @@
-# Sampling and representation in a historical isiXhosa archive
+# Historical isiXhosa Archive Sampling and Representation
 
-**Reproducible experiments for NLP Project 2 (2026)**
+**COMS4054A/COMS7062A/COMS7066A, Natural Language Processing, Project 2 (2026)**
 
-> **Release status, 25 October 2026:** Reviewer documentation is published here. Source code, saved models, numerical artifacts, and plots remain in the [prepared full public-release ZIP](docs/PUBLISHING.md) and are not yet fully mirrored to GitHub. Links into `coursework/` and `supplementary/` will work after the full-source import. The main numerical claims were verified against the saved files locally, not reproduced from this GitHub checkout yet.
+This repository contains experimental code, frozen protocols, saved result
+summaries and checks for a study of how **sampling a historical newspaper
+archive changes tokenizer representation and downstream language-model loss**.
 
-Digitised newspapers are not neutral datasets. A researcher can choose which pages to sample, how to weight text categories, and how much repeated material to retain. Those choices can change which language views a tokenizer represents efficiently and how a simple language model scores unseen text.
+The research uses digitised *Imvo Zabantsundu* pages from the isiXhosa
+Intellectual Traditions (IsiXIT) collection. It is a reproducible analysis of
+NLP dataset construction, not a new tokenizer architecture or a claim that a
+historical newspaper represents isiXhosa culture as a whole.
 
-This repository documents those choices using the *Imvo Zabantsundu* texts in the isiXhosa Intellectual Traditions (IsiXIT) archive. The main study is a controlled 2 by 2 sampling experiment, rather than a new tokenizer algorithm. We include the full research scripts, trained models, matched evaluation outputs, preregistered protocols, falsification tests and negative results.
+## Start here: run actual code
 
-## The question
+There are two separate paths:
 
-When the amount of training text is held approximately fixed, how much do two dataset construction decisions matter?
+1. **Original frozen research scripts:** [coursework/isiXhosa_Excellence_Sprint](coursework/isiXhosa_Excellence_Sprint/README.txt). These are the scripts used for Phases 1 to 6, now committed alongside their precommitted designs and selected results.
+2. **Independent readable implementation:** [factory](factory/README.md). This offers a compact way to inspect the same 2 by 2 design, with its own unit tests. It is a reproduction attempt, not a replacement for the original record.
 
-1. **View allocation:** how much text is allocated to the archive's English and isiXhosa views.
-2. **Within-view selection:** whether pages or individual words determine which material is selected inside each view.
+You can verify original research files and key result tables without accessing
+the source text:
 
-The four conditions are `PP`, `PW`, `WP` and `WW`. Each letter indicates page-weighted (`P`) or word-weighted (`W`) selection along one factor. The original Phase 1 protocol is the authority for implementation details. We separate individual factor effects from the full `WW` versus `PP` policy contrast.
+\`\`\`bash
+python scripts/check_frozen_source.py
+python -m unittest discover -s factory/tests -v
+\`\`\`
 
-## What we found
+To run the **original full experiment from the original course dataset**:
 
-The principal result is a representation trade-off. Giving more weight to the English view improves its subword compactness under both BPE and Unigram, but can worsen isiXhosa-view compactness. In the tested count-bigram language model, the isolated English allocation intervention also improves English-view held-out bits per character (BPC).
-
-| Held-out 1888 comparison | Estimate | 95% issue-bootstrap interval |
-| --- | ---: | ---: |
-| BPE English-view allocation effect, pieces per 100 characters | -1.8775 | [-1.9716, -1.7818] |
-| Unigram English-view allocation effect, pieces per 100 characters | -1.7948 | [-1.9081, -1.6706] |
-| BPE isiXhosa-view allocation effect, pieces per 100 characters | +0.4526 | [+0.4068, +0.4974] |
-| BPE English-view allocation effect, BPC | -0.03722 | [-0.04236, -0.03212] |
-
-The BPC result is about **1.29%** relative to the `PP` English-view reference mean. This is a modest intrinsic modelling effect, not proof of improved semantic understanding.
-
-**A result that did not hold:** switching the *entire* sampling policy from `PP` to `WW` is not consistently better on later years. For BPE, the later-year English-view `WW - PP` BPC contrast was **+0.00450**, indicating slightly worse BPC under `WW`. Reporting only the favourable isolated allocation effect would misrepresent the experiment.
-
-![English-view tokenizer allocation effect](coursework/isiXhosa_Excellence_Sprint/Phase6/outputs/PHASE6_ENGLISH_SEGMENTATION.png)
-
-The full results, including the trade-off and counterexample, are in [Findings](docs/FINDINGS.md). The effect plots were regenerated from verified underlying outputs, not manually sketched.
-
-## Study design
-
-| Component | Design |
-| --- | --- |
-| Text | Historical *Imvo Zabantsundu*, archive-assigned `EnTxt` and `XhTxt` blocks |
-| Model fits | 2 tokenizer families x 4 policies x 5 seeds = 40 tokenizers |
-| Tokenizers | SentencePiece BPE and Unigram, vocabulary size 2,000 |
-| Equalised exposure | About 500,000 alphabetic letters per training condition |
-| Training | 1885 and January to September 1887 |
-| Validation | October to December 1887 with duplicate-aware windows |
-| Held-out evaluation | 1888 and a later 1889 to 1894 within-newspaper period |
-| Prediction model | Smoothed count-bigram language model; validation-selected alpha = 100 from {1, 10, 100} |
-| Robustness | Matched-support repeated-text filtering, 20 additional BPE fits |
-| Uncertainty | Publication-issue bootstrap, conditional on this historical collection |
-
-We analysed **2,493 paired page/view excerpts from 358 issues** and saved 99,720 paired evaluation rows. The record also includes precommits, decisions, and procedures that did not support the original direction. [Methods and validity](docs/METHODS_AND_VALIDITY.md) gives the necessary qualifications.
-
-## Reproduce the results
-
-**Python 3.13** and the separately obtained **original** `TxtLangFiles1870-1894_TB.zip` are required. The source archive is not republished here because redistribution permission has not been established.
-
-```bash
+\`\`\`bash
 python -m pip install -r requirements.txt
-sh coursework/isiXhosa_Excellence_Sprint/Phase6/submission_code/RUN_FAST_CHECK.sh /path/to/TxtLangFiles1870-1894_TB.zip
-```
+python scripts/reproduce_all.py \
+  --archive /absolute/path/to/TxtLangFiles1870-1894_TB.zip \
+  --workdir /absolute/path/to/new-reproduction --dry-run
 
-A successful fast check reports `PASS 7 independent scientific tests` and recreates the four Phase 6 figures. This validates saved results. It does not retrain every model. [Reproducibility guide](docs/REPRODUCIBILITY.md) gives the longer training and replay commands.
+python scripts/reproduce_all.py \
+  --archive /absolute/path/to/TxtLangFiles1870-1894_TB.zip \
+  --workdir /absolute/path/to/new-reproduction
+\`\`\`
 
-## Find your way around
+The runner checks the dataset and frozen-protocol hashes, creates a clean
+workspace outside this repository, runs the original training, validation,
+held-out evaluation, repeated-text sensitivity, downstream bigram experiment
+and independent audit, and writes separate logs for each stage. It never
+silently overwrites your original research folder. Full retraining needs a CPU
+environment with sufficient time and memory.
 
-- [`coursework/isiXhosa_Excellence_Sprint/`](coursework/isiXhosa_Excellence_Sprint): complete six-phase coursework implementation, models, source-to-score scripts, raw numeric results and scientific audit.
-- [`docs/FINDINGS.md`](docs/FINDINGS.md): main results, counterexamples and conditional uncertainty.
-- [`docs/REVIEWER_GUIDE.md`](docs/REVIEWER_GUIDE.md): short independent-review checklist and reproducibility routes.
-- [`docs/DATA_ACCESS_AND_ETHICS.md`](docs/DATA_ACCESS_AND_ETHICS.md): source provenance, redistribution boundary and responsible interpretation.
-- [`supplementary/`](supplementary/README.md): source scripts and selected reports from earlier exploratory research and a separate historical-inference programme. These are not additional independent replications of the main factorial study.
+The original dataset is **not** included. It must be obtained through the
+course or authorised archive access. SHA256:
+\`375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5\`.
 
-## What the evidence does not establish
+## Research question
 
-The archive views are **not manually verified language labels**. The factorial comparison uses one newspaper, not two independent newspaper replications. The 1888 to 1894 texts had been examined in earlier exploratory work, so this is a controlled follow-up, not a never-examined external confirmation. Compactness and count-bigram likelihood do not measure fairness experienced by readers, cultural beliefs, semantic competence, or contemporary isiXhosa NLP outcomes.
+When the amount of tokenizer-training text is held approximately constant,
+how do two different corpus construction choices affect segmentation and
+simple language modelling?
 
-This is a research and code repository, not the final coursework submission PDF. The course separately requires a two-page extended abstract, the official NeurIPS 2024 ethics questionnaire, the Faculty AI ethics declaration and a contribution statement. See [Submission status](docs/SUBMISSION_STATUS.md).
+The study separates:
 
-## References
+- **View allocation:** whether English and isiXhosa archive text views get
+  training exposure according to pages or word counts.
+- **Within-view page selection:** whether individual source pages are
+  selected with page-like or word-like weighting.
 
-- Schoots, J., Ngwendu, A., de Wet, J., and Muftic, S. (2023). *IsiXhosa Intellectual Traditions Digital Archive: Digitizing isiXhosa texts from 1870-1914*. [ACL Anthology](https://aclanthology.org/2023.rail-1.7/).
-- Kudo, T., and Richardson, J. (2018). *SentencePiece: A simple and language independent subword tokenizer and detokenizer for neural text processing*. [ACL Anthology](https://aclanthology.org/D18-2012/).
-- For additional background and manuscript references, see [`CITATIONS_FOR_MANUSCRIPT.bib`](coursework/isiXhosa_Excellence_Sprint/Phase6/CITATIONS_FOR_MANUSCRIPT.bib).
+This gives four training policies, \`PP\`, \`PW\`, \`WP\` and \`WW\`. The
+factorial contrast distinguishes the effect of the first choice, the second
+choice, their interaction and the overall \`WW - PP\` policy difference.
 
-No software licence has been assigned to this public-release draft. Reuse permissions should be agreed by the actual contributors before adding a licence file.
+## Experimental design
+
+| Component | Original frozen design |
+| --- | --- |
+| Training text | Imvo 1885 and January to September 1887 |
+| Validation text | October to December 1887, repeat-aware windows |
+| Held-out evaluation | 1888, plus within-newspaper comparisons from 1889 to 1894 |
+| Main tokenizer fits | 2 algorithms x 4 arms x 5 seeds = 40 |
+| Tokenizers | SentencePiece BPE and Unigram, 2,000 vocabulary items |
+| Per-model training budget | Approximately 500,000 alphabetic characters |
+| Downstream check | Smoothed count-bigram language model, validation-selected alpha 100 |
+| Robustness | 20 additional BPE fits for repeated-text / matched-support controls |
+| Units for uncertainty | Paired issue-level bootstrap, model seeds held fixed |
+
+The main study includes 2,493 eligible page/view excerpts across 358 issues.
+The archived evaluation generated 99,720 paired segmentation score rows and
+99,720 language-model score rows.
+
+## Main findings, including the negative result
+
+| Held-out 1888 outcome | Mean effect | 95% issue-bootstrap interval |
+| --- | ---: | ---: |
+| English-view BPE pieces / 100 alphabetic characters, allocation | -1.8775 | [-1.9716, -1.7818] |
+| English-view Unigram pieces / 100 alphabetic characters, allocation | -1.7948 | [-1.9081, -1.6706] |
+| isiXhosa-view BPE pieces / 100 alphabetic characters, allocation | +0.4526 | [+0.4068, +0.4974] |
+| English-view BPE bits per character, allocation | -0.03722 | [-0.04236, -0.03212] |
+
+A negative allocation effect means the model needed fewer pieces or lower
+bits per character under word-like rather than page-like allocation.
+The English improvement comes with an isiXhosa-view segmentation trade-off.
+
+**A counterexample matters:** on the later 1889 to 1894 period, changing
+the entire BPE policy from \`PP\` to \`WW\` made English-view BPC slightly
+worse, with a reported \`WW - PP\` contrast of **+0.00450 BPC**. Therefore
+the data do not show that word-proportional sampling is always better.
+
+Read [Findings and negative results](docs/FINDINGS.md),
+[Methods and validity](docs/METHODS_AND_VALIDITY.md) and the
+[original Phase 6 claim ledger](coursework/isiXhosa_Excellence_Sprint/Phase6/CLAIM_LEDGER.md).
+The ledger distinguishes evidence, interpretation and claims we must not make.
+
+## Find the code and evidence
+
+| Path | What to examine |
+| --- | --- |
+| [Phase 1](coursework/isiXhosa_Excellence_Sprint/Phase1) | Frozen design, corpus audit and factorial sampler |
+| [Phase 2](coursework/isiXhosa_Excellence_Sprint/Phase2/scripts) | 40 tokenizer fits, validation selection and independent replay |
+| [Phase 3](coursework/isiXhosa_Excellence_Sprint/Phase3/scripts) | Held-out segmentation and paired issue bootstrap |
+| [Phase 4](coursework/isiXhosa_Excellence_Sprint/Phase4/scripts) | Repeated-text controls and 20 additional fits |
+| [Phase 5](coursework/isiXhosa_Excellence_Sprint/Phase5/scripts) | Downstream count bigram and independent likelihood checks |
+| [Phase 6](coursework/isiXhosa_Excellence_Sprint/Phase6/scripts) | Read-only scientific audit and figure-generation code |
+| [One-command reproduction](scripts/reproduce_all.py) | Full original phase sequence with clean output paths and step logs |
+| [Scientific source check](scripts/check_frozen_source.py) | Source fingerprints, original code and key positive/negative results |
+| [Reproduction notes](docs/REPRODUCIBILITY.md) | Dataset access, environmental requirements and validity boundaries |
+| [Reviewer guide](docs/REVIEWER_GUIDE.md) | Fast independent-review route |
+
+Saved **summary** results and the training manifest are already committed.
+Some large saved model binaries and per-example score tables are being imported
+separately. Until that import is complete, the full saved-output audit cannot
+run from a fresh GitHub clone without reconstructing the data via the original
+scripts. The repository does not claim otherwise.
+
+## Limits and Responsible NLP
+
+- \`EnTxt\` and \`XhTxt\` are archive-assigned text views, not independently
+  human-validated gold language labels.
+- The main factorial experiment uses one historical newspaper. The later years
+  are from that same publication, not independent source domains.
+- Earlier exploratory research inspected some of the same historical years.
+  The follow-up is controlled but not an untouched external validation.
+- The issue-level intervals hold model seeds fixed and do not establish broad
+  multilingual generalisation.
+- BPC is an intrinsic count-bigram metric, not neural understanding or a
+  measure of societal unfairness.
+- The original newspaper transcriptions are not redistributed here because
+  public distribution permissions have not been established.
+
+## Coursework submission is separate
+
+A GitHub repository is not the two-page extended abstract. The course also
+requires the NeurIPS 2024 ethics questionnaire, the Faculty AI ethics
+declaration, a contribution statement and a validated submission package.
+See [Submission status](docs/SUBMISSION_STATUS.md).
+
+## Attribution
+
+This repository records team research. Contributor names and a code licence
+must reflect actual authorship and agreed reuse rights. No licence has been
+inferred or assigned.
+
+Dataset reference: Schoots et al. (2023),
+[IsiXhosa Intellectual Traditions Digital Archive](https://aclanthology.org/2023.rail-1.7/).
+Tokenizer reference: Kudo and Richardson (2018),
+[SentencePiece](https://aclanthology.org/D18-2012/).
+Additional references are listed in the
+[Phase 6 manuscript bibliography](coursework/isiXhosa_Excellence_Sprint/Phase6/CITATIONS_FOR_MANUSCRIPT.bib).

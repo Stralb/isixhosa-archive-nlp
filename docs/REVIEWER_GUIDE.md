@@ -1,31 +1,50 @@
 # Reviewer guide
 
-This document is for someone checking the claims, not someone who has followed the previous research conversations.
+The central claim is that allocation and within-view selection are distinct
+corpus-construction decisions. We evaluate their separate effects using four
+factorial arms, two tokenizer families and five seeds, and expose the
+negative whole-policy counterexample.
 
-## Ten-minute reading order
+## A ten-minute inspection without the source archive
 
-1. Read the [main findings](FINDINGS.md) and the counterexample first.
-2. Open the [Phase 1 protocol](../coursework/isiXhosa_Excellence_Sprint/Phase1/FROZEN_PROTOCOL.md).
-3. Check [the Phase 6 claim ledger](../coursework/isiXhosa_Excellence_Sprint/Phase6/CLAIM_LEDGER.md), including the claims we explicitly do not make.
-4. Run [the fast audit](REPRODUCIBILITY.md) with the original ZIP.
-5. Read the [adversarial peer review](../coursework/isiXhosa_Excellence_Sprint/Phase6/ADVERSARIAL_PEER_REVIEW.md) and [submission gate](../coursework/isiXhosa_Excellence_Sprint/Phase6/FINAL_SUBMISSION_GATE.md).
+1. Open the actual [original training code](../coursework/isiXhosa_Excellence_Sprint/Phase2/scripts/run_phase2.py).
+2. Read the [frozen Phase 1 design](../coursework/isiXhosa_Excellence_Sprint/Phase1/FROZEN_PROTOCOL.md).
+3. Inspect the [original contrast tables](../coursework/isiXhosa_Excellence_Sprint/Phase3/outputs/factorial_contrasts.csv)
+   and [downstream contrasts](../coursework/isiXhosa_Excellence_Sprint/Phase5/outputs/bpc_factorial_contrasts.csv).
+4. Read the [claim ledger](../coursework/isiXhosa_Excellence_Sprint/Phase6/CLAIM_LEDGER.md),
+   especially the claims it rejects.
+5. Run \`python scripts/check_frozen_source.py\` and
+   \`python -m unittest discover -s factory/tests -v\`.
 
-## What to reproduce
+These steps do not need the newspaper text and do not claim to rerun the
+training. They check the public source, frozen protocols, saved summaries,
+important factorial signs and the independently coded factory tests.
 
-The source fingerprint, all 40 model fingerprints, model-excerpt pairing, 32 segmentation contrasts, 32 downstream loss contrasts and four figures are all checked by the supplied audit. Full retraining is slower and is a separate reproduction route.
+## Full independent replication
 
-The raw transcript ZIP is deliberately excluded. A reviewer must obtain it independently and confirm the recorded checksum.
+Obtain the original source ZIP, confirm its pinned SHA256, install the
+requirements and run
+
+\`\`\`bash
+python scripts/reproduce_all.py \
+  --archive /path/to/TxtLangFiles1870-1894_TB.zip \
+  --workdir /path/to/a-new-folder
+\`\`\`
+
+The runner creates its own workspace and logs each training, held-out,
+repetition and likelihood verification stage. Do not use the final test
+years to tune hyperparameters.
 
 ## Questions worth asking
 
-- Are the English/isiXhosa categories accurately described as archive-assigned blocks rather than ground-truth labels?
-- Are isolated factor contrasts being distinguished from the combined `WW` versus `PP` policy change?
-- Are the negative later-year findings given equal visibility to the favourable isolated allocation result?
-- Does the paper explain why lower pieces per 100 characters and lower BPC are different outcomes?
-- Are the issue-bootstrap intervals interpreted conditionally, without claiming social representativeness?
-- Is past exposure to evaluation years disclosed?
-- Is the work appropriately identified as one historical newspaper experiment?
+- Are the two factors actually separated by the 2 by 2 design?
+- Are training exposures comparable across the four arms?
+- Does the held-out improvement agree with the within-view trade-off?
+- Does the full \`WW - PP\` contrast support the same story?
+- Are CIs issue-clustered and conditional on tokenizer seeds?
+- Are the source-view language assignments accurately described?
+- Are the previous examinations of 1888 to 1894 disclosed?
 
-## Known gaps
-
-A final course PDF, the official Moodle NeurIPS ethics form, Faculty declaration and student-authored contribution statement are not included here. The repository is not evidence that those were submitted. Refer to [Submission status](SUBMISSION_STATUS.md).
+The broad claim is deliberately bounded to this archive and these
+experimental metrics. The separate historical-inference programme is not
+an independent validation of the present factorial comparison.

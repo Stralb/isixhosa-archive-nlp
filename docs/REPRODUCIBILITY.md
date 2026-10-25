@@ -1,62 +1,93 @@
-# Reproducing the coursework experiments
+# Reproduce the research
 
-## Source archive
+## First, know which check you are running
 
-Obtain the original `TxtLangFiles1870-1894_TB.zip` from your course distribution or the IsiXIT archive. The data are not mirrored by this repository. Compare its SHA256 to the pinned value in [`DATA_ACCESS_AND_ETHICS.md`](DATA_ACCESS_AND_ETHICS.md). If the source changes, numerical results may not match.
+**Source-only validation, no archival data and no retraining:**
 
-## Environment
+\`\`\`bash
+python scripts/check_frozen_source.py
+python -m unittest discover -s factory/tests -v
+\`\`\`
 
-The tested environment was Python 3.13.5, NumPy 2.3.5, pandas 2.2.3, SentencePiece 0.2.1 and Matplotlib 3.10.8. A CPU is sufficient. Set BLAS thread counts to one where necessary for consistency.
+The original scripts, preregistered source documents and result-summary CSVs
+are checked with the source-only command. This is not the same as re-scoring
+all 99,720 saved examples.
 
-```bash
+**Reproduce the original controlled experiment from the source ZIP:**
+
+\`\`\`bash
 python -m pip install -r requirements.txt
-export OPENBLAS_NUM_THREADS=1
-export OMP_NUM_THREADS=1
-```
+python scripts/reproduce_all.py \
+  --archive /absolute/path/to/TxtLangFiles1870-1894_TB.zip \
+  --workdir /absolute/path/to/clean-nlp2-run --dry-run
 
-## Fast audit of saved results
+python scripts/reproduce_all.py \
+  --archive /absolute/path/to/TxtLangFiles1870-1894_TB.zip \
+  --workdir /absolute/path/to/clean-nlp2-run
+\`\`\`
 
-From repository root:
+The \`--dry-run\` option prints the actual original training, evaluation,
+repeated-text sensitivity and verification commands. The full run writes
+its own models, manifests, score tables and logs outside the Git checkout.
+Use \`--resume\` for an interrupted run instead of deleting checkpoints.
 
-```bash
-sh coursework/isiXhosa_Excellence_Sprint/Phase6/submission_code/RUN_FAST_CHECK.sh /absolute/path/to/TxtLangFiles1870-1894_TB.zip
-```
+**Independent, compact implementation:**
 
-Expected summary:
+\`\`\`bash
+python factory/run_experiment.py \
+  --archive /absolute/path/to/TxtLangFiles1870-1894_TB.zip \
+  --out /absolute/path/to/independent-run --mode full
+\`\`\`
 
-```text
-PASS 7 independent scientific tests; point effects independently reproduced: 32 + 32
-SOURCE 375c5864... MODELS 40 SCORE_ROWS 99720 HELDOUT_PAGES 2493
-FAST AUDIT AND ALL FOUR FIGURES: PASS
-```
+See [factory README](../factory/README.md) for the comparison boundary.
 
-This is a numerical and artifact audit. It reads the existing frozen model outputs. It does not retrain forty tokenizers.
+## Dataset and environment
 
-## Full rerun from source data
+Obtain \`TxtLangFiles1870-1894_TB.zip\` from the original course distribution
+or an authorised archive provider. It is not included in this public repo.
+The original, pinned SHA256 is
 
-Enter the original research directory to preserve relative paths:
+\`\`\`
+375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5
+\`\`\`
 
-```bash
-cd coursework/isiXhosa_Excellence_Sprint
-SOURCE=/absolute/path/to/TxtLangFiles1870-1894_TB.zip
-python Phase2/scripts/run_phase2.py --archive "$SOURCE" --output Phase2/outputs
-python Phase2/scripts/verify_phase2.py --archive "$SOURCE" --root .
-python Phase3/scripts/run_phase3.py --root . --archive "$SOURCE" --output Phase3/outputs
-python Phase3/scripts/verify_phase3.py --root . --archive "$SOURCE" --output Phase3/outputs
-python Phase4/scripts/train_phase4.py --archive "$SOURCE" --output Phase4/outputs
-python Phase4/scripts/evaluate_phase4.py --archive "$SOURCE" --output Phase4/outputs
-python Phase4/scripts/verify_phase4.py --archive "$SOURCE" --root . --output Phase4/outputs
-python Phase5/scripts/run_phase5.py --root . --archive "$SOURCE" --output Phase5/outputs
-python Phase5/scripts/verify_phase5.py --root . --archive "$SOURCE" --output Phase5/outputs
-```
+The original runs used Python 3.13.5, NumPy 2.3.5, pandas 2.2.3,
+SentencePiece 0.2.1 and Matplotlib 3.10.8. Use
+\`OPENBLAS_NUM_THREADS=1\` and \`OMP_NUM_THREADS=1\` where necessary.
+A GPU is not required.
 
-The complete, tested sequence is in [`coursework/isiXhosa_Excellence_Sprint/README.txt`](../coursework/isiXhosa_Excellence_Sprint/README.txt); follow it for restarts, the Phase 1 baseline dependency and exact output destinations. Fresh reruns should use a **copy** of the research directory. Do not overwrite frozen checkpoints.
+## How to audit a full replay
 
-## Verification evidence
+After the original runner completes, inspect the work directory:
 
-- [`Phase6/PHASE6_FRESH_REPLAY_CERTIFICATE.json`](../coursework/isiXhosa_Excellence_Sprint/Phase6/PHASE6_FRESH_REPLAY_CERTIFICATE.json)
-- [`Phase6/outputs/PHASE6_SCIENCE_AUDIT.json`](../coursework/isiXhosa_Excellence_Sprint/Phase6/outputs/PHASE6_SCIENCE_AUDIT.json)
-- [`Phase6/CLAIM_LEDGER.md`](../coursework/isiXhosa_Excellence_Sprint/Phase6/CLAIM_LEDGER.md)
-- [`Phase4/outputs/PHASE4_FRESH_RETRAIN_CERTIFICATE.json`](../coursework/isiXhosa_Excellence_Sprint/Phase4/outputs/PHASE4_FRESH_RETRAIN_CERTIFICATE.json)
+- \`Phase2/outputs/model_training_manifest.csv\` and
+  \`PHASE2_SELECTION_FREEZE.json\` for training and validation choices.
+- \`Phase3/outputs/factorial_contrasts.csv\` and
+  \`heldout_scores.csv\` for segmentation estimates.
+- \`Phase4/outputs/f6_contrasts.csv\` and
+  \`support_audit.json\` for repeated-text controls.
+- \`Phase5/outputs/bpc_factorial_contrasts.csv\` and
+  \`heldout_lm_scores.csv\` for held-out language-model likelihood.
+- \`Phase6/outputs/PHASE6_SCIENCE_AUDIT.json\` for the independent
+  seven-test audit.
+- \`logs/*.log\` for every original training and verification stage.
 
-The earlier exploratory studies and historical-inference programme have separate protocols. Their public code snapshots are provided as supplementary provenance and are **not part of the frozen final coursework factorial results**.
+The saved-model fast audit in the original research package is:
+
+\`\`\`bash
+sh Phase6/submission_code/RUN_FAST_CHECK.sh /absolute/path/to/TxtLangFiles1870-1894_TB.zip
+\`\`\`
+
+Run that command from inside the fully populated research workspace,
+not from a GitHub checkout missing the larger numerical artifacts.
+It verifies frozen 40-model outputs and regenerates four figures without
+retraining all models.
+
+## Scientific limitations
+
+We deliberately keep unsuccessful or mixed evidence visible. The exact
+sampling contrast depends on the historical corpus, the archive's block
+assignments and the intrinsic segmentation or count-bigram metric. The heldout
+years had already been examined during earlier research. This project
+supports careful claims about corpus sampling, not cultural or social
+fairness claims.
