@@ -1,0 +1,23 @@
+{
+  "F6_status": "SUPPORTED",
+  "archive_sha256": "375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5",
+  "contrasts_recomputed": 20,
+  "control_repeated_shingle_occurrences": 98181,
+  "cross_issue_repeated_shingle_types": 16691,
+  "filtered_repeated_shingle_violations": 0,
+  "heldout_pageviews_rebuilt_from_archive": 2493,
+  "max_absolute_difference": 4.440892098500626e-16,
+  "model_training_manifest_sha256": "d3a0c47c1c4fff7cdd14117f6fef6671a9ac87b45e37230e451abfa5d8593fdc",
+  "phase": "4",
+  "phase4_precommit_sha256": "1fb49e638a51cedc7f8157743d2c2d90ba65003f4d049990cf8d23c30f00714e",
+  "same_filtered_control_page_view_support": true,
+  "source_archive_required_for_full_rerun": true,
+  "status": "PASS",
+  "tokenization_score_mismatches": 0,
+  "train_test_shingle_rows_recomputed": 2493,
+  "training_samples_rebuilt_independently": true,
+  "unknown_tokens": 0,
+  "verified_heldout_model_scores": 49860,
+  "verified_train_models": 20,
+  "verified_training_sample_lines": 55850
+}

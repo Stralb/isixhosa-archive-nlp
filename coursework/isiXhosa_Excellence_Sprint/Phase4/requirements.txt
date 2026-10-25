@@ -1,0 +1,4 @@
+numpy==2.3.5
+pandas==2.2.3
+sentencepiece==0.2.1
+matplotlib==3.10.8
