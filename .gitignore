@@ -19,3 +19,9 @@ data/raw/
 # Reconstructed experimental outputs are already preserved by the
 # verified release archives. Avoid accidental commits of decoded duplicates.
 coursework/isiXhosa_Excellence_Sprint/Phase*/outputs/
+
+# Restored artifacts and large numerical tables are reproducible from the
+# tracked portable snapshots and 97-part output archive. Tracked summary
+# tables and recorded manifests remain versioned.
+/coursework/isiXhosa_Excellence_Sprint/Phase*/outputs/
+/runs/

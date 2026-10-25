@@ -18,6 +18,14 @@ There are two separate paths:
 1. **Original frozen research scripts:** [coursework/isiXhosa_Excellence_Sprint](coursework/isiXhosa_Excellence_Sprint/README.txt). These are the scripts used for Phases 1 to 6, now committed alongside their precommitted designs and selected results.
 2. **Independent readable implementation:** [factory](factory/README.md). This offers a compact way to inspect the same 2 by 2 design, with its own unit tests. It is a reproduction attempt, not a replacement for the original record.
 
+**One command for the full saved-output audit, without the original newspaper text:**
+
+```bash
+python scripts/factory.py audit
+```
+
+This restores the saved 60 model snapshots and 275 numerical records, verifies their checksums, and independently recalculates the 64 factorial point estimates from 99,720 paired score rows. It is not a retraining run. The same checks run in GitHub Actions.
+
 You can verify original research files and key result tables without accessing
 the source text:
 
