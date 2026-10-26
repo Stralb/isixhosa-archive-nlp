@@ -39,6 +39,7 @@ class StudyTests(unittest.TestCase):
             "metric_coupling_1888.png",
             "length_quartiles_1888.png",
             "archivelens_claim_sensitivity.png",
+            "archivelens_followup_calibration_attribution.png",
         }
         actual_figures = {p.name for p in (ROOT / "results/figures").glob("*.png")}
         self.assertEqual(actual_figures, original_figures | exploratory_figures)
