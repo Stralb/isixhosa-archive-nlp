@@ -2,14 +2,10 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .venv/
-venv/
 .env
 .env.*
 .DS_Store
-*.swp
-*.tmp
-/runs/
-/output/
-/data/raw/
-TxtLangFiles1870-1894_TB.zip
-1. TxtFiles1870-1894_TB.zip
+data/*
+!data/.gitkeep
+runs/
+outputs/

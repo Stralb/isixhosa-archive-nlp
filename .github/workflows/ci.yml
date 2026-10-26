@@ -1,4 +1,4 @@
-name: Research reproducibility checks
+name: Check research results
 
 on:
   push:
@@ -14,6 +14,6 @@ jobs:
         with:
           python-version: "3.13"
       - run: python -m pip install -r requirements.txt
-      - run: python -m unittest discover -s tests -v
-      - run: python scripts/factory.py audit
-      - run: python scripts/factory.py full --archive /tmp/absent-source.zip --workdir /tmp/fresh-run --dry-run
+      - run: python -m unittest discover -s src -p 'test_*.py' -v
+      - run: python src/run.py check
+      - run: python src/run.py reproduce --data data/source-not-included.zip --out /tmp/replay --dry-run
