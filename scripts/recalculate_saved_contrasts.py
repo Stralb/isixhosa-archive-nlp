@@ -14,7 +14,7 @@ import math
 from collections import defaultdict
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1] / "coursework" / "isiXhosa_Excellence_Sprint"
+ROOT = Path(__file__).resolve().parents[1] / "results"
 ARMS = ("PP", "PW", "WP", "WW")
 FAMILIES = ("bpe", "unigram")
 PERIODS = ("1888", "1889-94")
