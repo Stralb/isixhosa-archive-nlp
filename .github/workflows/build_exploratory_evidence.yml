@@ -6,6 +6,7 @@ on:
       - research/exploratory-metric-coupling-2026-10-26
     paths:
       - .github/workflows/build_exploratory_evidence.yml
+      - src/analysis/metric_relationships.py
   workflow_dispatch:
 
 permissions:
