@@ -1,5 +1,8 @@
 # Reader's guide: from the two-page Responsible NLP paper to reproducible evidence
 
+> **Revised manuscript and official template sources (26 October 2026):** [CCN-formatted PDF](paper_draft/report.pdf) · [LaTeX and source bundle](paper_draft/) · [full, original CCN and NeurIPS 2024 ZIPs](../templates/original/). The body occupies pages **1–2** and references begin on page 3; declarations are unapproved placeholders. Authorship order: Arno Strauss (2613224), Priyanka Gohil (2586288), Mohammed Bangie (2610990). The integrated three-panel figure combines intrinsic segmentation effects, downstream factorial contrasts and separately calibrated ArchiveLens measurements without conflating their statistical targets.
+
+
 **NLP Project 2 | 26 October 2026 | Companion to the forthcoming extended abstract.** This is a map of **completed** research, not a substitute for the assignment's required two-page PDF or completed ethical declarations. The PDF source at \`reports/report.tex\` is still a **blank scaffold** as of this guide's creation; do not present that file as a submission-ready report.
 
 ## The one coherent question
