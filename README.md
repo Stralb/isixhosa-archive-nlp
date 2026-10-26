@@ -1,5 +1,7 @@
 # When Sampling Shapes the Story: Responsible NLP for Historical isiXhosa
 
+**Latest Project 2 manuscript (27 October 2026):** [Two-page CCN LaTeX source with explicit RQ1/RQ2, revised vector-plot generator and APA bibliography](reports/paper_draft/final_2026-10-27/README.md). The original frozen results remain unchanged. The author-approved NeurIPS checklist, AI ethics statement and contributions must still be appended before submission.
+
 **Research question:** How do historical archive sampling choices affect both computational language representation and the reliability of descriptive text-pattern claims?
 
 We investigated **two linked but separate questions**, using corrected historical isiXhosa Intellectual Traditions (IsiXIT) newspaper text: a **controlled** sampling/tokenizer experiment on *Imvo Zabantsundu*, and **ArchiveLens**, a reproducible claim-sensitivity auditor on *Imvo Zabantsundu* and *Isigidimi samaXosa*. ArchiveLens does not derive its trend estimates from tokenizer outputs.
