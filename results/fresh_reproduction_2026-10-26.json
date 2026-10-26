@@ -1,0 +1,138 @@
+{
+  "certificate_version": 1,
+  "generated_date_utc": "2026-10-26",
+  "repository": "Stralb/isixhosa-archive-nlp",
+  "source_base_main_sha": "5283e72ef5b8324ab4c85cbca316e72d694e50e2",
+  "execution_location": "isolated local container, not GitHub Actions",
+  "status": "PASS",
+  "run_started_utc": "2026-10-26T08:48:39.209441+00:00",
+  "run_completed_utc": "2026-10-26T08:52:23.965853+00:00",
+  "source_git_blob_matches": {
+    "match": 23,
+    "total": 23,
+    "files": "20 original Python scripts and 3 immutable protocols",
+    "verified_against": "GitHub API main tree",
+    "all_match": true
+  },
+  "input": {
+    "name": "TxtLangFiles1870-1894_TB (1).zip",
+    "sha256": "375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5",
+    "matches_frozen_source": true,
+    "published_to_github": false
+  },
+  "environment": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "pandas": "2.2.3",
+    "sentencepiece": "0.2.1",
+    "matplotlib": "3.10.8"
+  },
+  "replay": {
+    "fresh_workspace": true,
+    "archived_models_or_scores_used_for_training": false,
+    "partial_fresh_phase2_resume_after_execution_timeout": true,
+    "all_steps_passed": true,
+    "steps": [
+      {
+        "name": "phase2_train",
+        "exit_code": 0,
+        "duration_seconds": 27.51
+      },
+      {
+        "name": "phase2_verify",
+        "exit_code": 0,
+        "duration_seconds": 10.32
+      },
+      {
+        "name": "phase3_evaluate",
+        "exit_code": 0,
+        "duration_seconds": 22.86
+      },
+      {
+        "name": "phase3_verify",
+        "exit_code": 0,
+        "duration_seconds": 22.78
+      },
+      {
+        "name": "phase4_fit",
+        "exit_code": 0,
+        "duration_seconds": 14.54
+      },
+      {
+        "name": "phase4_evaluate",
+        "exit_code": 0,
+        "duration_seconds": 16.13
+      },
+      {
+        "name": "phase4_verify",
+        "exit_code": 0,
+        "duration_seconds": 18.33
+      },
+      {
+        "name": "phase5_evaluate",
+        "exit_code": 0,
+        "duration_seconds": 44.87
+      },
+      {
+        "name": "phase5_verify",
+        "exit_code": 0,
+        "duration_seconds": 44.14
+      },
+      {
+        "name": "phase6_audit",
+        "exit_code": 0,
+        "duration_seconds": 1.47
+      },
+      {
+        "name": "phase6_figures",
+        "exit_code": 0,
+        "duration_seconds": 1.8
+      }
+    ]
+  },
+  "auxiliary_checks": {
+    "phase1_train_only_smoke_count": 12,
+    "phase1_train_only_smoke_pass": true,
+    "phase2_independent_refits": 4,
+    "phase2_refit_validated_windows": 1376,
+    "phase2_independent_refit_pass": true,
+    "phase5_secondary_bootstrap_recomputed": true
+  },
+  "fresh_models": {
+    "main_models": 40,
+    "repetition_models": 20,
+    "total": 60,
+    "serialized_sha_equal_to_original": false,
+    "path_normalized_protobuf_identical_to_reference": 60,
+    "path_normalization_fields": [
+      "trainer_spec.input",
+      "trainer_spec.model_prefix"
+    ],
+    "vocabulary_files_identical_to_reference": 60
+  },
+  "archived_artifact_comparison": {
+    "phase2_validation_csv_exact": true,
+    "phase2_selection_json_exact": true,
+    "phase3_heldout_rows": 99720,
+    "phase3_scores_csv_exact": true,
+    "phase3_32_contrasts_exact": true,
+    "phase4_heldout_rows": 49860,
+    "phase4_scores_csv_exact": true,
+    "phase5_heldout_rows": 99720,
+    "phase5_scores_csv_exact": true,
+    "phase5_32_contrasts_exact": true,
+    "phase5_secondary_bootstrap_csv_exact": true,
+    "phase6_verified_bpc_csv_exact": true,
+    "phase6_figures_byte_identical": 4,
+    "phase6_audit_only_difference": "source_required_external dataset basename includes uploaded suffix (1)",
+    "phase6_scientific_tests_passed": 7,
+    "phase6_scientific_tests_total": 7
+  },
+  "boundaries": [
+    "Prior 1888-1894 exploration precludes independent untouched-test claims.",
+    "Archive language-view assignments are not verified linguistic labels.",
+    "Count-bigram modelling is not neural accuracy or societal fairness.",
+    "Only reproducibility metadata is committed; input data and duplicate model artifacts remain external.",
+    "A green GitHub CI run does not retrain the full pipeline."
+  ]
+}
