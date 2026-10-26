@@ -82,10 +82,11 @@ def prepare_workspace(work: Path) -> None:
         shutil.copytree(source, work / f"Phase{phase}" / "scripts")
         (work / f"Phase{phase}" / "outputs").mkdir(exist_ok=True)
         # Copy immutable preregistration files without changing their bytes.
-        for name in ("FROZEN_PROTOCOL.md", "PRECOMMIT.md"):
-            frozen = REPO / "reports" / {1: "protocol_phase1.md", 4: "protocol_phase4.md", 5: "protocol_phase5.md"}[phase]
-            if frozen.exists():
-                shutil.copy2(frozen, work / f"Phase{phase}" / name)
+        protocols = {1: "protocol_phase1.md", 4: "protocol_phase4.md", 5: "protocol_phase5.md"}
+        if phase in protocols:
+            name = "FROZEN_PROTOCOL.md" if phase == 1 else "PRECOMMIT.md"
+            frozen = REPO / "reports" / protocols[phase]
+            shutil.copy2(frozen, work / f"Phase{phase}" / name)
 
 
 def execute(work: Path, label: str, args: list[str], env: dict[str, str]) -> None:
