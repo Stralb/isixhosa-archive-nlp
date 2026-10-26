@@ -20,4 +20,8 @@ jobs:
         run: python src/audit/independent_ci.py --root .
       - name: Independently verify exploratory metric-coupling and length artifacts
         run: python src/analysis/metric_relationships.py --root . --verify
+      - name: Verify ArchiveLens independent 1885/1888 sampling estimands
+        run: |
+          python src/archivelens/audit.py --data data/TxtLangFiles1870-1894_TB.zip --out results/archivelens --figures results/figures --report reports/ARCHIVELENS_RESULTS_2026-10-26.md --verify
+          python src/archivelens/verify_independent.py --data data/TxtLangFiles1870-1894_TB.zip --out results/archivelens
       - run: python src/run.py reproduce --data data/source-not-included.zip --out /tmp/replay --dry-run
