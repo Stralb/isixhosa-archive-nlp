@@ -19,7 +19,7 @@ Tests how statements about historical changes in **within-word character-pattern
 
 ```bash
 python -m pip install -r requirements.txt
-python -m unittest discover -s src/archivelens -p 'test_*.py' -v
+python -m unittest discover -s src -p 'test_*.py' -v
 python src/archivelens/audit.py --data data/TxtLangFiles1870-1894_TB.zip --out results/archivelens --figures results/figures --report reports/ARCHIVELENS_RESULTS_2026-10-26.md
 python src/archivelens/verify_independent.py --data data/TxtLangFiles1870-1894_TB.zip --out results/archivelens
 python src/archivelens/audit.py --data data/TxtLangFiles1870-1894_TB.zip --out results/archivelens --figures results/figures --report reports/ARCHIVELENS_RESULTS_2026-10-26.md --verify
