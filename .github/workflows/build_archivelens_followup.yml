@@ -1,0 +1,62 @@
+name: Generate and certify ArchiveLens follow-up
+
+on:
+  push:
+    branches:
+      - research/archivelens-calibration-and-attribution-2026-10-26
+    paths:
+      - .github/workflows/build_archivelens_followup.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  independent-followup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Install frozen scientific dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Run synthetic methodology controls
+        run: python -m unittest discover -s src/archivelens -p 'test_*.py' -v
+        env:
+          PYTHONPATH: src
+      - name: Generate new calibration and attribution research
+        run: |
+          python src/archivelens/followup.py --data data/TxtLangFiles1870-1894_TB.zip --root .
+      - name: Independent replay of randomisations, issue effects and exact repetitions
+        run: |
+          python src/archivelens/verify_followup.py --data data/TxtLangFiles1870-1894_TB.zip --root .
+      - name: Fresh deterministic run with byte-level artifact comparison
+        run: |
+          python src/archivelens/followup.py --data data/TxtLangFiles1870-1894_TB.zip --root . --verify
+      - name: Commit only new evidence on research branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/ARCHIVELENS_FOLLOWUP_2026-10-26.md \
+            results/archivelens/followup/summary.json \
+            results/archivelens/followup/calibration.csv \
+            results/archivelens/followup/attribution.csv \
+            results/archivelens/followup/influential_issues.csv \
+            results/archivelens/followup/duplicate_sensitivity.csv \
+            results/archivelens/followup/duplicate_coverage.csv \
+            results/archivelens/followup/page_positions.csv \
+            results/archivelens/followup/page_duplicate_masks.csv \
+            results/figures/archivelens_followup_calibration_attribution.png \
+            results/figures/archivelens_followup_calibration_attribution.svg
+          if git diff --cached --quiet; then
+            echo "No differences in verified new evidence"
+          else
+            git commit -m "results(archivelens): independently validated calibration and issue/duplicate attribution"
+            git push origin HEAD:research/archivelens-calibration-and-attribution-2026-10-26
+          fi
