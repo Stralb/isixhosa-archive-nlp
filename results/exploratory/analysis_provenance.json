@@ -1,0 +1,33 @@
+{
+  "analysis_kind": "POST_HOC_EXPLORATORY_NON_CAUSAL_ASSOCIATION_AND_HETEROGENEITY",
+  "bootstrap_rng_seed": 772026,
+  "excerpt_length_groups": "within evaluation period and archive language view, using frozen source alphabetic-character count",
+  "full_sample_aggregator": "character weighted within publication issue, then across issues, then five seed means",
+  "limitations": [
+    "Previously inspected historical evaluation years; conditional exploratory follow-up only",
+    "Correlations are descriptive, not causal; segmentation and bigram loss share underlying encoded text and character denominators",
+    "No human-adjudicated view language, genre, topic, meaning or societal fairness labels",
+    "Within-view length quartiles are post-hoc and different across English/isiXhosa views",
+    "Issue-level effects weight issues equally; published primary effects weight pooled characters",
+    "Bootstrap intervals condition on the observed archive/issues and five trained tokenizer seeds",
+    "No multiple-comparison adjustment or confirmatory significance claims for these new analyses",
+    "Training/test exact text shingle overlap noted in independent audit"
+  ],
+  "max_abs_difference_vs_published_full_sample_allocation_within_whole_effects": 2.3314683517128287e-15,
+  "number_of_exploratory_association_cells": 8,
+  "number_of_issue_cells": 1432,
+  "number_of_length_strata": 32,
+  "number_of_original_page_view_excerpts": 2493,
+  "number_of_paired_model_score_rows": 99720,
+  "number_of_seed_specific_document_arm_quartets": 24930,
+  "original_scores_untouched": true,
+  "paired_issue_bootstrap_draws": 5000,
+  "sampling_unit_for_correlations_and_bootstraps": "publication issue, five tokenizer seeds averaged before association",
+  "source_input_sha256": {
+    "results/bigram.csv": "9023edd94f2a04eadac82811b7187ca6bc66118b648d2b54e08b496e80889676",
+    "results/raw/bigram.csv": "b0d9c251ca7d51ddbc7c28b6041a81028b38455fd3954a074073c1f6bf77f2f6",
+    "results/raw/segmentation.csv": "c68059ed6a48fa798757693ffc1103db127f80c4aa4508cf18a81c558ee63f8b",
+    "results/segmentation.csv": "6b6620159fa5bd62183184dc48061f532597b9f0195aa5281eec5175451c05b9"
+  },
+  "source_repository": "Stralb/isixhosa-archive-nlp"
+}
