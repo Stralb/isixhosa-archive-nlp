@@ -1,0 +1,41 @@
+{
+  "classification": "post-result prospectively frozen sensitivity, not independent confirmation",
+  "per_seed": [
+    {
+      "seed": 0,
+      "actual_sum": 1.4565964475190596,
+      "line_preserving_placebo_sum": 0.0022347239471931513,
+      "paired_difference": 1.4543617235718664
+    },
+    {
+      "seed": 1,
+      "actual_sum": 2.1789232592686782,
+      "line_preserving_placebo_sum": -0.12267196045942136,
+      "paired_difference": 2.3015952197280996
+    },
+    {
+      "seed": 2,
+      "actual_sum": 1.7467463129520038,
+      "line_preserving_placebo_sum": -0.027505392383144034,
+      "paired_difference": 1.7742517053351479
+    }
+  ],
+  "mean_actual_S": 1.7940886732465806,
+  "mean_abs_line_placebo_S": 0.05080402559658618,
+  "paired_issue_seed_bootstrap_delta_ci95": [
+    1.0598290674726376,
+    2.79130063293243
+  ],
+  "passes_sensitivity_gate": true,
+  "train_lines_preserved": true,
+  "training_char_budget": 60000,
+  "source_mix_per_control": {
+    "IMVO": 30000,
+    "ISIG": 30000
+  },
+  "test_windows": 207,
+  "test_issues": {
+    "IMVO": 52,
+    "ISIG": 12
+  }
+}

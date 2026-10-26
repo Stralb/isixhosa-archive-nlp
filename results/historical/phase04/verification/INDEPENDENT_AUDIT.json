@@ -1,0 +1,26 @@
+{
+  "raw_source_check": {
+    "retokenization_and_all_wordform_counts": "PASS",
+    "sampled_original_archival_pages": 32,
+    "source_zip_hash": "375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5"
+  },
+  "results": [
+    {
+      "fully_recomputed_bound_vectors": 23040,
+      "max_numerical_delta": 1.734723475976807e-17,
+      "per_feature_bounds_verified": 1843200,
+      "saved_output_rows": 23040,
+      "split": "dev",
+      "status": "PASS"
+    },
+    {
+      "fully_recomputed_bound_vectors": 34560,
+      "max_numerical_delta": 1.9081958235744878e-17,
+      "per_feature_bounds_verified": 2764800,
+      "saved_output_rows": 34560,
+      "split": "test",
+      "status": "PASS"
+    }
+  ],
+  "schema": "PRHI_PHASE4_INDEPENDENT_VERIFICATION_V1"
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "source": "IMVO",
+    "n_pages": 254,
+    "n_issues": 150,
+    "en_dictionary_coverage": 0.07012795275590551,
+    "xh_dictionary_coverage": 0.002755905511811024,
+    "en_zero_polarity": 0.051181102362204724,
+    "xh_zero_polarity": 0.8700787401574803,
+    "mean_english_polarity": 0.12267989005681064,
+    "mean_xh_polarity": -0.010545911874652035,
+    "mean_coverage_diff": 0.0673720472440945,
+    "coverage_difference_95ci": [
+      0.06315929878048782,
+      0.07162322560072416
+    ]
+  },
+  {
+    "source": "ISIG",
+    "n_pages": 8,
+    "n_issues": 8,
+    "en_dictionary_coverage": 0.053125,
+    "xh_dictionary_coverage": 0.0,
+    "en_zero_polarity": 0.375,
+    "xh_zero_polarity": 1.0,
+    "mean_english_polarity": 0.1587797619047619,
+    "mean_xh_polarity": 0.0,
+    "mean_coverage_diff": 0.053125
+  }
+]

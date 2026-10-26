@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "hashes_verified": 4,
+  "n_historical_windows": 581,
+  "n_prediction_rows_phase29a": 2217,
+  "n_prediction_rows_phase29b": 2484,
+  "n_bpe_length_bin_rows": 3105,
+  "n_BPE_page_scores_reproduced": 621,
+  "n_reused_13gram_types": 313,
+  "word_unigram_and_charwb_shuffles_exactly_invariant": true,
+  "all_primary_metrics_recomputed": true,
+  "all_length_standardized_means_recomputed": true,
+  "metadata_labels_available": false
+}

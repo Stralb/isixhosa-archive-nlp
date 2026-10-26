@@ -1,0 +1,33 @@
+{
+  "replay_matches_all_files": true,
+  "sha256_pairs": {
+    "RESULTS.json": [
+      "7b9e3929e2705b66944b78cdee4e45a93e3f3abec31436c7dccb6dc3eb25d841",
+      "7b9e3929e2705b66944b78cdee4e45a93e3f3abec31436c7dccb6dc3eb25d841"
+    ],
+    "page_visibility.csv": [
+      "b8c46cb2b6d1822173a14ce8705a70da2ca17ef947c449b48567df87b0892e91",
+      "b8c46cb2b6d1822173a14ce8705a70da2ca17ef947c449b48567df87b0892e91"
+    ],
+    "issue_visibility.csv": [
+      "57627510c52ce13ef7f837bb17fcd3507df3ddb95d6a1b0df085317dd602d1bd",
+      "57627510c52ce13ef7f837bb17fcd3507df3ddb95d6a1b0df085317dd602d1bd"
+    ],
+    "yearly_visibility.csv": [
+      "d438b4bb59fc60867556765766de708d5466e86e19c4755a7c447db224f64b1a",
+      "d438b4bb59fc60867556765766de708d5466e86e19c4755a7c447db224f64b1a"
+    ],
+    "sampling_estimands.csv": [
+      "b24bf1444444b648c5380b69db982efed90c1497b26f3f2bed6f60ee003a406e",
+      "b24bf1444444b648c5380b69db982efed90c1497b26f3f2bed6f60ee003a406e"
+    ],
+    "page_position_visibility.csv": [
+      "492973d50080d717b4ce0d82ab6f9487af960995308bccae87ecca9caeb87afd",
+      "492973d50080d717b4ce0d82ab6f9487af960995308bccae87ecca9caeb87afd"
+    ],
+    "INDEPENDENT_VERIFICATION.json": [
+      "735eef5b56aec54b43477d290a182e52b8c08a83cc03103eba51f64eed0f04ed",
+      "735eef5b56aec54b43477d290a182e52b8c08a83cc03103eba51f64eed0f04ed"
+    ]
+  }
+}

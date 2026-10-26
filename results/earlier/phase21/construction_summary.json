@@ -1,0 +1,24 @@
+{
+  "selected_source_counts": {
+    "IMVO": 30,
+    "ISIG": 30
+  },
+  "eligible_source_issue_counts": {
+    "IMVO": 90,
+    "ISIG": 37
+  },
+  "queries": 300,
+  "anchors": 60,
+  "query_file_sha256": "1de53abb5e3d85b36a8dc29e9e01d2d6e338ab8c7548190dc44a5bff46656064",
+  "audit_file_sha256": "1aabfa0f72251d6686751331b2ca40ec05e28f0069099157dd404685c482220d",
+  "gold_multiplicity": {
+    "1": 55,
+    "2": 2,
+    "7": 1,
+    "11": 1,
+    "6": 1
+  },
+  "all_source_issues_excluded_from_earlier_benchmarks": true,
+  "independent_human_queries": false,
+  "authentic_ocr": false
+}

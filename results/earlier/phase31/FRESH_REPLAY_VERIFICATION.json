@@ -1,0 +1,37 @@
+{
+  "source_zip_original_sha256": "375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8e8cdb2be321d5",
+  "models": "self-contained models-only zip",
+  "all_six_reproduced_exactly": true,
+  "files": [
+    [
+      "cohort_manifest.csv",
+      254478,
+      true
+    ],
+    [
+      "page_model_scores.csv",
+      4139676,
+      true
+    ],
+    [
+      "issue_scores.csv",
+      310093,
+      true
+    ],
+    [
+      "yearly_diagnostic.csv",
+      1158,
+      true
+    ],
+    [
+      "bootstrap_summary.csv",
+      478,
+      true
+    ],
+    [
+      "RESULTS.json",
+      7094,
+      true
+    ]
+  ]
+}

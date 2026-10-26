@@ -1,0 +1,91 @@
+{
+  "design": "1885 known-null two scenarios, 200 pseudo-archives each",
+  "outcome_units": "wordform occurrence/10000 tokens, NOT word sense or semantic change",
+  "methods": "POOLED token-z (invalid iid), SOURCE and SOURCE_PAGE cluster-delta z (descriptive, few issues per cell)",
+  "summary": [
+    {
+      "scenario": "SOURCE",
+      "method": "POOLED",
+      "replicates": 200,
+      "features": 200,
+      "median_over_reps_of_feature_median_abs_per10k": 1.9182917326021702,
+      "mean_over_reps_of_feature_median_abs_per10k": 1.921275216358267,
+      "ratio_of_median_abs_to_pooled": 1.0,
+      "fraction_rep_median_better_than_pooled": 0.0,
+      "median_BH_discoveries": 45.0,
+      "mean_BH_discoveries": 45.32,
+      "fraction_reps_any_BH_discovery": 1.0,
+      "mean_nominal_p005_features": 68.0
+    },
+    {
+      "scenario": "SOURCE",
+      "method": "SOURCE",
+      "replicates": 200,
+      "features": 200,
+      "median_over_reps_of_feature_median_abs_per10k": 1.552500336124809,
+      "mean_over_reps_of_feature_median_abs_per10k": 1.5722543662782114,
+      "ratio_of_median_abs_to_pooled": 0.8093139900148746,
+      "fraction_rep_median_better_than_pooled": 0.94,
+      "median_BH_discoveries": 6.0,
+      "mean_BH_discoveries": 6.405,
+      "fraction_reps_any_BH_discovery": 0.96,
+      "mean_nominal_p005_features": 24.28
+    },
+    {
+      "scenario": "SOURCE",
+      "method": "SOURCE_PAGE",
+      "replicates": 200,
+      "features": 200,
+      "median_over_reps_of_feature_median_abs_per10k": 1.5599127379829656,
+      "mean_over_reps_of_feature_median_abs_per10k": 1.5775614936107456,
+      "ratio_of_median_abs_to_pooled": 0.8131780539276672,
+      "fraction_rep_median_better_than_pooled": 0.94,
+      "median_BH_discoveries": 2.0,
+      "mean_BH_discoveries": 2.55,
+      "fraction_reps_any_BH_discovery": 0.735,
+      "mean_nominal_p005_features": 19.33
+    },
+    {
+      "scenario": "PAGE",
+      "method": "POOLED",
+      "replicates": 200,
+      "features": 200,
+      "median_over_reps_of_feature_median_abs_per10k": 1.6608877343096853,
+      "mean_over_reps_of_feature_median_abs_per10k": 1.664998191595418,
+      "ratio_of_median_abs_to_pooled": 1.0,
+      "fraction_rep_median_better_than_pooled": 0.0,
+      "median_BH_discoveries": 6.0,
+      "mean_BH_discoveries": 6.92,
+      "fraction_reps_any_BH_discovery": 0.955,
+      "mean_nominal_p005_features": 32.035
+    },
+    {
+      "scenario": "PAGE",
+      "method": "SOURCE",
+      "replicates": 200,
+      "features": 200,
+      "median_over_reps_of_feature_median_abs_per10k": 1.6475208990011057,
+      "mean_over_reps_of_feature_median_abs_per10k": 1.654773576612991,
+      "ratio_of_median_abs_to_pooled": 0.9919519934836926,
+      "fraction_rep_median_better_than_pooled": 0.58,
+      "median_BH_discoveries": 0.0,
+      "mean_BH_discoveries": 0.41,
+      "fraction_reps_any_BH_discovery": 0.275,
+      "mean_nominal_p005_features": 13.12
+    },
+    {
+      "scenario": "PAGE",
+      "method": "SOURCE_PAGE",
+      "replicates": 200,
+      "features": 200,
+      "median_over_reps_of_feature_median_abs_per10k": 1.7131965059197916,
+      "mean_over_reps_of_feature_median_abs_per10k": 1.7299630310916612,
+      "ratio_of_median_abs_to_pooled": 1.0314944655978493,
+      "fraction_rep_median_better_than_pooled": 0.29,
+      "median_BH_discoveries": 1.0,
+      "mean_BH_discoveries": 1.81,
+      "fraction_reps_any_BH_discovery": 0.665,
+      "mean_nominal_p005_features": 17.405
+    }
+  ]
+}

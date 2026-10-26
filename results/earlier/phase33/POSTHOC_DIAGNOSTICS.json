@@ -1,0 +1,9 @@
+{
+  "dataset_train_issues": 98,
+  "page_uniform_english_word_probability": 0.22942712620851036,
+  "word_weighted_english_word_probability": 0.32073419864106184,
+  "word_share_difference": 0.09130707243255148,
+  "source_years": "IMVO 1885 and 1887",
+  "page3_contribution_to_word_minus_page": 0.09114067866706735,
+  "posthoc_label": true
+}
