@@ -10,6 +10,7 @@ on:
       - 'reports/ccn.sty'
       - 'reports/neurips_checklist_filled.tex'
       - 'reports/make_figure.py'
+      - 'reports/build_official_checklist.py'
       - '.github/workflows/build_paper_draft.yml'
   workflow_dispatch:
 
@@ -31,6 +32,8 @@ jobs:
         run: |
           printf '%s\n' '6fcc74188f418b9e6e35fa76837c34abd5b065b78c8287f2a3ea606026af5f55  reports/original_templates/CCN_Extended_Abstract_Original.zip' '9e21a868b448b31f978e90c21e8aa2b61e766b11b94fc907cae13bf0c9871e66  reports/original_templates/NeurIPS_2024_Checklist_Original.zip' | sha256sum -c -
 
+      - name: Rebuild complete official NeurIPS checklist from supplied original ZIP
+        run: python reports/build_official_checklist.py
       - name: Regenerate plot from pinned verified statistics
         run: python reports/make_figure.py
       - name: Compile through TeX Live
@@ -67,7 +70,7 @@ jobs:
           cp reports/report.pdf reports/ccn_extended_abstract_DRAFT.pdf
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reports/ccn_extended_abstract_DRAFT.pdf
+          git add reports/ccn_extended_abstract_DRAFT.pdf reports/neurips_checklist_filled.tex
           if git diff --cached --quiet; then
             echo 'Draft PDF already in sync'
           else
