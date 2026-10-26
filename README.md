@@ -1,62 +1,58 @@
-# Sampling and Representation in a Historical isiXhosa Archive
+# Sampling historical isiXhosa newspaper text for NLP
 
-Reproducible NLP Project 2 experiments using historical *Imvo Zabantsundu* material from the isiXhosa Intellectual Traditions (IsiXIT) collection.
+We tested how the way a historical newspaper corpus is sampled changes the tokenizers trained on it. The text comes from *Imvo Zabantsundu* in the isiXhosa Intellectual Traditions (IsiXIT) collection.
 
-**Research question:** How do the allocation of training material between English- and isiXhosa-labelled archive views, and the page-selection policy within each view, affect tokenisation and downstream language-model loss?
+The experiment changes two choices: how much text to take from the archive's English and isiXhosa views, and how to sample pages within each view. We held the training-text budget nearly constant.
 
-This is a controlled corpus-sampling study, not a novel tokenizer. It uses a 2 by 2 factorial design, BPE and Unigram tokenizers, five sampling seeds, 40 primary model fits and 20 repeated-text controls.
+## What we did
 
-## Main findings
+We compared four sampling policies (PP, PW, WP, WW), two SentencePiece models (BPE and Unigram), and five seeds. That produced 40 main tokenizers, each trained on roughly 500,000 alphabetic characters. We trained 20 more BPE models to check whether repeated newspaper text explained the effects.
 
-| Held-out 1888 allocation contrast | Estimate | 95% issue-bootstrap interval |
+Training used 1885 and January to September 1887. We selected smoothing on October to December 1887, evaluated on 1888, then checked 1889 to 1894.
+
+## Main results
+
+| Effect of changing allocation in 1888 | Difference | 95% issue-bootstrap interval |
 | --- | ---: | ---: |
-| English-view BPE pieces / 100 alphabetic characters | -1.8775 | [-1.9716, -1.7818] |
-| English-view Unigram pieces / 100 alphabetic characters | -1.7948 | [-1.9081, -1.6706] |
-| isiXhosa-view BPE pieces / 100 alphabetic characters | +0.4526 | [+0.4068, +0.4974] |
-| English-view count-bigram bits per character | -0.03722 | [-0.04236, -0.03212] |
+| English-view BPE pieces per 100 letters | -1.88 | [-1.97, -1.78] |
+| English-view Unigram pieces per 100 letters | -1.79 | [-1.91, -1.67] |
+| isiXhosa-view BPE pieces per 100 letters | +0.45 | [+0.41, +0.50] |
+| English-view bigram bits per character | -0.0372 | [-0.0424, -0.0321] |
 
-Lower cost is better. The English-view improvement also creates an isiXhosa-view segmentation trade-off. **The negative result matters:** changing the entire BPE policy from PP to WW in 1889 to 1894 slightly worsened English-view BPC (+0.00450). See [Findings](docs/FINDINGS.md) and the [original claim ledger](research-notes/Phase6/CLAIM_LEDGER.md).
+Lower values are better. The English-view improvement comes with a segmentation cost in the isiXhosa view. Changing the **entire** policy was not always better: it slightly worsened English-view bigram loss in the later years (+0.0045 BPC). See [findings](reports/findings.md) for the controls and limitations.
 
 ![English-view bigram results](results/figures/PHASE6_ENGLISH_LM.png)
 
 ## Run it
 
-Install Python 3.13 with the pinned requirements. To verify the saved research without downloading the newspaper:
+Install Python 3.13 and the pinned packages:
 
 ```bash
 python -m pip install -r requirements.txt
-make audit
+python src/run.py check
 ```
 
-**The audit uses native files already in GitHub.** It verifies saved model fingerprints, pairs 99,720 segmentation and 99,720 language-model scores, and independently recalculates 64 factorial point effects. It is not a fresh retraining run.
+The check verifies the saved models and recalculates all 64 factorial effects from the original paired scores. It does not retrain models.
 
-For original fresh training, obtain the authorised course archive externally and run:
+To rerun the original experiments, obtain `TxtLangFiles1870-1894_TB.zip` from the course or the authorised archive, put it in `data/`, then run:
 
 ```bash
-make reproduce DATA=/absolute/path/to/TxtLangFiles1870-1894_TB.zip RUN_DIR=/absolute/path/to/new-run
+python src/run.py reproduce --data data/TxtLangFiles1870-1894_TB.zip --out ../isixhosa-replay
 ```
 
-The factory validates the data checksum and reconstructs the original frozen phase scripts in a fresh workspace. All 40 tokenizer fits were independently replayed, but the downstream phases have not been certified as a complete new run. Details: [Reproducibility](docs/REPRODUCIBILITY.md).
+Use `--dry-run` to preview the commands, or `--resume` after interruption.
 
-## Project structure
+## Files
 
-| Directory | Purpose |
+| Folder | Contents |
 | --- | --- |
-| [experiments/](experiments/) | Unmodified original Phase 1–6 Python experiments, plus a separately identified independent implementation |
-| [protocols/](protocols/) | Frozen Phase 1 design and Phase 4/5 preregistrations |
-| [scripts/](scripts/) | One factory interface and independent numerical checks |
-| [results/](results/) | **Direct CSV score tables, native model binaries, vocabularies and readable PNG figures** |
-| [tests/](tests/) | Deterministic unit tests |
-| [docs/](docs/) | Methods, interpretation, reproducibility and ethical limitations |
-| [research-notes/](research-notes/) | Original decisions and detailed phase handoff records |
-| [data/README.md](data/README.md) | How to obtain the restricted historical source data |
+| `src/` | Original Python experiments, runner and checks |
+| `results/` | CSV comparisons, raw scores, trained models and figures |
+| `reports/` | Methods, findings and frozen protocols |
+| `data/` | External source data, not committed |
 
-For a short review, start with the [reviewer guide](docs/REVIEWER_GUIDE.md), the [frozen protocol](protocols/Phase1/FROZEN_PROTOCOL.md), [training code](experiments/Phase2/scripts/run_phase2.py) and the [native downstream results](results/Phase5/outputs/bpc_factorial_contrasts.csv).
+The original training script is in [src/phase2](src/phase2/). The key numeric tables are [segmentation](results/segmentation.csv), [bigram](results/bigram.csv) and [repetition controls](results/repetition.csv).
 
-## Limits and attribution
+This study uses one newspaper. The archive's language views are not gold-standard labels, and the later years had already been inspected during earlier exploration. These results concern corpus sampling, not cultural understanding or social fairness. Details are in [methods](reports/methods.md).
 
-The main intervention uses one newspaper. EnTxt and XhTxt are archive-assigned text views, not independently human-verified language gold labels. The later years had been inspected during earlier research and are not an untouched external test. Compact tokenisation and count-bigram BPC do not measure cultural understanding, historical meaning or social fairness.
-
-Source newspaper transcriptions are not redistributed because public redistribution permission is uncertain. The repository is the research code and evidence, not the final coursework paper, NeurIPS ethics questionnaire, Faculty AI declaration or contributor statement. Contributor licensing must be agreed separately.
-
-Sources: [Schoots et al. (2023)](https://aclanthology.org/2023.rail-1.7/) and [Kudo and Richardson (2018)](https://aclanthology.org/D18-2012/).
+Archive: [Schoots et al. (2023)](https://aclanthology.org/2023.rail-1.7/). Tokenization: [Kudo and Richardson (2018)](https://aclanthology.org/D18-2012/).
