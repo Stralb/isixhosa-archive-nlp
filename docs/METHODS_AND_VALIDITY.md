@@ -6,7 +6,7 @@ Digitised archival collections retain historical editing, page layout, incomplet
 
 ## The factorial protocol
 
-The Phase 1 freeze specifies a 2 by 2 design. The first factor changes how English and isiXhosa archive views share the available character budget; the second changes selection within a view. The study fits BPE and Unigram under all four conditions `PP`, `PW`, `WP`, `WW` with five seeds, a common 2,000-piece vocabulary and roughly 500,000 alphabetic characters each. All policies share the same training periods, preprocessing and evaluation units. Read the original [`FROZEN_PROTOCOL.md`](../coursework/isiXhosa_Excellence_Sprint/Phase1/FROZEN_PROTOCOL.md) before adjusting anything.
+The Phase 1 freeze specifies a 2 by 2 design. The first factor changes how English and isiXhosa archive views share the available character budget; the second changes selection within a view. The study fits BPE and Unigram under all four conditions `PP`, `PW`, `WP`, `WW` with five seeds, a common 2,000-piece vocabulary and roughly 500,000 alphabetic characters each. All policies share the same training periods, preprocessing and evaluation units. Read the original [`FROZEN_PROTOCOL.md`](../protocols/Phase1/FROZEN_PROTOCOL.md) before adjusting anything.
 
 Model selection used only duplicate-aware windows from October to December 1887. The held-out evaluation uses 1888; later-year transfer checks use 1889 to 1894. The experiment is paired by fixed page/view excerpt. Estimators are evaluated with issue-level bootstrap uncertainty. For repeat robustness, twenty additional models were fitted under a declared matched-support design.
 
