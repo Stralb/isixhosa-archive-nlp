@@ -16,4 +16,6 @@ jobs:
       - run: python -m pip install -r requirements.txt
       - run: python -m unittest discover -s src -p 'test_*.py' -v
       - run: python src/run.py check
+      - name: Independent 84-contrast and bootstrap audit
+        run: python src/audit/independent_ci.py --root .
       - run: python src/run.py reproduce --data data/source-not-included.zip --out /tmp/replay --dry-run
