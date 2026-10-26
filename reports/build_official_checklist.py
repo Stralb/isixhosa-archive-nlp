@@ -60,8 +60,8 @@ def main() -> None:
     assert checklist.count(r"\item {\\bf")==0 # TeX source should use a single slash
     assert "NeurIPS Paper Checklist" in checklist
     assert not re.search(r"\\item\[\] Justification:\s*\\justificationTODO\{\}",checklist)
-    OUT.write_text("% Generated from unmodified official NeurIPS 2024 source ZIP. Review all answers.\\n"+
-                   checklist.rstrip()+"\\n",encoding="utf-8")
+    OUT.write_text("% Generated from unmodified official NeurIPS 2024 source ZIP. Review all answers.\n"+
+                   checklist.rstrip()+"\n",encoding="utf-8")
     print("PASS: generated all 15 official checklist items and full guidance; author review flags retained")
 
 if __name__=="__main__":
