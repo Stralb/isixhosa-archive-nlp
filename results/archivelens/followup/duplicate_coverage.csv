@@ -1,0 +1,5 @@
+source,year,exact_repeated_13gram_types_in_source,original_words,masked_words,original_pages,lost_pages,retained_pages,retained_words,masked_word_fraction,retained_issues
+IMVO,1885,19899,277467,55517,195,8,187,221751,0.2000850552,49
+IMVO,1888,19899,373477,81791,208,2,206,291639,0.2189987603,52
+ISIG,1885,960,88993,2117,95,,95,86876,0.0237883879,12
+ISIG,1888,960,93719,1185,96,,96,92534,0.0126441810,12
