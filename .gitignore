@@ -5,7 +5,5 @@ __pycache__/
 .env
 .env.*
 .DS_Store
-data/*
-!data/.gitkeep
 runs/
 outputs/
