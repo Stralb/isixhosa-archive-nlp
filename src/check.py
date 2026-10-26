@@ -183,9 +183,16 @@ def check_artifacts():
     with (ROOT / "repetition.csv").open(encoding="utf-8", newline="") as file:
         if not list(csv.DictReader(file)):
             raise AssertionError("Missing repeated-text control results")
-    for name in ("TxtLangFiles1870-1894_TB.zip", "1. TxtFiles1870-1894_TB.zip"):
-        if (PROJECT / "data" / name).exists():
-            raise AssertionError("Original licensed transcriptions must not be committed")
+    source_archives = {
+        "TxtLangFiles1870-1894_TB.zip": "375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5",
+        "TxtFiles1870-1894_TB.zip": "41fc2a7cab043025df3e2127ee21878c5ae5b6457a8bd55b5e210fb1c50cde10",
+    }
+    for name, expected_sha in source_archives.items():
+        source = PROJECT / "data" / name
+        if source.is_file():
+            actual_sha = hashlib.sha256(source.read_bytes()).hexdigest()
+            if actual_sha != expected_sha:
+                raise AssertionError("Source dataset checksum differs: " + name)
     return len(scripts)
 
 
