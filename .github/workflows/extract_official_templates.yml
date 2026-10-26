@@ -1,0 +1,95 @@
+name: Extract uploaded original templates and paper draft
+on:
+  push:
+    branches:
+      - paper/official-templates-and-scientific-draft-2026-10-26
+    paths:
+      - .github/workflows/extract_official_templates.yml
+
+permissions:
+  contents: write
+
+jobs:
+  exact-extraction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify and extract every original source template and complete paper draft
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          from hashlib import sha256
+          from zipfile import ZipFile
+          root=Path.cwd()
+          packages=[
+            ("templates/original/_NLP_2026__Extended_Abstract_Template.zip",
+             "6fcc74188f418b9e6e35fa76837c34abd5b065b78c8287f2a3ea606026af5f55",
+             "templates/CCN_2026","_NLP_2026__Extended_Abstract_Template/",5),
+            ("templates/original/NeurIPS_2024_checklist.zip",
+             "9e21a868b448b31f978e90c21e8aa2b61e766b11b94fc907cae13bf0c9871e66",
+             "templates/NeurIPS_2024","NeurIPS_2024_checklist/",3),
+            ("reports/paper_draft_bundle_2026-10-26.zip",
+             "298cf2819ec11358f5c1d5d350c4d48242b0a7f714fc73cea19d181ee886e8e1",
+             "reports/paper_draft","",11),
+          ]
+          for src,hash_expected,dst,prefix,expected_n in packages:
+            p=root/src
+            assert sha256(p.read_bytes()).hexdigest()==hash_expected,(src,"SHA256 changed")
+            done=0
+            with ZipFile(p) as z:
+              for member in z.infolist():
+                name=member.filename
+                if member.is_dir() or "__MACOSX" in name or name.split("/")[-1].startswith("._"):
+                  continue
+                assert name.startswith(prefix),(src,name)
+                rel=name[len(prefix):]
+                if not rel:continue
+                target=root/dst/rel
+                assert target.resolve().is_relative_to((root/dst).resolve())
+                target.parent.mkdir(parents=True,exist_ok=True)
+                data=z.read(member)
+                target.write_bytes(data)
+                assert target.read_bytes()==data
+                done+=1
+                print("VERIFIED",dst+"/"+rel,len(data))
+            assert done==expected_n,(src,done,expected_n)
+            print("PASS exact ZIP",src,"files",done)
+          assert (root/"reports/paper_draft/report.pdf").is_file()
+          assert (root/"templates/CCN_2026/images/image.jpeg").stat().st_size > 2000000
+          print("ALL ORIGINAL TEMPLATES AND PAPER SOURCES EXACTLY EXTRACTED")
+          PY
+      - name: Check PDF has two-page scientific body (references start page three)
+        shell: bash
+        run: |
+          python -m pip install --quiet pypdf==5.9.0
+          python - <<'PY'
+          from pypdf import PdfReader
+          p="reports/paper_draft/report.pdf"
+          doc=PdfReader(p)
+          assert len(doc.pages)>=3,len(doc.pages)
+          page1=doc.pages[0].extract_text()
+          page2=doc.pages[1].extract_text()
+          page3=doc.pages[2].extract_text()
+          assert "When Sampling Shapes the Story" in page1
+          assert "Conclusion" in page2
+          assert "References" in page3[:200]
+          print("PASS: two-page body, references begin on page 3, complete draft has",len(doc.pages),"pages")
+          PY
+      - name: Commit extracted original sources and standalone draft
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add templates/CCN_2026 templates/NeurIPS_2024 reports/paper_draft
+          git add -f templates/NeurIPS_2024/neurips_2024.pdf reports/paper_draft/report.pdf reports/paper_draft/figures/main_evidence.pdf
+          git diff --cached --stat
+          if git diff --cached --quiet; then
+            echo "EXACT SOURCE FILES ALREADY TRACKED"
+          else
+            git commit -m "templates+paper: check and extract source ZIPs and full two-page CCN draft"
+            git push origin HEAD:paper/official-templates-and-scientific-draft-2026-10-26
+          fi
