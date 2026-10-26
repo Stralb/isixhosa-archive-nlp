@@ -1,0 +1,25 @@
+PASS 12 paired deterministic train-only sampler checks
+{
+  "PASS": true,
+  "checks": {
+    "12_deterministic_sampler_checks": true,
+    "archive_sha256": true,
+    "four_factorial_joint_distributions_and_legacy_equivalence": true,
+    "independent_issue_and_page_counts": true,
+    "independent_train_validation_overlap_counts": true,
+    "preregistration_and_handoff_present": true,
+    "randomly_spaced_clean_window_spotchecks": 42,
+    "rerun_original_phase33_independent_score_verifier": true,
+    "train_val_issue_separation_no_heldout_reads": true,
+    "training_duplicate_counts_cross_issue_13grams": true
+  },
+  "frozen_protocol_sha256": "bc443d883fa1c2b8eb09ced5f87d8f65b352d55512ef2c594b1b23e64d496bf4",
+  "legacy_phase33_reverification_reads_previously_scored_heldout_text": true,
+  "new_factorial_audit_heldout_content_reads": 0,
+  "phase": "Excellence Sprint Phase 1 / Research continuation Phase 34",
+  "phase2_or_later_results_created": false,
+  "prior_phase33_sha256": "e7fc0f5c350d66c8d6fc56d79df5279fb7298e94822c77ea11ee3ae1db764286",
+  "training_only_sampler_smoke_count": 12,
+  "training_page_count": 342,
+  "validation_page_count": 48
+}

@@ -1,0 +1,48 @@
+{
+  "training": {
+    "years": "1885 and 1887 Jan-Sep",
+    "pages": 342,
+    "issues": 86,
+    "eligible_page_views": 595,
+    "alphabetic_word_tokens_en": 249110,
+    "alphabetic_word_tokens_xh": 515859,
+    "page_like_expected_english_draw_share": 0.2355156431627374,
+    "word_like_expected_english_draw_share": 0.325647183088465,
+    "view_draw_delta_word_minus_page": 0.09013153992572762,
+    "train_page_filenames_sha256": "452c7c53afc040c891428bf52bb9d935d0b3a7fc32345430e27f18de5a4a09b4"
+  },
+  "validation": {
+    "years": "1887 Oct-Dec",
+    "pages": 48,
+    "issues": 12,
+    "eligible_page_views": 90,
+    "validation_page_filenames_sha256": "bfed5c42effed8db35b8c92ea66fbaa10afdb56ee5754b22c79b4ce0bbed157b",
+    "word_tokens_en": 30194,
+    "word_tokens_xh": 75664
+  },
+  "duplicate_train_only": {
+    "repeat_shingles_13word_across_distinct_issues": 16691,
+    "total_shingle_types": 684318,
+    "eligible_by_view": {
+      "xh": {
+        "eligible_page_views": 341,
+        "page_views_with_a_duplicate_free_32word_window": 335,
+        "candidate_window_count": 505288,
+        "duplicate_free_window_count": 377066,
+        "duplicate_free_window_fraction": 0.7462397682113963
+      },
+      "en": {
+        "eligible_page_views": 254,
+        "page_views_with_a_duplicate_free_32word_window": 198,
+        "candidate_window_count": 241509,
+        "duplicate_free_window_count": 234824,
+        "duplicate_free_window_fraction": 0.9723198721372702
+      }
+    }
+  },
+  "split_checks": {
+    "train_val_page_overlap": false,
+    "train_val_issue_overlap": false,
+    "heldout_view_text_was_read": false
+  }
+}
