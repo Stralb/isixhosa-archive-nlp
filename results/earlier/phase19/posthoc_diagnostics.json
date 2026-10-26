@@ -1,0 +1,517 @@
+{
+  "posthoc_not_confirmatory": true,
+  "source_rank_inversions": {
+    "IMVO": {
+      "n": 40,
+      "bm25_hit_and_fuzzy_miss": 7,
+      "fuzzy_hit_and_bm25_miss": 5,
+      "both_hit": 4,
+      "both_miss": 24,
+      "fuzzy_top1_crosses_source": 0,
+      "bm25_top1_crosses_source": 0
+    },
+    "ISIG": {
+      "n": 15,
+      "bm25_hit_and_fuzzy_miss": 6,
+      "fuzzy_hit_and_bm25_miss": 0,
+      "both_hit": 5,
+      "both_miss": 4,
+      "fuzzy_top1_crosses_source": 8,
+      "bm25_top1_crosses_source": 2
+    }
+  },
+  "lid_predicted_english_on_all": true,
+  "gated_equals_unconditional_per_query": true,
+  "gated_equals_raw_fuzzy_per_query_top1": true,
+  "gated_candidate_set_different_from_raw_count": 32,
+  "gated_different_candidate_set_fraction": 0.5818181818181818,
+  "gated_added_new_verbatim_evidence_count": 0,
+  "gated_lost_verbatim_evidence_count": 0,
+  "candidate_changes": [
+    {
+      "qid": "P19_IMVO_0",
+      "source": "IMVO",
+      "added": [
+        "IMVO_1892-12-01_p004.txt"
+      ],
+      "removed": [
+        "IMVO_1891-06-04_p003.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 1,
+      "gate_hit": 1
+    },
+    {
+      "qid": "P19_IMVO_1",
+      "source": "IMVO",
+      "added": [
+        "IMVO_1888-11-22_p003.txt"
+      ],
+      "removed": [
+        "IMVO_1891-07-02_p003.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_IMVO_2",
+      "source": "IMVO",
+      "added": [
+        "IMVO_1887-08-17_p004.txt",
+        "IMVO_1891-06-18_p002.txt"
+      ],
+      "removed": [
+        "IMVO_1887-08-24_p004.txt",
+        "IMVO_1887-10-12_p004.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 1,
+      "gate_hit": 1
+    },
+    {
+      "qid": "P19_IMVO_6",
+      "source": "IMVO",
+      "added": [
+        "IMVO_1892-10-06_p004.txt"
+      ],
+      "removed": [
+        "IMVO_1891-01-15_p003.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_IMVO_7",
+      "source": "IMVO",
+      "added": [
+        "ISIG_1872-05-01_p009.txt"
+      ],
+      "removed": [
+        "ISIG_1873-10-06_p002.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_IMVO_8",
+      "source": "IMVO",
+      "added": [
+        "IMVO_1888-11-08_p004.txt",
+        "IMVO_1893-12-13_p004.txt"
+      ],
+      "removed": [
+        "IMVO_1893-07-05_p003.txt",
+        "IMVO_1891-08-06_p002.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_IMVO_9",
+      "source": "IMVO",
+      "added": [
+        "IMVO_1885-03-16_p004.txt"
+      ],
+      "removed": [
+        "IMVO_1887-02-02_p003.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_IMVO_10",
+      "source": "IMVO",
+      "added": [
+        "IMVO_1891-05-07_p003.txt"
+      ],
+      "removed": [
+        "IMVO_1893-04-26_p004.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_IMVO_13",
+      "source": "IMVO",
+      "added": [
+        "IMVO_1885-08-05_p003.txt"
+      ],
+      "removed": [
+        "IMVO_1894-10-31_p002.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 1,
+      "gate_hit": 1
+    },
+    {
+      "qid": "P19_IMVO_19",
+      "source": "IMVO",
+      "added": [
+        "IMVO_1888-12-20_p003.txt"
+      ],
+      "removed": [
+        "IMVO_1888-01-11_p003.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_IMVO_22",
+      "source": "IMVO",
+      "added": [
+        "IMVO_1886-12-15_p003.txt"
+      ],
+      "removed": [
+        "IMVO_1885-11-04_p003.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_IMVO_25",
+      "source": "IMVO",
+      "added": [
+        "ISIG_1883-08-16_p005.txt"
+      ],
+      "removed": [
+        "IMVO_1894-09-26_p003.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_IMVO_26",
+      "source": "IMVO",
+      "added": [
+        "IMVO_1888-06-28_p004.txt",
+        "IMVO_1888-12-20_p003.txt"
+      ],
+      "removed": [
+        "IMVO_1892-11-17_p003.txt",
+        "IMVO_1885-06-10_p003.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_IMVO_27",
+      "source": "IMVO",
+      "added": [
+        "IMVO_1886-08-25_p003.txt"
+      ],
+      "removed": [
+        "IMVO_1893-04-19_p003.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 1,
+      "gate_hit": 1
+    },
+    {
+      "qid": "P19_IMVO_30",
+      "source": "IMVO",
+      "added": [
+        "ISIG_1882-10-02_p006.txt"
+      ],
+      "removed": [
+        "IMVO_1886-01-06_p003.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_IMVO_31",
+      "source": "IMVO",
+      "added": [
+        "IMVO_1890-10-09_p004.txt"
+      ],
+      "removed": [
+        "IMVO_1891-09-10_p003.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_IMVO_32",
+      "source": "IMVO",
+      "added": [
+        "IMVO_1893-07-25_p002.txt"
+      ],
+      "removed": [
+        "IMVO_1892-02-18_p002.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 1,
+      "gate_hit": 1
+    },
+    {
+      "qid": "P19_IMVO_34",
+      "source": "IMVO",
+      "added": [
+        "IMVO_1888-12-13_p002.txt",
+        "IMVO_1891-04-16_p002.txt",
+        "ISIG_1884-07-18_p005.txt"
+      ],
+      "removed": [
+        "IMVO_1894-03-14_p003.txt",
+        "IMVO_1885-04-08_p004.txt",
+        "IMVO_1891-02-05_p003.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_IMVO_37",
+      "source": "IMVO",
+      "added": [
+        "ISIG_1884-05-01_p002.txt",
+        "IMVO_1890-05-01_p002.txt",
+        "ISIG_1884-07-01_p007.txt",
+        "ISIG_1883-08-16_p005.txt"
+      ],
+      "removed": [
+        "IMVO_1891-03-19_p003.txt",
+        "IMVO_1889-07-25_p003.txt",
+        "IMVO_1893-09-06_p003.txt",
+        "IMVO_1890-07-10_p003.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_IMVO_39",
+      "source": "IMVO",
+      "added": [
+        "ISIG_1873-06-01_p009.txt",
+        "IMVO_1889-03-14_p003.txt",
+        "IMVO_1889-01-17_p003.txt"
+      ],
+      "removed": [
+        "IMVO_1887-03-30_p003.txt",
+        "IMVO_1894-12-12_p003.txt",
+        "IMVO_1889-10-10_p004.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_ISIG_main0",
+      "source": "ISIG",
+      "added": [
+        "IMVO_1886-12-22_p004.txt"
+      ],
+      "removed": [
+        "IMVO_1889-02-14_p003.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_ISIG_main2",
+      "source": "ISIG",
+      "added": [
+        "ISIG_1883-08-01_p004.txt",
+        "IMVO_1889-10-10_p003.txt"
+      ],
+      "removed": [
+        "IMVO_1888-10-04_p002.txt",
+        "IMVO_1890-11-13_p002.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_ISIG_main3",
+      "source": "ISIG",
+      "added": [
+        "IMVO_1894-01-31_p004.txt",
+        "IMVO_1893-12-20_p002.txt"
+      ],
+      "removed": [
+        "IMVO_1885-03-02_p002.txt",
+        "IMVO_1892-07-07_p003.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_ISIG_main7",
+      "source": "ISIG",
+      "added": [
+        "IMVO_1885-02-09_p004.txt",
+        "IMVO_1888-03-21_p003.txt",
+        "IMVO_1889-10-31_p003.txt"
+      ],
+      "removed": [
+        "ISIG_1875-05-01_p008.txt",
+        "ISIG_1875-04-01_p008.txt",
+        "IMVO_1893-08-23_p004.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 1,
+      "gate_hit": 1
+    },
+    {
+      "qid": "P19_ISIG_main9",
+      "source": "ISIG",
+      "added": [
+        "ISIG_1871-05-01_p008.txt"
+      ],
+      "removed": [
+        "IMVO_1885-11-11_p004.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_ISIG_main10",
+      "source": "ISIG",
+      "added": [
+        "IMVO_1890-02-27_p003.txt"
+      ],
+      "removed": [
+        "IMVO_1892-03-31_p004.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_ISIG_main11",
+      "source": "ISIG",
+      "added": [
+        "IMVO_1892-03-31_p004.txt",
+        "ISIG_1883-08-16_p005.txt"
+      ],
+      "removed": [
+        "IMVO_1885-03-02_p004.txt",
+        "IMVO_1885-03-02_p002.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 1,
+      "gate_hit": 1
+    },
+    {
+      "qid": "P19_ISIG_extra1",
+      "source": "ISIG",
+      "added": [
+        "IMVO_1892-07-28_p002.txt"
+      ],
+      "removed": [
+        "IMVO_1885-03-23_p004.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 1,
+      "gate_hit": 1
+    },
+    {
+      "qid": "P19_ISIG_extra7",
+      "source": "ISIG",
+      "added": [
+        "IMVO_1890-09-11_p001.txt",
+        "ISIG_1873-06-01_p008.txt"
+      ],
+      "removed": [
+        "IMVO_1892-06-16_p003.txt",
+        "IMVO_1885-09-09_p003.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    },
+    {
+      "qid": "P19_ISIG_extra10",
+      "source": "ISIG",
+      "added": [
+        "ISIG_1872-07-01_p008.txt",
+        "IMVO_1889-10-10_p004.txt"
+      ],
+      "removed": [
+        "IMVO_1892-01-21_p004.txt",
+        "IMVO_1892-01-14_p004.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 1,
+      "gate_hit": 1
+    },
+    {
+      "qid": "P19_ISIG_extra12",
+      "source": "ISIG",
+      "added": [
+        "IMVO_1889-01-24_p002.txt",
+        "IMVO_1893-07-25_p004.txt"
+      ],
+      "removed": [
+        "IMVO_1889-03-07_p003.txt",
+        "ISIG_1871-12-01_p008.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 1,
+      "gate_hit": 1
+    },
+    {
+      "qid": "P19_ISIG_extra15",
+      "source": "ISIG",
+      "added": [
+        "ISIG_1872-09-01_p004.txt"
+      ],
+      "removed": [
+        "IMVO_1888-07-05_p004.txt"
+      ],
+      "new_gold_added": false,
+      "old_gold_removed": false,
+      "raw_hit": 0,
+      "gate_hit": 0
+    }
+  ],
+  "interpretation": "On these English keyword queries the frozen classifier selected English on all queries. An enriched candidate set can only help if raw candidate retrieval missed an annotated evidence page; here the annotated raw Top-20 ceiling was already very high. Full-page partial-ratio reranking often displaced BM25-correct source pages."
+}

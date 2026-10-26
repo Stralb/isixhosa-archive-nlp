@@ -1,0 +1,101 @@
+{
+  "source_view_counts": {
+    "IMVO_en": 50,
+    "IMVO_xh": 50,
+    "ISIG_en": 4,
+    "ISIG_xh": 50
+  },
+  "n_distinct_issues": 154,
+  "n_queries": 462,
+  "excluded_issues": 436,
+  "sha256_queries": "a3c2741fff9c965fbf7e8b4b05497533ef226495fec710e1b415a5a436ae1bab",
+  "sha256_audit": "17f64188a22b19eafaecbe73c7c11a121481fcbdf9319ffea3c313a8bcef3d26",
+  "genuine_independent_human_search": false,
+  "genuine_ocr_evaluation": false,
+  "first_12_anchor_queries": [
+    {
+      "id": "ISIG_1883-08-16_p007.txt",
+      "view": "en",
+      "keyword": "ndipembelele maintained christianity distinguishing intellectual development",
+      "clean": "of christianity its distinguishing nature",
+      "noisy": "of christiandtyits distinguishing natnre"
+    },
+    {
+      "id": "ISIG_1888-03-01_p008.txt",
+      "view": "en",
+      "keyword": "interesting especially scholar difference construction advantage",
+      "clean": "scholar the exact meaning of",
+      "noisy": "scaolar the exaotmeaning of"
+    },
+    {
+      "id": "ISIG_1871-01-04_p016.txt",
+      "view": "en",
+      "keyword": "messages company exceeding fraction distance agreement",
+      "clean": "charged for porterage and one",
+      "noisy": "charoed forporeerage and one"
+    },
+    {
+      "id": "ISIG_1888-01-02_p008.txt",
+      "view": "en",
+      "keyword": "interesting especially scholar remarkable construction advantage",
+      "clean": "scholar the exact meaning of",
+      "noisy": "schodar theexatt meaning of"
+    },
+    {
+      "id": "IMVO_1891-09-24_p003.txt",
+      "view": "en",
+      "keyword": "certificates honourschurch catechism competency provisional atunyelwa",
+      "clean": "testament and new incwadi ze",
+      "noisy": "testaient andnew incwkdi ze"
+    },
+    {
+      "id": "IMVO_1890-04-24_p003.txt",
+      "view": "en",
+      "keyword": "opinion misrepresented paraded contemporary illustrious politician",
+      "clean": "of our contemporary at least",
+      "noisy": "of our cohtemporary atleost"
+    },
+    {
+      "id": "IMVO_1891-04-23_p003.txt",
+      "view": "en",
+      "keyword": "resolves magistrate resolution magistracy magisterial christian",
+      "clean": "end of the wedge what",
+      "noisy": "end of theweige wnat"
+    },
+    {
+      "id": "IMVO_1890-03-20_p003.txt",
+      "view": "en",
+      "keyword": "information reprsentative apologise gracious running dinner",
+      "clean": "apologise said the stately lady",
+      "noisy": "apologise sagdthe stately lany"
+    },
+    {
+      "id": "IMVO_1892-12-15_p003.txt",
+      "view": "en",
+      "keyword": "evidence succeeded suppression telegraph vironment differed",
+      "clean": "is idle for the telegraph",
+      "noisy": "is idtefor the teltgraph"
+    },
+    {
+      "id": "IMVO_1893-04-26_p004.txt",
+      "view": "en",
+      "keyword": "instructive handicrafts compulsion sufficiently importations confidence",
+      "clean": "the decrease in earnest on",
+      "noisy": "the decreuse inearuest on"
+    },
+    {
+      "id": "IMVO_1885-02-02_p004.txt",
+      "view": "en",
+      "keyword": "association arrival anticipate blessings victoria wilderness",
+      "clean": "great gracious and noble queen",
+      "noisy": "grrat gracious andnoble quenn"
+    },
+    {
+      "id": "IMVO_1888-07-19_p003.txt",
+      "view": "en",
+      "keyword": "children elizabeth expenses sundries contributions balance",
+      "clean": "decent young man who lives",
+      "noisy": "debent yousgman who lives"
+    }
+  ]
+}

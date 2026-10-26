@@ -1,0 +1,3155 @@
+{
+  "protocol_sha256": "6640469d4b0ebefe29cbf4b82513f92587bf909db4dda8a87f22e94a82f82cc1",
+  "amendment_sha256": "d4013e754d1252e74da834cbac8a3847914cd8ce2c623903765d7ab7a2b72a43",
+  "query_sha256": "a3c2741fff9c965fbf7e8b4b05497533ef226495fec710e1b415a5a436ae1bab",
+  "setup": {
+    "total_pages": 3608,
+    "n_source_issues": 154,
+    "n_queries": 462,
+    "cell_n": {
+      "IMVO_en": 50,
+      "ISIG_en": 4,
+      "IMVO_xh": 50,
+      "ISIG_xh": 50
+    },
+    "gold_distribution": {
+      "1": 146,
+      "3": 2,
+      "2": 4,
+      "9": 1,
+      "11": 1
+    },
+    "silver_lid_predictions_by_form_view": {
+      "keyword_en": {
+        "n": 54,
+        "xh_fraction": 0.037037037037037035
+      },
+      "keyword_xh": {
+        "n": 100,
+        "xh_fraction": 1.0
+      },
+      "clean_en": {
+        "n": 54,
+        "xh_fraction": 0.018518518518518517
+      },
+      "clean_xh": {
+        "n": 100,
+        "xh_fraction": 0.96
+      },
+      "synthetic_noise_en": {
+        "n": 54,
+        "xh_fraction": 0.018518518518518517
+      },
+      "synthetic_noise_xh": {
+        "n": 100,
+        "xh_fraction": 0.97
+      }
+    }
+  },
+  "method_metrics": {
+    "keyword_raw_bm25": {
+      "anchor_top1": {
+        "macro": 0.9025000035762787,
+        "by_group": {
+          "IMVO_en": 0.9200000166893005,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.9399999976158142,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.7775000333786011,
+          0.9800000190734863
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.953333338101705,
+        "secondary_three_cell_ci95": [
+          0.9200000166893005,
+          0.9800000190734863
+        ]
+      },
+      "top1": {
+        "macro": 0.9749999940395355,
+        "by_group": {
+          "IMVO_en": 0.9399999976158142,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.9599999785423279,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.949999988079071,
+          0.9950000047683716
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9666666587193807,
+        "secondary_three_cell_ci95": [
+          0.9333333373069763,
+          0.9933333396911621
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.9900000095367432,
+        "by_group": {
+          "IMVO_en": 0.9800000190734863,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.9800000190734863,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.9750000238418579,
+          1.0
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9866666793823242,
+        "secondary_three_cell_ci95": [
+          0.9666666984558105,
+          1.0
+        ]
+      },
+      "top5": {
+        "macro": 0.9950000047683716,
+        "by_group": {
+          "IMVO_en": 0.9800000190734863,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 1.0,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.9850000143051147,
+          1.0
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9933333396911621,
+        "secondary_three_cell_ci95": [
+          0.9800000190734863,
+          1.0
+        ]
+      },
+      "recall20": {
+        "macro": 0.9950000047683716,
+        "by_group": {
+          "IMVO_en": 0.9800000190734863,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 1.0,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.9850000143051147,
+          1.0
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9933333396911621,
+        "secondary_three_cell_ci95": [
+          0.9800000190734863,
+          1.0
+        ]
+      }
+    },
+    "keyword_raw_fullfuzzy": {
+      "anchor_top1": {
+        "macro": 0.4625000059604645,
+        "by_group": {
+          "IMVO_en": 0.18000000715255737,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.46000000834465027,
+          "ISIG_xh": 0.46000000834465027
+        },
+        "ci95": [
+          0.33249998092651367,
+          0.5649999976158142
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.36666667461395264,
+        "secondary_three_cell_ci95": [
+          0.2933333218097687,
+          0.4400000274181366
+        ]
+      },
+      "top1": {
+        "macro": 0.4675000011920929,
+        "by_group": {
+          "IMVO_en": 0.18000000715255737,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.47999998927116394,
+          "ISIG_xh": 0.46000000834465027
+        },
+        "ci95": [
+          0.3375000059604645,
+          0.5699999928474426
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.3733333349227905,
+        "secondary_three_cell_ci95": [
+          0.29999998211860657,
+          0.4466666877269745
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.7849999964237213,
+        "by_group": {
+          "IMVO_en": 0.5,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8399999737739563,
+          "ISIG_xh": 0.800000011920929
+        },
+        "ci95": [
+          0.73499995470047,
+          0.8350000381469727
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.7133333285649618,
+        "secondary_three_cell_ci95": [
+          0.6466666460037231,
+          0.7800000309944153
+        ]
+      },
+      "top5": {
+        "macro": 0.7900000065565109,
+        "by_group": {
+          "IMVO_en": 0.5,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8600000143051147,
+          "ISIG_xh": 0.800000011920929
+        },
+        "ci95": [
+          0.7400000095367432,
+          0.8400000333786011
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.7200000087420145,
+        "secondary_three_cell_ci95": [
+          0.6533333659172058,
+          0.7866666913032532
+        ]
+      },
+      "recall20": {
+        "macro": 0.9950000047683716,
+        "by_group": {
+          "IMVO_en": 0.9800000190734863,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 1.0,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.9850000143051147,
+          1.0
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9933333396911621,
+        "secondary_three_cell_ci95": [
+          0.9800000190734863,
+          1.0
+        ]
+      }
+    },
+    "keyword_gated_fullfuzzy": {
+      "anchor_top1": {
+        "macro": 0.4625000059604645,
+        "by_group": {
+          "IMVO_en": 0.18000000715255737,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.46000000834465027,
+          "ISIG_xh": 0.46000000834465027
+        },
+        "ci95": [
+          0.33249998092651367,
+          0.5649999976158142
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.36666667461395264,
+        "secondary_three_cell_ci95": [
+          0.2933333218097687,
+          0.4400000274181366
+        ]
+      },
+      "top1": {
+        "macro": 0.4675000011920929,
+        "by_group": {
+          "IMVO_en": 0.18000000715255737,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.47999998927116394,
+          "ISIG_xh": 0.46000000834465027
+        },
+        "ci95": [
+          0.3375000059604645,
+          0.5699999928474426
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.3733333349227905,
+        "secondary_three_cell_ci95": [
+          0.29999998211860657,
+          0.4466666877269745
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.7849999964237213,
+        "by_group": {
+          "IMVO_en": 0.5,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8399999737739563,
+          "ISIG_xh": 0.800000011920929
+        },
+        "ci95": [
+          0.73499995470047,
+          0.8350000381469727
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.7133333285649618,
+        "secondary_three_cell_ci95": [
+          0.6466666460037231,
+          0.7800000309944153
+        ]
+      },
+      "top5": {
+        "macro": 0.7900000065565109,
+        "by_group": {
+          "IMVO_en": 0.5,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8600000143051147,
+          "ISIG_xh": 0.800000011920929
+        },
+        "ci95": [
+          0.7400000095367432,
+          0.8400000333786011
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.7200000087420145,
+        "secondary_three_cell_ci95": [
+          0.6533333659172058,
+          0.7866666913032532
+        ]
+      },
+      "recall20": {
+        "macro": 0.9950000047683716,
+        "by_group": {
+          "IMVO_en": 0.9800000190734863,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 1.0,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.9850000143051147,
+          1.0
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9933333396911621,
+        "secondary_three_cell_ci95": [
+          0.9800000190734863,
+          1.0
+        ]
+      }
+    },
+    "keyword_unconditional_fullfuzzy": {
+      "anchor_top1": {
+        "macro": 0.47749999910593033,
+        "by_group": {
+          "IMVO_en": 0.18000000715255737,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.5199999809265137,
+          "ISIG_xh": 0.46000000834465027
+        },
+        "ci95": [
+          0.3474999964237213,
+          0.5799999833106995
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.3866666654745738,
+        "secondary_three_cell_ci95": [
+          0.31333333253860474,
+          0.46000003814697266
+        ]
+      },
+      "top1": {
+        "macro": 0.48250000923871994,
+        "by_group": {
+          "IMVO_en": 0.18000000715255737,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.5400000214576721,
+          "ISIG_xh": 0.46000000834465027
+        },
+        "ci95": [
+          0.35249999165534973,
+          0.5849999785423279
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.3933333456516266,
+        "secondary_three_cell_ci95": [
+          0.320000022649765,
+          0.46666669845581055
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.7849999964237213,
+        "by_group": {
+          "IMVO_en": 0.5,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8399999737739563,
+          "ISIG_xh": 0.800000011920929
+        },
+        "ci95": [
+          0.73499995470047,
+          0.8350000381469727
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.7133333285649618,
+        "secondary_three_cell_ci95": [
+          0.6466666460037231,
+          0.7800000309944153
+        ]
+      },
+      "top5": {
+        "macro": 0.7900000065565109,
+        "by_group": {
+          "IMVO_en": 0.5,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8600000143051147,
+          "ISIG_xh": 0.800000011920929
+        },
+        "ci95": [
+          0.7400000095367432,
+          0.8400000333786011
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.7200000087420145,
+        "secondary_three_cell_ci95": [
+          0.6533333659172058,
+          0.7866666913032532
+        ]
+      },
+      "recall20": {
+        "macro": 0.9950000047683716,
+        "by_group": {
+          "IMVO_en": 0.9800000190734863,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 1.0,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.9850000143051147,
+          1.0
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9933333396911621,
+        "secondary_three_cell_ci95": [
+          0.9800000190734863,
+          1.0
+        ]
+      }
+    },
+    "keyword_hard_fullfuzzy": {
+      "anchor_top1": {
+        "macro": 0.41499999910593033,
+        "by_group": {
+          "IMVO_en": 0.2199999988079071,
+          "ISIG_en": 0.5,
+          "IMVO_xh": 0.47999998927116394,
+          "ISIG_xh": 0.46000000834465027
+        },
+        "ci95": [
+          0.2849999964237213,
+          0.550000011920929
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.3866666654745738,
+        "secondary_three_cell_ci95": [
+          0.31333330273628235,
+          0.46666666865348816
+        ]
+      },
+      "top1": {
+        "macro": 0.48250000178813934,
+        "by_group": {
+          "IMVO_en": 0.2199999988079071,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.5,
+          "ISIG_xh": 0.46000000834465027
+        },
+        "ci95": [
+          0.35249999165534973,
+          0.5899999737739563
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.3933333357175191,
+        "secondary_three_cell_ci95": [
+          0.3199999928474426,
+          0.47333332896232605
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.7325000017881393,
+        "by_group": {
+          "IMVO_en": 0.5600000023841858,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.8199999928474426,
+          "ISIG_xh": 0.800000011920929
+        },
+        "ci95": [
+          0.6024999618530273,
+          0.8349999785423279
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.7266666690508524,
+        "secondary_three_cell_ci95": [
+          0.6599999666213989,
+          0.7933333516120911
+        ]
+      },
+      "top5": {
+        "macro": 0.7424999922513962,
+        "by_group": {
+          "IMVO_en": 0.5799999833106995,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.8399999737739563,
+          "ISIG_xh": 0.800000011920929
+        },
+        "ci95": [
+          0.612500011920929,
+          0.8400000333786011
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.7399999896685282,
+        "secondary_three_cell_ci95": [
+          0.6733333468437195,
+          0.8066666722297668
+        ]
+      },
+      "recall20": {
+        "macro": 0.927499994635582,
+        "by_group": {
+          "IMVO_en": 0.9599999785423279,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 1.0,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.8025000095367432,
+          1.0
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9866666595141093,
+        "secondary_three_cell_ci95": [
+          0.9666666984558105,
+          1.0
+        ]
+      }
+    },
+    "keyword_raw_local120": {
+      "anchor_top1": {
+        "macro": 0.9174999892711639,
+        "by_group": {
+          "IMVO_en": 0.9599999785423279,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.9599999785423279,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.7925000190734863,
+          0.9950000047683716
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9733333190282186,
+        "secondary_three_cell_ci95": [
+          0.9466666579246521,
+          0.9933333396911621
+        ]
+      },
+      "top1": {
+        "macro": 0.9900000095367432,
+        "by_group": {
+          "IMVO_en": 0.9800000190734863,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.9800000190734863,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.9750000238418579,
+          1.0
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9866666793823242,
+        "secondary_three_cell_ci95": [
+          0.9666666984558105,
+          1.0
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.9900000095367432,
+        "by_group": {
+          "IMVO_en": 0.9800000190734863,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.9800000190734863,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.9750000238418579,
+          1.0
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9866666793823242,
+        "secondary_three_cell_ci95": [
+          0.9666666984558105,
+          1.0
+        ]
+      },
+      "top5": {
+        "macro": 0.9950000047683716,
+        "by_group": {
+          "IMVO_en": 0.9800000190734863,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 1.0,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.9850000143051147,
+          1.0
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9933333396911621,
+        "secondary_three_cell_ci95": [
+          0.9800000190734863,
+          1.0
+        ]
+      },
+      "recall20": {
+        "macro": 0.9950000047683716,
+        "by_group": {
+          "IMVO_en": 0.9800000190734863,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 1.0,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.9850000143051147,
+          1.0
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9933333396911621,
+        "secondary_three_cell_ci95": [
+          0.9800000190734863,
+          1.0
+        ]
+      }
+    },
+    "keyword_gated_local120": {
+      "anchor_top1": {
+        "macro": 0.9174999892711639,
+        "by_group": {
+          "IMVO_en": 0.9599999785423279,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.9599999785423279,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.7925000190734863,
+          0.9950000047683716
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9733333190282186,
+        "secondary_three_cell_ci95": [
+          0.9466666579246521,
+          0.9933333396911621
+        ]
+      },
+      "top1": {
+        "macro": 0.9900000095367432,
+        "by_group": {
+          "IMVO_en": 0.9800000190734863,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.9800000190734863,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.9750000238418579,
+          1.0
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9866666793823242,
+        "secondary_three_cell_ci95": [
+          0.9666666984558105,
+          1.0
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.9900000095367432,
+        "by_group": {
+          "IMVO_en": 0.9800000190734863,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.9800000190734863,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.9750000238418579,
+          1.0
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9866666793823242,
+        "secondary_three_cell_ci95": [
+          0.9666666984558105,
+          1.0
+        ]
+      },
+      "top5": {
+        "macro": 0.9950000047683716,
+        "by_group": {
+          "IMVO_en": 0.9800000190734863,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 1.0,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.9850000143051147,
+          1.0
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9933333396911621,
+        "secondary_three_cell_ci95": [
+          0.9800000190734863,
+          1.0
+        ]
+      },
+      "recall20": {
+        "macro": 0.9950000047683716,
+        "by_group": {
+          "IMVO_en": 0.9800000190734863,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 1.0,
+          "ISIG_xh": 1.0
+        },
+        "ci95": [
+          0.9850000143051147,
+          1.0
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9933333396911621,
+        "secondary_three_cell_ci95": [
+          0.9800000190734863,
+          1.0
+        ]
+      }
+    },
+    "clean_raw_bm25": {
+      "anchor_top1": {
+        "macro": 0.6024999991059303,
+        "by_group": {
+          "IMVO_en": 0.2199999988079071,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.5799999833106995,
+          "ISIG_xh": 0.8600000143051147
+        },
+        "ci95": [
+          0.4724999964237213,
+          0.7000000476837158
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.5533333321412405,
+        "secondary_three_cell_ci95": [
+          0.4866666793823242,
+          0.6200000047683716
+        ]
+      },
+      "top1": {
+        "macro": 0.669999998062849,
+        "by_group": {
+          "IMVO_en": 0.23999999463558197,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.5799999833106995,
+          "ISIG_xh": 0.8600000143051147
+        },
+        "ci95": [
+          0.6200000047683716,
+          0.7200000286102295
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.559999997417132,
+        "secondary_three_cell_ci95": [
+          0.4933333396911621,
+          0.6266666650772095
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.8049999997019768,
+        "by_group": {
+          "IMVO_en": 0.41999998688697815,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8199999928474426,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.7599999904632568,
+          0.8500000238418579
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.7399999996026357,
+        "secondary_three_cell_ci95": [
+          0.6800000071525574,
+          0.800000011920929
+        ]
+      },
+      "top5": {
+        "macro": 0.8149999976158142,
+        "by_group": {
+          "IMVO_en": 0.4399999976158142,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8399999737739563,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.7699999809265137,
+          0.8600000143051147
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.753333330154419,
+        "secondary_three_cell_ci95": [
+          0.6933333277702332,
+          0.8133333325386047
+        ]
+      },
+      "recall20": {
+        "macro": 0.9200000017881393,
+        "by_group": {
+          "IMVO_en": 0.7799999713897705,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.9200000166893005,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.8849999904632568,
+          0.9549999833106995
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8933333357175192,
+        "secondary_three_cell_ci95": [
+          0.8466666340827942,
+          0.9399999976158142
+        ]
+      }
+    },
+    "clean_raw_fullfuzzy": {
+      "anchor_top1": {
+        "macro": 0.8224999904632568,
+        "by_group": {
+          "IMVO_en": 0.7400000095367432,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.8399999737739563,
+          "ISIG_xh": 0.9599999785423279
+        },
+        "ci95": [
+          0.6973749905824662,
+          0.9149999618530273
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8466666539510092,
+        "secondary_three_cell_ci95": [
+          0.7866666913032532,
+          0.9000000357627869
+        ]
+      },
+      "top1": {
+        "macro": 0.8949999809265137,
+        "by_group": {
+          "IMVO_en": 0.7799999713897705,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8399999737739563,
+          "ISIG_xh": 0.9599999785423279
+        },
+        "ci95": [
+          0.8550000190734863,
+          0.9350000023841858
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8599999745686849,
+        "secondary_three_cell_ci95": [
+          0.8066666722297668,
+          0.9133333563804626
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.9099999964237213,
+        "by_group": {
+          "IMVO_en": 0.7599999904632568,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8999999761581421,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.8700000047683716,
+          0.9449999928474426
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8799999952316284,
+        "secondary_three_cell_ci95": [
+          0.8266666531562805,
+          0.9266666769981384
+        ]
+      },
+      "top5": {
+        "macro": 0.9200000017881393,
+        "by_group": {
+          "IMVO_en": 0.7799999713897705,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.9200000166893005,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.8849999904632568,
+          0.9549999833106995
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8933333357175192,
+        "secondary_three_cell_ci95": [
+          0.8466666340827942,
+          0.9399999976158142
+        ]
+      },
+      "recall20": {
+        "macro": 0.9200000017881393,
+        "by_group": {
+          "IMVO_en": 0.7799999713897705,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.9200000166893005,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.8849999904632568,
+          0.9549999833106995
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8933333357175192,
+        "secondary_three_cell_ci95": [
+          0.8466666340827942,
+          0.9399999976158142
+        ]
+      }
+    },
+    "clean_gated_fullfuzzy": {
+      "anchor_top1": {
+        "macro": 0.8274999856948853,
+        "by_group": {
+          "IMVO_en": 0.7599999904632568,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.8399999737739563,
+          "ISIG_xh": 0.9599999785423279
+        },
+        "ci95": [
+          0.6974999904632568,
+          0.9199999570846558
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.853333314259847,
+        "secondary_three_cell_ci95": [
+          0.7933333516120911,
+          0.9066666960716248
+        ]
+      },
+      "top1": {
+        "macro": 0.8999999910593033,
+        "by_group": {
+          "IMVO_en": 0.800000011920929,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8399999737739563,
+          "ISIG_xh": 0.9599999785423279
+        },
+        "ci95": [
+          0.8600000143051147,
+          0.9399999976158142
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8666666547457377,
+        "secondary_three_cell_ci95": [
+          0.8133333325386047,
+          0.9200000166893005
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.9149999916553497,
+        "by_group": {
+          "IMVO_en": 0.7799999713897705,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8999999761581421,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.875,
+          0.949999988079071
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8866666555404663,
+        "secondary_three_cell_ci95": [
+          0.8333333134651184,
+          0.9333333373069763
+        ]
+      },
+      "top5": {
+        "macro": 0.925000011920929,
+        "by_group": {
+          "IMVO_en": 0.800000011920929,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.9200000166893005,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.8899999856948853,
+          0.9599999785423279
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9000000158945719,
+        "secondary_three_cell_ci95": [
+          0.8533332943916321,
+          0.9466666579246521
+        ]
+      },
+      "recall20": {
+        "macro": 0.925000011920929,
+        "by_group": {
+          "IMVO_en": 0.800000011920929,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.9200000166893005,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.8899999856948853,
+          0.9599999785423279
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9000000158945719,
+        "secondary_three_cell_ci95": [
+          0.8533332943916321,
+          0.9466666579246521
+        ]
+      }
+    },
+    "clean_unconditional_fullfuzzy": {
+      "anchor_top1": {
+        "macro": 0.8224999904632568,
+        "by_group": {
+          "IMVO_en": 0.7599999904632568,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.8199999928474426,
+          "ISIG_xh": 0.9599999785423279
+        },
+        "ci95": [
+          0.6924999952316284,
+          0.9149999618530273
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8466666539510092,
+        "secondary_three_cell_ci95": [
+          0.7866666913032532,
+          0.9000000357627869
+        ]
+      },
+      "top1": {
+        "macro": 0.8949999958276749,
+        "by_group": {
+          "IMVO_en": 0.800000011920929,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8199999928474426,
+          "ISIG_xh": 0.9599999785423279
+        },
+        "ci95": [
+          0.8500000238418579,
+          0.9350000023841858
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8599999944368998,
+        "secondary_three_cell_ci95": [
+          0.800000011920929,
+          0.9133333563804626
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.9099999964237213,
+        "by_group": {
+          "IMVO_en": 0.7799999713897705,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8799999952316284,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.8700000047683716,
+          0.9449999928474426
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8799999952316284,
+        "secondary_three_cell_ci95": [
+          0.8266666531562805,
+          0.9266666769981384
+        ]
+      },
+      "top5": {
+        "macro": 0.9200000017881393,
+        "by_group": {
+          "IMVO_en": 0.800000011920929,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8999999761581421,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.8849999904632568,
+          0.9549999833106995
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8933333357175192,
+        "secondary_three_cell_ci95": [
+          0.8466666340827942,
+          0.9399999976158142
+        ]
+      },
+      "recall20": {
+        "macro": 0.9200000017881393,
+        "by_group": {
+          "IMVO_en": 0.800000011920929,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8999999761581421,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.8849999904632568,
+          0.9549999833106995
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8933333357175192,
+        "secondary_three_cell_ci95": [
+          0.8466666340827942,
+          0.9399999976158142
+        ]
+      }
+    },
+    "clean_hard_fullfuzzy": {
+      "anchor_top1": {
+        "macro": 0.7450000047683716,
+        "by_group": {
+          "IMVO_en": 0.7400000095367432,
+          "ISIG_en": 0.5,
+          "IMVO_xh": 0.8199999928474426,
+          "ISIG_xh": 0.9200000166893005
+        },
+        "ci95": [
+          0.6150000095367432,
+          0.875
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8266666730244955,
+        "secondary_three_cell_ci95": [
+          0.7666666507720947,
+          0.8800000548362732
+        ]
+      },
+      "top1": {
+        "macro": 0.8125,
+        "by_group": {
+          "IMVO_en": 0.7599999904632568,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.8199999928474426,
+          "ISIG_xh": 0.9200000166893005
+        },
+        "ci95": [
+          0.6874375015497208,
+          0.9050000309944153
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8333333333333334,
+        "secondary_three_cell_ci95": [
+          0.7733333706855774,
+          0.8866667151451111
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.822500005364418,
+        "by_group": {
+          "IMVO_en": 0.7400000095367432,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.8600000143051147,
+          "ISIG_xh": 0.9399999976158142
+        },
+        "ci95": [
+          0.6974999904632568,
+          0.9149999618530273
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.846666673819224,
+        "secondary_three_cell_ci95": [
+          0.7866666913032532,
+          0.9000000357627869
+        ]
+      },
+      "top5": {
+        "macro": 0.8324999958276749,
+        "by_group": {
+          "IMVO_en": 0.7599999904632568,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.8799999952316284,
+          "ISIG_xh": 0.9399999976158142
+        },
+        "ci95": [
+          0.7074999809265137,
+          0.925000011920929
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8599999944368998,
+        "secondary_three_cell_ci95": [
+          0.8066666722297668,
+          0.9133333563804626
+        ]
+      },
+      "recall20": {
+        "macro": 0.8324999958276749,
+        "by_group": {
+          "IMVO_en": 0.7599999904632568,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.8799999952316284,
+          "ISIG_xh": 0.9399999976158142
+        },
+        "ci95": [
+          0.7074999809265137,
+          0.925000011920929
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8599999944368998,
+        "secondary_three_cell_ci95": [
+          0.8066666722297668,
+          0.9133333563804626
+        ]
+      }
+    },
+    "clean_raw_local120": {
+      "anchor_top1": {
+        "macro": 0.7574999928474426,
+        "by_group": {
+          "IMVO_en": 0.5199999809265137,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.8199999928474426,
+          "ISIG_xh": 0.9399999976158142
+        },
+        "ci95": [
+          0.6275000557303428,
+          0.8550000190734863
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.7599999904632568,
+        "secondary_three_cell_ci95": [
+          0.6933333277702332,
+          0.8199999928474426
+        ]
+      },
+      "top1": {
+        "macro": 0.8250000029802322,
+        "by_group": {
+          "IMVO_en": 0.5400000214576721,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8199999928474426,
+          "ISIG_xh": 0.9399999976158142
+        },
+        "ci95": [
+          0.7750000357627869,
+          0.8700000047683716
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.7666666706403097,
+        "secondary_three_cell_ci95": [
+          0.7000000461935997,
+          0.8266666531562805
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.8949999958276749,
+        "by_group": {
+          "IMVO_en": 0.699999988079071,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8999999761581421,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.8550000190734863,
+          0.9300000071525574
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8599999944368998,
+        "secondary_three_cell_ci95": [
+          0.8066666722297668,
+          0.9066666960716248
+        ]
+      },
+      "top5": {
+        "macro": 0.9050000160932541,
+        "by_group": {
+          "IMVO_en": 0.7200000286102295,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.9200000166893005,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.8650000095367432,
+          0.9399999976158142
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8733333547910055,
+        "secondary_three_cell_ci95": [
+          0.8199999928474426,
+          0.9200000166893005
+        ]
+      },
+      "recall20": {
+        "macro": 0.9200000017881393,
+        "by_group": {
+          "IMVO_en": 0.7799999713897705,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.9200000166893005,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.8849999904632568,
+          0.9549999833106995
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8933333357175192,
+        "secondary_three_cell_ci95": [
+          0.8466666340827942,
+          0.9399999976158142
+        ]
+      }
+    },
+    "clean_gated_local120": {
+      "anchor_top1": {
+        "macro": 0.7574999928474426,
+        "by_group": {
+          "IMVO_en": 0.5199999809265137,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.8199999928474426,
+          "ISIG_xh": 0.9399999976158142
+        },
+        "ci95": [
+          0.6275000557303428,
+          0.8550000190734863
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.7599999904632568,
+        "secondary_three_cell_ci95": [
+          0.6933333277702332,
+          0.8199999928474426
+        ]
+      },
+      "top1": {
+        "macro": 0.8250000029802322,
+        "by_group": {
+          "IMVO_en": 0.5400000214576721,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8199999928474426,
+          "ISIG_xh": 0.9399999976158142
+        },
+        "ci95": [
+          0.7750000357627869,
+          0.8700000047683716
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.7666666706403097,
+        "secondary_three_cell_ci95": [
+          0.7000000461935997,
+          0.8266666531562805
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.9000000059604645,
+        "by_group": {
+          "IMVO_en": 0.7200000286102295,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.8999999761581421,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.8600000143051147,
+          0.9350000023841858
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8666666746139526,
+        "secondary_three_cell_ci95": [
+          0.8133333325386047,
+          0.9133333563804626
+        ]
+      },
+      "top5": {
+        "macro": 0.9100000113248825,
+        "by_group": {
+          "IMVO_en": 0.7400000095367432,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.9200000166893005,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.8700000047683716,
+          0.9449999928474426
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.8800000150998434,
+        "secondary_three_cell_ci95": [
+          0.8266666531562805,
+          0.9266666769981384
+        ]
+      },
+      "recall20": {
+        "macro": 0.925000011920929,
+        "by_group": {
+          "IMVO_en": 0.800000011920929,
+          "ISIG_en": 1.0,
+          "IMVO_xh": 0.9200000166893005,
+          "ISIG_xh": 0.9800000190734863
+        },
+        "ci95": [
+          0.8899999856948853,
+          0.9599999785423279
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.9000000158945719,
+        "secondary_three_cell_ci95": [
+          0.8533332943916321,
+          0.9466666579246521
+        ]
+      }
+    },
+    "synthetic_noise_raw_bm25": {
+      "anchor_top1": {
+        "macro": 0.18750000093132257,
+        "by_group": {
+          "IMVO_en": 0.03999999910593033,
+          "ISIG_en": 0.25,
+          "IMVO_xh": 0.05999999865889549,
+          "ISIG_xh": 0.4000000059604645
+        },
+        "ci95": [
+          0.0949999988079071,
+          0.3125
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.1666666679084301,
+        "secondary_three_cell_ci95": [
+          0.1133333370089531,
+          0.2199999839067459
+        ]
+      },
+      "top1": {
+        "macro": 0.18750000093132257,
+        "by_group": {
+          "IMVO_en": 0.03999999910593033,
+          "ISIG_en": 0.25,
+          "IMVO_xh": 0.05999999865889549,
+          "ISIG_xh": 0.4000000059604645
+        },
+        "ci95": [
+          0.0949999988079071,
+          0.3125
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.1666666679084301,
+        "secondary_three_cell_ci95": [
+          0.1133333370089531,
+          0.2199999839067459
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.3100000051781535,
+        "by_group": {
+          "IMVO_en": 0.05999999865889549,
+          "ISIG_en": 0.5,
+          "IMVO_xh": 0.14000000059604645,
+          "ISIG_xh": 0.5400000214576721
+        },
+        "ci95": [
+          0.18000000715255737,
+          0.4399999976158142
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.24666667357087135,
+        "secondary_three_cell_ci95": [
+          0.18666666746139526,
+          0.30666667222976685
+        ]
+      },
+      "top5": {
+        "macro": 0.3100000051781535,
+        "by_group": {
+          "IMVO_en": 0.05999999865889549,
+          "ISIG_en": 0.5,
+          "IMVO_xh": 0.14000000059604645,
+          "ISIG_xh": 0.5400000214576721
+        },
+        "ci95": [
+          0.18000000715255737,
+          0.4399999976158142
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.24666667357087135,
+        "secondary_three_cell_ci95": [
+          0.18666666746139526,
+          0.30666667222976685
+        ]
+      },
+      "recall20": {
+        "macro": 0.4575000014156103,
+        "by_group": {
+          "IMVO_en": 0.11999999731779099,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.2800000011920929,
+          "ISIG_xh": 0.6800000071525574
+        },
+        "ci95": [
+          0.32749998569488525,
+          0.5550000071525574
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.36000000188748044,
+        "secondary_three_cell_ci95": [
+          0.2933333218097687,
+          0.42666664719581604
+        ]
+      }
+    },
+    "synthetic_noise_raw_fullfuzzy": {
+      "anchor_top1": {
+        "macro": 0.44250000454485416,
+        "by_group": {
+          "IMVO_en": 0.10000000149011612,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.25999999046325684,
+          "ISIG_xh": 0.6600000262260437
+        },
+        "ci95": [
+          0.3125,
+          0.5400000214576721
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.34000000605980557,
+        "secondary_three_cell_ci95": [
+          0.273333340883255,
+          0.40666666626930237
+        ]
+      },
+      "top1": {
+        "macro": 0.4475000035017729,
+        "by_group": {
+          "IMVO_en": 0.11999999731779099,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.25999999046325684,
+          "ISIG_xh": 0.6600000262260437
+        },
+        "ci95": [
+          0.3174999952316284,
+          0.5450000166893005
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.3466666713356972,
+        "secondary_three_cell_ci95": [
+          0.2800000011920929,
+          0.41333332657814026
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.4575000014156103,
+        "by_group": {
+          "IMVO_en": 0.11999999731779099,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.2800000011920929,
+          "ISIG_xh": 0.6800000071525574
+        },
+        "ci95": [
+          0.32749998569488525,
+          0.5550000071525574
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.36000000188748044,
+        "secondary_three_cell_ci95": [
+          0.2933333218097687,
+          0.42666664719581604
+        ]
+      },
+      "top5": {
+        "macro": 0.4575000014156103,
+        "by_group": {
+          "IMVO_en": 0.11999999731779099,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.2800000011920929,
+          "ISIG_xh": 0.6800000071525574
+        },
+        "ci95": [
+          0.32749998569488525,
+          0.5550000071525574
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.36000000188748044,
+        "secondary_three_cell_ci95": [
+          0.2933333218097687,
+          0.42666664719581604
+        ]
+      },
+      "recall20": {
+        "macro": 0.4575000014156103,
+        "by_group": {
+          "IMVO_en": 0.11999999731779099,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.2800000011920929,
+          "ISIG_xh": 0.6800000071525574
+        },
+        "ci95": [
+          0.32749998569488525,
+          0.5550000071525574
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.36000000188748044,
+        "secondary_three_cell_ci95": [
+          0.2933333218097687,
+          0.42666664719581604
+        ]
+      }
+    },
+    "synthetic_noise_gated_fullfuzzy": {
+      "anchor_top1": {
+        "macro": 0.4475000035017729,
+        "by_group": {
+          "IMVO_en": 0.11999999731779099,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.25999999046325684,
+          "ISIG_xh": 0.6600000262260437
+        },
+        "ci95": [
+          0.3174999952316284,
+          0.5450000166893005
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.3466666713356972,
+        "secondary_three_cell_ci95": [
+          0.2800000011920929,
+          0.41333332657814026
+        ]
+      },
+      "top1": {
+        "macro": 0.45250000432133675,
+        "by_group": {
+          "IMVO_en": 0.14000000059604645,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.25999999046325684,
+          "ISIG_xh": 0.6600000262260437
+        },
+        "ci95": [
+          0.32249999046325684,
+          0.550000011920929
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.35333333909511566,
+        "secondary_three_cell_ci95": [
+          0.2866666615009308,
+          0.41999998688697815
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.4625000022351742,
+        "by_group": {
+          "IMVO_en": 0.14000000059604645,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.2800000011920929,
+          "ISIG_xh": 0.6800000071525574
+        },
+        "ci95": [
+          0.33249998092651367,
+          0.5600000023841858
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.3666666696468989,
+        "secondary_three_cell_ci95": [
+          0.29999998211860657,
+          0.43333330750465393
+        ]
+      },
+      "top5": {
+        "macro": 0.4625000022351742,
+        "by_group": {
+          "IMVO_en": 0.14000000059604645,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.2800000011920929,
+          "ISIG_xh": 0.6800000071525574
+        },
+        "ci95": [
+          0.33249998092651367,
+          0.5600000023841858
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.3666666696468989,
+        "secondary_three_cell_ci95": [
+          0.29999998211860657,
+          0.43333330750465393
+        ]
+      },
+      "recall20": {
+        "macro": 0.4625000022351742,
+        "by_group": {
+          "IMVO_en": 0.14000000059604645,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.2800000011920929,
+          "ISIG_xh": 0.6800000071525574
+        },
+        "ci95": [
+          0.33249998092651367,
+          0.5600000023841858
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.3666666696468989,
+        "secondary_three_cell_ci95": [
+          0.29999998211860657,
+          0.43333330750465393
+        ]
+      }
+    },
+    "synthetic_noise_unconditional_fullfuzzy": {
+      "anchor_top1": {
+        "macro": 0.44250000454485416,
+        "by_group": {
+          "IMVO_en": 0.11999999731779099,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.23999999463558197,
+          "ISIG_xh": 0.6600000262260437
+        },
+        "ci95": [
+          0.3125,
+          0.5400000214576721
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.34000000605980557,
+        "secondary_three_cell_ci95": [
+          0.273333340883255,
+          0.40666666626930237
+        ]
+      },
+      "top1": {
+        "macro": 0.44750000536441803,
+        "by_group": {
+          "IMVO_en": 0.14000000059604645,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.23999999463558197,
+          "ISIG_xh": 0.6600000262260437
+        },
+        "ci95": [
+          0.3174999952316284,
+          0.5450000166893005
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.34666667381922406,
+        "secondary_three_cell_ci95": [
+          0.2800000011920929,
+          0.41333332657814026
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.45749999955296516,
+        "by_group": {
+          "IMVO_en": 0.14000000059604645,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.25999999046325684,
+          "ISIG_xh": 0.6800000071525574
+        },
+        "ci95": [
+          0.32749998569488525,
+          0.5550000071525574
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.35999999940395355,
+        "secondary_three_cell_ci95": [
+          0.2933333218097687,
+          0.42666664719581604
+        ]
+      },
+      "top5": {
+        "macro": 0.45749999955296516,
+        "by_group": {
+          "IMVO_en": 0.14000000059604645,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.25999999046325684,
+          "ISIG_xh": 0.6800000071525574
+        },
+        "ci95": [
+          0.32749998569488525,
+          0.5550000071525574
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.35999999940395355,
+        "secondary_three_cell_ci95": [
+          0.2933333218097687,
+          0.42666664719581604
+        ]
+      },
+      "recall20": {
+        "macro": 0.45749999955296516,
+        "by_group": {
+          "IMVO_en": 0.14000000059604645,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.25999999046325684,
+          "ISIG_xh": 0.6800000071525574
+        },
+        "ci95": [
+          0.32749998569488525,
+          0.5550000071525574
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.35999999940395355,
+        "secondary_three_cell_ci95": [
+          0.2933333218097687,
+          0.42666664719581604
+        ]
+      }
+    },
+    "synthetic_noise_hard_fullfuzzy": {
+      "anchor_top1": {
+        "macro": 0.41499999538064003,
+        "by_group": {
+          "IMVO_en": 0.14000000059604645,
+          "ISIG_en": 0.5,
+          "IMVO_xh": 0.3799999952316284,
+          "ISIG_xh": 0.6399999856948853
+        },
+        "ci95": [
+          0.2849999964237213,
+          0.550000011920929
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.38666666050752,
+        "secondary_three_cell_ci95": [
+          0.3133333623409271,
+          0.46000000834465027
+        ]
+      },
+      "top1": {
+        "macro": 0.41499999538064003,
+        "by_group": {
+          "IMVO_en": 0.14000000059604645,
+          "ISIG_en": 0.5,
+          "IMVO_xh": 0.3799999952316284,
+          "ISIG_xh": 0.6399999856948853
+        },
+        "ci95": [
+          0.2849999964237213,
+          0.550000011920929
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.38666666050752,
+        "secondary_three_cell_ci95": [
+          0.3133333623409271,
+          0.46000000834465027
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.42000000551342964,
+        "by_group": {
+          "IMVO_en": 0.14000000059604645,
+          "ISIG_en": 0.5,
+          "IMVO_xh": 0.3799999952316284,
+          "ISIG_xh": 0.6600000262260437
+        },
+        "ci95": [
+          0.28999999165534973,
+          0.5550000071525574
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.3933333406845729,
+        "secondary_three_cell_ci95": [
+          0.320000022649765,
+          0.46666666865348816
+        ]
+      },
+      "top5": {
+        "macro": 0.42000000551342964,
+        "by_group": {
+          "IMVO_en": 0.14000000059604645,
+          "ISIG_en": 0.5,
+          "IMVO_xh": 0.3799999952316284,
+          "ISIG_xh": 0.6600000262260437
+        },
+        "ci95": [
+          0.28999999165534973,
+          0.5550000071525574
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.3933333406845729,
+        "secondary_three_cell_ci95": [
+          0.320000022649765,
+          0.46666666865348816
+        ]
+      },
+      "recall20": {
+        "macro": 0.42000000551342964,
+        "by_group": {
+          "IMVO_en": 0.14000000059604645,
+          "ISIG_en": 0.5,
+          "IMVO_xh": 0.3799999952316284,
+          "ISIG_xh": 0.6600000262260437
+        },
+        "ci95": [
+          0.28999999165534973,
+          0.5550000071525574
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.3933333406845729,
+        "secondary_three_cell_ci95": [
+          0.320000022649765,
+          0.46666666865348816
+        ]
+      }
+    },
+    "synthetic_noise_raw_local120": {
+      "anchor_top1": {
+        "macro": 0.2075000014156103,
+        "by_group": {
+          "IMVO_en": 0.03999999910593033,
+          "ISIG_en": 0.25,
+          "IMVO_xh": 0.07999999821186066,
+          "ISIG_xh": 0.46000000834465027
+        },
+        "ci95": [
+          0.11500000208616257,
+          0.33250001072883606
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.19333333522081375,
+        "secondary_three_cell_ci95": [
+          0.14000000059604645,
+          0.24666666984558105
+        ]
+      },
+      "top1": {
+        "macro": 0.2075000014156103,
+        "by_group": {
+          "IMVO_en": 0.03999999910593033,
+          "ISIG_en": 0.25,
+          "IMVO_xh": 0.07999999821186066,
+          "ISIG_xh": 0.46000000834465027
+        },
+        "ci95": [
+          0.11500000208616257,
+          0.33250001072883606
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.19333333522081375,
+        "secondary_three_cell_ci95": [
+          0.14000000059604645,
+          0.24666666984558105
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.3350000074133277,
+        "by_group": {
+          "IMVO_en": 0.05999999865889549,
+          "ISIG_en": 0.5,
+          "IMVO_xh": 0.18000000715255737,
+          "ISIG_xh": 0.6000000238418579
+        },
+        "ci95": [
+          0.20499999821186066,
+          0.4650000035762787
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.2800000098844369,
+        "secondary_three_cell_ci95": [
+          0.2199999839067459,
+          0.3400000035762787
+        ]
+      },
+      "top5": {
+        "macro": 0.3350000074133277,
+        "by_group": {
+          "IMVO_en": 0.05999999865889549,
+          "ISIG_en": 0.5,
+          "IMVO_xh": 0.18000000715255737,
+          "ISIG_xh": 0.6000000238418579
+        },
+        "ci95": [
+          0.20499999821186066,
+          0.4650000035762787
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.2800000098844369,
+        "secondary_three_cell_ci95": [
+          0.2199999839067459,
+          0.3400000035762787
+        ]
+      },
+      "recall20": {
+        "macro": 0.4575000014156103,
+        "by_group": {
+          "IMVO_en": 0.11999999731779099,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.2800000011920929,
+          "ISIG_xh": 0.6800000071525574
+        },
+        "ci95": [
+          0.32749998569488525,
+          0.5550000071525574
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.36000000188748044,
+        "secondary_three_cell_ci95": [
+          0.2933333218097687,
+          0.42666664719581604
+        ]
+      }
+    },
+    "synthetic_noise_gated_local120": {
+      "anchor_top1": {
+        "macro": 0.2075000014156103,
+        "by_group": {
+          "IMVO_en": 0.03999999910593033,
+          "ISIG_en": 0.25,
+          "IMVO_xh": 0.07999999821186066,
+          "ISIG_xh": 0.46000000834465027
+        },
+        "ci95": [
+          0.11500000208616257,
+          0.33250001072883606
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.19333333522081375,
+        "secondary_three_cell_ci95": [
+          0.14000000059604645,
+          0.24666666984558105
+        ]
+      },
+      "top1": {
+        "macro": 0.2075000014156103,
+        "by_group": {
+          "IMVO_en": 0.03999999910593033,
+          "ISIG_en": 0.25,
+          "IMVO_xh": 0.07999999821186066,
+          "ISIG_xh": 0.46000000834465027
+        },
+        "ci95": [
+          0.11500000208616257,
+          0.33250001072883606
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.19333333522081375,
+        "secondary_three_cell_ci95": [
+          0.14000000059604645,
+          0.24666666984558105
+        ]
+      },
+      "anchor_top5": {
+        "macro": 0.3350000074133277,
+        "by_group": {
+          "IMVO_en": 0.05999999865889549,
+          "ISIG_en": 0.5,
+          "IMVO_xh": 0.18000000715255737,
+          "ISIG_xh": 0.6000000238418579
+        },
+        "ci95": [
+          0.20499999821186066,
+          0.4650000035762787
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.2800000098844369,
+        "secondary_three_cell_ci95": [
+          0.2199999839067459,
+          0.3400000035762787
+        ]
+      },
+      "top5": {
+        "macro": 0.3350000074133277,
+        "by_group": {
+          "IMVO_en": 0.05999999865889549,
+          "ISIG_en": 0.5,
+          "IMVO_xh": 0.18000000715255737,
+          "ISIG_xh": 0.6000000238418579
+        },
+        "ci95": [
+          0.20499999821186066,
+          0.4650000035762787
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.2800000098844369,
+        "secondary_three_cell_ci95": [
+          0.2199999839067459,
+          0.3400000035762787
+        ]
+      },
+      "recall20": {
+        "macro": 0.4625000022351742,
+        "by_group": {
+          "IMVO_en": 0.14000000059604645,
+          "ISIG_en": 0.75,
+          "IMVO_xh": 0.2800000011920929,
+          "ISIG_xh": 0.6800000071525574
+        },
+        "ci95": [
+          0.33249998092651367,
+          0.5600000023841858
+        ],
+        "n_issues_by_group": {
+          "IMVO_en": 50,
+          "ISIG_en": 4,
+          "IMVO_xh": 50,
+          "ISIG_xh": 50
+        },
+        "secondary_three_cell_macro": 0.3666666696468989,
+        "secondary_three_cell_ci95": [
+          0.29999998211860657,
+          0.43333330750465393
+        ]
+      }
+    }
+  },
+  "comparisons": {
+    "keyword_raw_fullfuzzy_minus_raw_bm25": {
+      "macro": -0.4400000050663948,
+      "by_group": {
+        "IMVO_en": -0.7400000095367432,
+        "ISIG_en": 0.0,
+        "IMVO_xh": -0.47999998927116394,
+        "ISIG_xh": -0.5400000214576721
+      },
+      "ci95": [
+        -0.5,
+        -0.3800000250339508
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": -0.5866666734218597,
+      "secondary_three_cell_ci95": [
+        -0.6666666865348816,
+        -0.5066667199134827
+      ]
+    },
+    "keyword_gated_fullfuzzy_minus_raw_bm25": {
+      "macro": -0.4400000050663948,
+      "by_group": {
+        "IMVO_en": -0.7400000095367432,
+        "ISIG_en": 0.0,
+        "IMVO_xh": -0.47999998927116394,
+        "ISIG_xh": -0.5400000214576721
+      },
+      "ci95": [
+        -0.5,
+        -0.3800000250339508
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": -0.5866666734218597,
+      "secondary_three_cell_ci95": [
+        -0.6666666865348816,
+        -0.5066667199134827
+      ]
+    },
+    "keyword_unconditional_fullfuzzy_minus_raw_bm25": {
+      "macro": -0.42500000447034836,
+      "by_group": {
+        "IMVO_en": -0.7400000095367432,
+        "ISIG_en": 0.0,
+        "IMVO_xh": -0.41999998688697815,
+        "ISIG_xh": -0.5400000214576721
+      },
+      "ci95": [
+        -0.48000001907348633,
+        -0.36500000953674316
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": -0.5666666726271311,
+      "secondary_three_cell_ci95": [
+        -0.64000004529953,
+        -0.4866666793823242
+      ]
+    },
+    "keyword_hard_fullfuzzy_minus_raw_bm25": {
+      "macro": -0.48750000447034836,
+      "by_group": {
+        "IMVO_en": -0.699999988079071,
+        "ISIG_en": -0.25,
+        "IMVO_xh": -0.46000000834465027,
+        "ISIG_xh": -0.5400000214576721
+      },
+      "ci95": [
+        -0.6175000071525574,
+        -0.3799999952316284
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": -0.5666666726271311,
+      "secondary_three_cell_ci95": [
+        -0.64000004529953,
+        -0.4866666793823242
+      ]
+    },
+    "keyword_raw_local120_minus_raw_bm25": {
+      "macro": 0.014999999664723873,
+      "by_group": {
+        "IMVO_en": 0.03999999910593033,
+        "ISIG_en": 0.0,
+        "IMVO_xh": 0.019999999552965164,
+        "ISIG_xh": 0.0
+      },
+      "ci95": [
+        0.0,
+        0.03500000014901161
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": 0.019999999552965164,
+      "secondary_three_cell_ci95": [
+        0.0,
+        0.046666666865348816
+      ]
+    },
+    "keyword_gated_local120_minus_raw_bm25": {
+      "macro": 0.014999999664723873,
+      "by_group": {
+        "IMVO_en": 0.03999999910593033,
+        "ISIG_en": 0.0,
+        "IMVO_xh": 0.019999999552965164,
+        "ISIG_xh": 0.0
+      },
+      "ci95": [
+        0.0,
+        0.03500000014901161
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": 0.019999999552965164,
+      "secondary_three_cell_ci95": [
+        0.0,
+        0.046666666865348816
+      ]
+    },
+    "clean_raw_fullfuzzy_minus_raw_bm25": {
+      "macro": 0.21999999321997166,
+      "by_group": {
+        "IMVO_en": 0.5199999809265137,
+        "ISIG_en": 0.0,
+        "IMVO_xh": 0.25999999046325684,
+        "ISIG_xh": 0.10000000149011612
+      },
+      "ci95": [
+        0.17000000178813934,
+        0.27000001072883606
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": 0.29333332429329556,
+      "secondary_three_cell_ci95": [
+        0.2266666740179062,
+        0.36000001430511475
+      ]
+    },
+    "clean_gated_fullfuzzy_minus_raw_bm25": {
+      "macro": 0.22500000335276127,
+      "by_group": {
+        "IMVO_en": 0.5400000214576721,
+        "ISIG_en": 0.0,
+        "IMVO_xh": 0.25999999046325684,
+        "ISIG_xh": 0.10000000149011612
+      },
+      "ci95": [
+        0.17499999701976776,
+        0.2750000059604645
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": 0.30000000447034836,
+      "secondary_three_cell_ci95": [
+        0.23333333432674408,
+        0.36666667461395264
+      ]
+    },
+    "clean_unconditional_fullfuzzy_minus_raw_bm25": {
+      "macro": 0.22000000439584255,
+      "by_group": {
+        "IMVO_en": 0.5400000214576721,
+        "ISIG_en": 0.0,
+        "IMVO_xh": 0.23999999463558197,
+        "ISIG_xh": 0.10000000149011612
+      },
+      "ci95": [
+        0.17000000178813934,
+        0.27000001072883606
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": 0.29333333919445675,
+      "secondary_three_cell_ci95": [
+        0.2266666740179062,
+        0.36000001430511475
+      ]
+    },
+    "clean_hard_fullfuzzy_minus_raw_bm25": {
+      "macro": 0.14249999355524778,
+      "by_group": {
+        "IMVO_en": 0.5199999809265137,
+        "ISIG_en": -0.25,
+        "IMVO_xh": 0.23999999463558197,
+        "ISIG_xh": 0.05999999865889549
+      },
+      "ci95": [
+        0.01250000570435077,
+        0.24000000953674316
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": 0.2733333247403304,
+      "secondary_three_cell_ci95": [
+        0.20666664838790894,
+        0.3400000035762787
+      ]
+    },
+    "clean_raw_local120_minus_raw_bm25": {
+      "macro": 0.1550000011920929,
+      "by_group": {
+        "IMVO_en": 0.30000001192092896,
+        "ISIG_en": 0.0,
+        "IMVO_xh": 0.23999999463558197,
+        "ISIG_xh": 0.07999999821186066
+      },
+      "ci95": [
+        0.10999999195337296,
+        0.20000001788139343
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": 0.20666666825612387,
+      "secondary_three_cell_ci95": [
+        0.14666666090488434,
+        0.2666666805744171
+      ]
+    },
+    "clean_gated_local120_minus_raw_bm25": {
+      "macro": 0.1550000011920929,
+      "by_group": {
+        "IMVO_en": 0.30000001192092896,
+        "ISIG_en": 0.0,
+        "IMVO_xh": 0.23999999463558197,
+        "ISIG_xh": 0.07999999821186066
+      },
+      "ci95": [
+        0.10999999195337296,
+        0.20000001788139343
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": 0.20666666825612387,
+      "secondary_three_cell_ci95": [
+        0.14666666090488434,
+        0.2666666805744171
+      ]
+    },
+    "synthetic_noise_raw_fullfuzzy_minus_raw_bm25": {
+      "macro": 0.25499999802559614,
+      "by_group": {
+        "IMVO_en": 0.05999999865889549,
+        "ISIG_en": 0.5,
+        "IMVO_xh": 0.20000000298023224,
+        "ISIG_xh": 0.25999999046325684
+      },
+      "ci95": [
+        0.125,
+        0.38499999046325684
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": 0.17333333070079485,
+      "secondary_three_cell_ci95": [
+        0.1133333370089531,
+        0.23333334922790527
+      ]
+    },
+    "synthetic_noise_gated_fullfuzzy_minus_raw_bm25": {
+      "macro": 0.25999999791383743,
+      "by_group": {
+        "IMVO_en": 0.07999999821186066,
+        "ISIG_en": 0.5,
+        "IMVO_xh": 0.20000000298023224,
+        "ISIG_xh": 0.25999999046325684
+      },
+      "ci95": [
+        0.12999999523162842,
+        0.38999998569488525
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": 0.17999999721844992,
+      "secondary_three_cell_ci95": [
+        0.12000000476837158,
+        0.24000000953674316
+      ]
+    },
+    "synthetic_noise_unconditional_fullfuzzy_minus_raw_bm25": {
+      "macro": 0.2549999989569187,
+      "by_group": {
+        "IMVO_en": 0.07999999821186066,
+        "ISIG_en": 0.5,
+        "IMVO_xh": 0.18000000715255737,
+        "ISIG_xh": 0.25999999046325684
+      },
+      "ci95": [
+        0.125,
+        0.38499999046325684
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": 0.1733333319425583,
+      "secondary_three_cell_ci95": [
+        0.1133333370089531,
+        0.23333334922790527
+      ]
+    },
+    "synthetic_noise_hard_fullfuzzy_minus_raw_bm25": {
+      "macro": 0.22749999724328518,
+      "by_group": {
+        "IMVO_en": 0.10000000149011612,
+        "ISIG_en": 0.25,
+        "IMVO_xh": 0.3199999928474426,
+        "ISIG_xh": 0.23999999463558197
+      },
+      "ci95": [
+        0.015000004321336746,
+        0.42000001668930054
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": 0.21999999632438025,
+      "secondary_three_cell_ci95": [
+        0.1599999964237213,
+        0.2866666615009308
+      ]
+    },
+    "synthetic_noise_raw_local120_minus_raw_bm25": {
+      "macro": 0.019999999552965164,
+      "by_group": {
+        "IMVO_en": 0.0,
+        "ISIG_en": 0.0,
+        "IMVO_xh": 0.019999999552965164,
+        "ISIG_xh": 0.05999999865889549
+      },
+      "ci95": [
+        0.004999999888241291,
+        0.03999999910593033
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": 0.02666666607062022,
+      "secondary_three_cell_ci95": [
+        0.006666666362434626,
+        0.053333330899477005
+      ]
+    },
+    "synthetic_noise_gated_local120_minus_raw_bm25": {
+      "macro": 0.019999999552965164,
+      "by_group": {
+        "IMVO_en": 0.0,
+        "ISIG_en": 0.0,
+        "IMVO_xh": 0.019999999552965164,
+        "ISIG_xh": 0.05999999865889549
+      },
+      "ci95": [
+        0.004999999888241291,
+        0.03999999910593033
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": 0.02666666607062022,
+      "secondary_three_cell_ci95": [
+        0.006666666362434626,
+        0.053333330899477005
+      ]
+    },
+    "H20a_interaction": {
+      "macro": 0.6950000077486038,
+      "by_group": {
+        "IMVO_en": 0.800000011920929,
+        "ISIG_en": 0.5,
+        "IMVO_xh": 0.6800000071525574,
+        "ISIG_xh": 0.800000011920929
+      },
+      "ci95": [
+        0.5550000071525574,
+        0.8349999785423279
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": 0.7600000103314718,
+      "secondary_three_cell_ci95": [
+        0.6666666865348816,
+        0.8533332943916321
+      ]
+    },
+    "H20b_keyword_local_minus_bm25": {
+      "macro": 0.014999999664723873,
+      "by_group": {
+        "IMVO_en": 0.03999999910593033,
+        "ISIG_en": 0.0,
+        "IMVO_xh": 0.019999999552965164,
+        "ISIG_xh": 0.0
+      },
+      "ci95": [
+        0.0,
+        0.03500000014901161
+      ],
+      "n_issues_by_group": {
+        "IMVO_en": 50,
+        "ISIG_en": 4,
+        "IMVO_xh": 50,
+        "ISIG_xh": 50
+      },
+      "secondary_three_cell_macro": 0.019999999552965164,
+      "secondary_three_cell_ci95": [
+        0.0,
+        0.046666666865348816
+      ]
+    }
+  },
+  "decision": {
+    "H20a_pass": true,
+    "H20b_pass": false,
+    "no_methods_novelty_inference": true
+  },
+  "limitations": [
+    "Source-derived keyword bags are not independently authored human information needs or semantic paraphrase judgments.",
+    "Gold is anchored by a source paragraph and repeated exact 13-token evidence, not exhaustive relevance adjudication.",
+    "Synthetic two-character plus word-boundary changes are not measured authentic historical OCR errors.",
+    "Archive English and Xhosa views are source labels, not qualified sentence- or word-level language annotations.",
+    "Isigidimi English-view independent pool had only four eligible new issue anchors after strict source exclusions.",
+    "All methods index the same collection as earlier studies, as required for archive search; index presence is not held-out training label leakage.",
+    "No pretrained multilingual dense/hybrid retriever available locally; no genuine external human evaluation or aligned scan benchmark."
+  ],
+  "null_anchor_top1": {
+    "keyword_raw_bm25": 0.2075,
+    "keyword_raw_fullfuzzy": 0.2025,
+    "keyword_gated_fullfuzzy": 0.2025,
+    "keyword_unconditional_fullfuzzy": 0.2025,
+    "keyword_hard_fullfuzzy": 0.14,
+    "keyword_raw_local120": 0.2075,
+    "keyword_gated_local120": 0.2075,
+    "clean_raw_bm25": 0.2075,
+    "clean_raw_fullfuzzy": 0.2075,
+    "clean_gated_fullfuzzy": 0.2075,
+    "clean_unconditional_fullfuzzy": 0.2075,
+    "clean_hard_fullfuzzy": 0.145,
+    "clean_raw_local120": 0.2075,
+    "clean_gated_local120": 0.2075,
+    "synthetic_noise_raw_bm25": 0.0675,
+    "synthetic_noise_raw_fullfuzzy": 0.1975,
+    "synthetic_noise_gated_fullfuzzy": 0.1975,
+    "synthetic_noise_unconditional_fullfuzzy": 0.1975,
+    "synthetic_noise_hard_fullfuzzy": 0.135,
+    "synthetic_noise_raw_local120": 0.0675,
+    "synthetic_noise_gated_local120": 0.0675
+  },
+  "diagnostics": {
+    "keyword": {
+      "bm25_hit_fuzzy_miss": 88,
+      "bm25_miss_fuzzy_hit": 0,
+      "bm25_hit_local_miss": 0,
+      "bm25_miss_local_hit": 3,
+      "gated_pool_changes": 32
+    },
+    "clean": {
+      "bm25_hit_fuzzy_miss": 0,
+      "bm25_miss_fuzzy_hit": 44,
+      "bm25_hit_local_miss": 0,
+      "bm25_miss_local_hit": 31,
+      "gated_pool_changes": 37
+    },
+    "synthetic_noise": {
+      "bm25_hit_fuzzy_miss": 0,
+      "bm25_miss_fuzzy_hit": 28,
+      "bm25_hit_local_miss": 0,
+      "bm25_miss_local_hit": 4,
+      "gated_pool_changes": 45
+    }
+  }
+}

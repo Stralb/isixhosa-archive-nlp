@@ -1,0 +1,159 @@
+{
+  "unique_gold_55": {
+    "word20": {
+      "recall20": 0.5636363636363636,
+      "top1": 0.18181818181818182
+    },
+    "char20": {
+      "recall20": 0.2,
+      "top1": 0.09090909090909091
+    },
+    "word20_fuzzy": {
+      "recall20": 0.5636363636363636,
+      "top1": 0.5454545454545454
+    },
+    "hybrid15w5c_fuzzy": {
+      "recall20": 0.509090909090909,
+      "top1": 0.4909090909090909
+    }
+  },
+  "char_top1_source_bias": {
+    "keyword": {
+      "word20": {
+        "fraction_top1_ISIG": 0.5,
+        "median_top1_raw_page_characters": 15144.0,
+        "n_returned_top1": 60
+      },
+      "char20": {
+        "fraction_top1_ISIG": 0.9333333333333333,
+        "median_top1_raw_page_characters": 6759.5,
+        "n_returned_top1": 60
+      },
+      "hybrid15w5c": {
+        "fraction_top1_ISIG": 0.9166666666666666,
+        "median_top1_raw_page_characters": 7816.0,
+        "n_returned_top1": 60
+      }
+    },
+    "edit2_boundary": {
+      "word20": {
+        "fraction_top1_ISIG": 0.85,
+        "median_top1_raw_page_characters": 8009.5,
+        "n_returned_top1": 60
+      },
+      "char20": {
+        "fraction_top1_ISIG": 0.7666666666666667,
+        "median_top1_raw_page_characters": 7750.5,
+        "n_returned_top1": 60
+      },
+      "hybrid15w5c": {
+        "fraction_top1_ISIG": 0.8,
+        "median_top1_raw_page_characters": 7894.5,
+        "n_returned_top1": 60
+      }
+    }
+  },
+  "paired_rescue": {
+    "keyword": {
+      "char20_vs_word20": {
+        "gain": 0,
+        "loss": 51,
+        "newly_recalled": 0,
+        "recall_displaced": 40
+      },
+      "hybrid15w5c_fuzzy_vs_word20_fuzzy": {
+        "gain": 3,
+        "loss": 2,
+        "newly_recalled": 0,
+        "recall_displaced": 0
+      },
+      "hybrid15w5c_vs_word20": {
+        "gain": 0,
+        "loss": 37,
+        "newly_recalled": 0,
+        "recall_displaced": 0
+      }
+    },
+    "clean": {
+      "char20_vs_word20": {
+        "gain": 0,
+        "loss": 41,
+        "newly_recalled": 0,
+        "recall_displaced": 41
+      },
+      "hybrid15w5c_fuzzy_vs_word20_fuzzy": {
+        "gain": 0,
+        "loss": 1,
+        "newly_recalled": 0,
+        "recall_displaced": 1
+      },
+      "hybrid15w5c_vs_word20": {
+        "gain": 0,
+        "loss": 33,
+        "newly_recalled": 0,
+        "recall_displaced": 1
+      }
+    },
+    "edit1": {
+      "char20_vs_word20": {
+        "gain": 0,
+        "loss": 31,
+        "newly_recalled": 0,
+        "recall_displaced": 40
+      },
+      "hybrid15w5c_fuzzy_vs_word20_fuzzy": {
+        "gain": 0,
+        "loss": 1,
+        "newly_recalled": 0,
+        "recall_displaced": 1
+      },
+      "hybrid15w5c_vs_word20": {
+        "gain": 1,
+        "loss": 25,
+        "newly_recalled": 0,
+        "recall_displaced": 1
+      }
+    },
+    "edit2_boundary": {
+      "char20_vs_word20": {
+        "gain": 3,
+        "loss": 8,
+        "newly_recalled": 2,
+        "recall_displaced": 24
+      },
+      "hybrid15w5c_fuzzy_vs_word20_fuzzy": {
+        "gain": 0,
+        "loss": 3,
+        "newly_recalled": 0,
+        "recall_displaced": 3
+      },
+      "hybrid15w5c_vs_word20": {
+        "gain": 6,
+        "loss": 5,
+        "newly_recalled": 0,
+        "recall_displaced": 3
+      }
+    },
+    "edit3_boundary": {
+      "char20_vs_word20": {
+        "gain": 2,
+        "loss": 8,
+        "newly_recalled": 6,
+        "recall_displaced": 17
+      },
+      "hybrid15w5c_fuzzy_vs_word20_fuzzy": {
+        "gain": 3,
+        "loss": 1,
+        "newly_recalled": 4,
+        "recall_displaced": 1
+      },
+      "hybrid15w5c_vs_word20": {
+        "gain": 5,
+        "loss": 6,
+        "newly_recalled": 4,
+        "recall_displaced": 1
+      }
+    }
+  },
+  "posthoc_only": true
+}
