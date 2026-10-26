@@ -1,7 +1,0 @@
-# Resume here — Excellence Sprint through Phase 4
-
-The research is up to **Phase 4 F6 COMPLETE**. Phase 1 froze the factorial design and leakage rules; Phase 2 trained/validated 40 BPE+Unigram tokenizers with alpha=100 chosen on train/validation only; Phase 3 tested F1-F4 on the historical Imvo evaluation windows and passed. Phase 4 trained 20 additional BPE tokenizers for exact-training-reprint falsification, all models and outcomes reproduced independently, and **F6 SUPPORTED**.
-
-Main Phase 4 result: filtered English-view PP-WW = +2.389 [2.182,2.590] pieces/100 letters on 1888 (52 issue clusters); +2.119 [2.050,2.185] on 1889-94 (306 clusters). Both point effects positive in 5/5 seeds. Same-support unfiltered control also has a positive effect. Exact 13-word training duplicates are therefore insufficient to explain the observed sampling effect in the filtered common support. 56 English and 6 isiXhosa page/views were lost when restricting to duplicate-free training starts. The entire historical evaluation is a conditional continuation of earlier work, not a previously unobserved external test.
-
-Do NOT rerun all earlier experiments needlessly. Read `Phase4/PHASE4_GATE.md`, `Phase4/RESEARCH_DECISION.md`, `Phase4/PRECOMMIT.md`, then `Phase4/PHASE5_START_PROMPT.md`. PHASE 5 BPC downstream evaluation is the ONLY next research experiment planned; no paper drafting until explicitly requested.

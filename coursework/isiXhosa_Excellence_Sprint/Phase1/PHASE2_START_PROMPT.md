@@ -1,7 +1,0 @@
-# Exact next step after completed Phase 1
-
-Continue the Project 2 Excellence Sprint from the attached Phase-1 handoff. First read `ROADMAP.md`, `Phase1/START_HERE.md`, `Phase1/PHASE1_GATE.md`, and the SHA256-frozen `Phase1/FROZEN_PROTOCOL.md`. Verify `outputs/verification.json` is PASS and that the source ZIP SHA256 matches. Treat original Phase 33 as immutable historical results.
-
-**Execute Phase 2, not another report.** Implement four 2x2 sampler arms using the supplied `factorial_sampler.py`, five seeds, SentencePiece BPE and Unigram, 500k alphabetic-character budget, the declared train/validation split, and no 1888+ metric inspection. Ensure validation uses only precommitted 13-gram non-overlapping 32-word windows, and tune only permitted LM alpha values on Oct-Dec 1887. Save configs, train-line and model fingerprints, unit tests, validation outcomes, negative outcomes, and a dated pre-evaluation freeze of the eventual primary model selection. Do not rewrite Phase-1 primary hypotheses. Check for data leakage and report any feasibility amendment before looking at held-out 1888-94 results.
-
-Preserve strict boundaries: archive-assigned views are not language ground truth; old 1888+ archive data have been examined in earlier phases, so later results are conditional follow-up evidence, not independent external replication; do not claim measured historical sentiments or culture. **No paper drafting until explicitly requested.**
