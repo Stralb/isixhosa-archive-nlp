@@ -14,7 +14,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build-draft:
@@ -26,6 +26,11 @@ jobs:
         with:
           python-version: '3.13'
       - run: python -m pip install -r requirements.txt
+      - name: Verify exact original template ZIP bytes
+        shell: bash
+        run: |
+          printf '%s\n' '6fcc74188f418b9e6e35fa76837c34abd5b065b78c8287f2a3ea606026af5f55  reports/original_templates/CCN_Extended_Abstract_Original.zip' '9e21a868b448b31f978e90c21e8aa2b61e766b11b94fc907cae13bf0c9871e66  reports/original_templates/NeurIPS_2024_Checklist_Original.zip' | sha256sum -c -
+
       - name: Regenerate plot from pinned verified statistics
         run: python reports/make_figure.py
       - name: Compile through TeX Live
@@ -55,6 +60,20 @@ jobs:
           assert any("Contribution Statement" in (p.extract_text() or "") for p in r.pages[3:]), "Contribution declaration missing"
           print("PASS: CCN scientific body fills two pages; bibliography begins on page 3; ethics/checklist sections present; total pages",len(r.pages))
           PY
+      - name: Commit explicitly labelled unreviewed PDF draft
+        shell: bash
+        run: |
+          set -euo pipefail
+          cp reports/report.pdf reports/ccn_extended_abstract_DRAFT.pdf
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/ccn_extended_abstract_DRAFT.pdf
+          if git diff --cached --quiet; then
+            echo 'Draft PDF already in sync'
+          else
+            git commit -m "paper: publish compiled CCN draft PDF (author review required)"
+            git push origin HEAD:paper/official-ccn-draft-and-template-sources-2026-10-26
+          fi
       - name: Upload compiled PDF for review
         uses: actions/upload-artifact@v4
         with:
