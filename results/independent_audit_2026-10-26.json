@@ -1,0 +1,179 @@
+{
+  "audit_version": 1,
+  "audit_date_utc": "2026-10-26",
+  "status": "FULL_INDEPENDENT_SCIENTIFIC_AUDIT_PASS",
+  "git_repository": "Stralb/isixhosa-archive-nlp",
+  "git_base_main_sha": "3a8c511c09e35664ddbf48ab8d289f0f4d7ae466",
+  "execution_location": "isolated local environment with user-supplied authorised source ZIP; full source-dependent checks were not executed by GitHub Actions",
+  "inputs": {
+    "language_view_archive_sha256": "375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5",
+    "verified_github_blob_sha_count": 13,
+    "raw_corpus_uploaded_to_github": false,
+    "model_vocab_pairs_verified": 60,
+    "original_training_sample_fingerprints_matched": 60,
+    "distinct_main_sampling_streams": 40
+  },
+  "cohorts": {
+    "training_pages": 342,
+    "training_issues": 86,
+    "training_years": "1885 and Jan-Sep 1887",
+    "validation_pages": 48,
+    "validation_issues": 12,
+    "validation_years": "Oct-Dec 1887",
+    "heldout_period": "1888-1894",
+    "heldout_pageviews": 2493,
+    "heldout_issues": 358,
+    "heldout_issues_1888": 52,
+    "heldout_issues_1889_94": 306,
+    "exact_split_issue_date_intersection": 0,
+    "training_bigram_documents_rebuilt": 545,
+    "heldout_source_text_hashes_matched": 2493,
+    "validation_windows_rebuilt": 344,
+    "validation_score_rows": 13760,
+    "validation_smoothing_grid": [
+      1,
+      10,
+      100
+    ],
+    "selected_smoothing_alpha": 100
+  },
+  "contrast_audit": {
+    "segmentation_contrasts": 32,
+    "count_bigram_contrasts": 32,
+    "repetition_contrasts": 20,
+    "all_total": 84,
+    "every_mean_seed_direction_issue_ci_and_year_cluster_ci_match": true,
+    "issue_bootstrap_draws": 5000,
+    "maximum_absolute_contrast_field_error": 1.4210854715202004e-14,
+    "dataset_free_github_checker": "python src/audit/independent_ci.py --root ."
+  },
+  "prediction_audit": {
+    "segmentation_scores_recomputed": 99720,
+    "count_bigram_scores_recomputed": 99720,
+    "repetition_scores_recomputed": 49860,
+    "total_independently_rescored": 249300,
+    "all_match": true,
+    "maximum_absolute_bigram_document_bits_error": 6.366462912410498e-12,
+    "saved_learned_models_used_without_refitting": 60
+  },
+  "leakage_and_repetition": {
+    "train_validation_test_dates_disjoint": true,
+    "validation_train_same_view_13gram_overlap_windows": 0,
+    "number_train_cross_issue_repeated_13gram_types": 16691,
+    "original_training_eligible_pageviews": 595,
+    "matched_support_pageviews": 533,
+    "matched_support_discarded_pageviews_en": 56,
+    "matched_support_discarded_pageviews_xh": 6,
+    "clean_candidate_training_windows": 611890,
+    "unfiltered_common_support_windows": 742078,
+    "filtered_training_forbidden_13grams": 0,
+    "heldout_with_13gram_train_overlap": 514,
+    "total_heldout_pageviews": 2493,
+    "en_1888_overlap_pageviews": 35,
+    "en_1888_total_pageviews": 134,
+    "en_1889_94_overlap_pageviews": 369,
+    "en_1889_94_total_pageviews": 927,
+    "no_exact_13gram_posthoc_en_1888_pageviews": 99,
+    "no_exact_13gram_posthoc_en_1888_bpe_bpc_allocation": -0.0287385,
+    "full_en_1888_bpe_bpc_allocation": -0.037216654818634384
+  },
+  "precommitted_hypotheses": [
+    {
+      "id": "F1",
+      "metric": "BPE English allocation pieces/100 chars",
+      "estimate_1888": -1.8775366962678148,
+      "ci_1888": [
+        -1.971592295544931,
+        -1.7818122365909066
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "F2",
+      "metric": "Unigram English allocation pieces/100 chars",
+      "estimate_1888": -1.7948365833562208,
+      "ci_1888": [
+        -1.9081359125032795,
+        -1.6706146811067142
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "F3",
+      "metric": "BPE Xh-view allocation pieces/100 chars",
+      "estimate_1888": 0.452589326840824,
+      "ci_1888": [
+        0.4068447015743022,
+        0.49737459942842244
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "F4",
+      "metric": "Unigram English within-view pieces/100 chars",
+      "estimate_1888": -0.4313528,
+      "ci_1888": [
+        -0.7050174,
+        -0.1231209
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "F5",
+      "metric": "BPE English allocation smoothed bigram BPC",
+      "estimate_1888": -0.037216654818634384,
+      "ci_1888": [
+        -0.0423644430623778,
+        -0.0321188374919336
+      ],
+      "status": "SUPPORTED"
+    },
+    {
+      "id": "F6",
+      "metric": "Filtered BPE English PP minus WW pieces/100 chars",
+      "estimate_1888": 2.3891482803869524,
+      "ci_1888": [
+        2.1824082926138244,
+        2.5897973596541197
+      ],
+      "status": "SUPPORTED"
+    }
+  ],
+  "sensitivity": {
+    "bpe_english_allocation_segmentation_1888_leave_one_issue_range": [
+      -1.8956,
+      -1.86224
+    ],
+    "bpe_english_allocation_bpc_1888_leave_one_issue_range": [
+      -0.038203,
+      -0.036306
+    ],
+    "bpe_english_allocation_bpc_1889_94_leave_one_year_range": [
+      -0.026927,
+      -0.023746
+    ],
+    "negative_whole_policy_later": {
+      "metric": "BPE English WW minus PP bigram BPC 1889-94",
+      "estimate": 0.004503291900336492,
+      "issue_bootstrap_ci": [
+        0.0017581677031783,
+        0.007283322219532
+      ],
+      "six_year_bootstrap_ci": [
+        -0.002682,
+        0.01305
+      ],
+      "seed_directions_positive": 3,
+      "interpretation": "The full WW policy change is not reliably beneficial; not a robust claim of consistent degradation across independent years."
+    }
+  },
+  "limitations": [
+    "Historical 1888-1894 period examined during earlier research; the frozen study is a conditional follow-up, not untouched independent validation.",
+    "The study uses one historical newspaper and unadjudicated archive language views.",
+    "The source corpus has nonzero exact train/test cross-issue 13-gram overlap; non-overlap subset is posthoc.",
+    "Issue-level bootstrap holds trained seeds fixed and does not cover all between-archive uncertainty.",
+    "All scientific findings concern tokenizer efficiency and a count-bigram language model, not neural gains, cultural attitudes or social harm.",
+    "The official extended abstract, NeurIPS questionnaire, Faculty AI ethics declaration and group contribution statement remain distinct submission requirements.",
+    "The full source-based and prediction-level audit scripts are supplied in the separately delivered evidence ZIP, not committed here; the portable dataset-free contrast checker is committed to GitHub."
+  ]
+}
