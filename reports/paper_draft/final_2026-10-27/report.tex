@@ -1,0 +1,84 @@
+% Whose Words Count?  Final two-page research body (figures, equations included).
+% Wits CCN original style file, unchanged; no negative spacing, margin/font hacks.
+% Frozen research: Stralb/isixhosa-archive-nlp@aff05ae34597f28309dc94561adbcd962901e2f4
+% Post-hoc independent page-position work is identified as exploratory.
+\documentclass[10pt,letterpaper]{article}
+\usepackage{ccn}
+\usepackage{pslatex}
+\usepackage{apacite}
+\usepackage{natbib}
+\usepackage{graphicx,amsmath,microtype,hyperref,needspace,float}
+\usepackage[labelfont=bf,font=sf,skip=3pt]{caption}
+\hypersetup{hidelinks,pdftitle={Whose Words Count? Reading Between the Samples in Historical isiXhosa NLP},pdfauthor={Arno Strauss; Priyanka Gohil; Mohammed Bangie}}
+\title{Whose Words Count?\\[1pt]Reading Between the Samples in Historical isiXhosa NLP}
+\author{{\normalsize\bf Arno Strauss (2613224) \quad Priyanka Gohil (2586288) \quad Mohammed Bangie (2610990)}\\ University of the Witwatersrand, Johannesburg, South Africa}
+\date{}
+\emergencystretch=.4em
+\begin{document}
+\raggedbottom
+\maketitle
+
+\section{Abstract}
+Historical isiXhosa newspapers record African political debate. We test how weighting their surviving text shapes NLP results. A $2\times2$ tokenizer study separates view allocation from page choice. Word-like allocation lowers English-view segmentation cost but raises isiXhosa-view cost; held-out bigram loss responds differently. ArchiveLens compares four weighting rules for 1885--88 character-pattern changes. Although raw sign reversals are unexceptional under whole-issue permutations, 29 \emph{Imvo} maximum estimator gaps survive Holm correction, all attained by equal-page versus character-mass weighting. Post-hoc page-position analysis accounts for much of the discrepancy, not its historical cause. Both studies require explicit counting units for defensible interpretation.\\
+\noindent\textbf{Keywords:} historical isiXhosa; sampling; measurement validity; tokenisation.
+
+\section{Introduction}
+\emph{Imvo Zabantsundu}, South Africa's first African-owned newspaper, published political commentary beyond missionary control; mission-founded \emph{Isigidimi sama-Xosa} included African editors and readers \citep{schoots2023archive}. Their weekly and monthly issues mixed opinion, letters and advertising.
+
+Across 598 \emph{Imvo} pages (1885, 1887--88), English-assigned text is 22.64\% of the average page but 29.47\% of pooled words; equal-issue exposure is 29.43\%. These represent a typical page, pooled text or typical issue. Since \emph{Imvo} printed English editorial translations \citep{schoots2023archive}, the unit changes which surviving material shapes a tokenizer, not whose opinions were published.
+
+Historical reweighting studies question what archival samples represent \citep{beelen2025,jo2020}, and data statements document selection \citep{bender2018}. Tokeniser studies expose unequal multilingual costs and the limits of compactness as a quality proxy \citep{petrov2023,ali2024}. Unlike annotated root-frequency work \citep{schoots2023frequency}, our four-grams have no established cultural meaning.
+
+\noindent\textbf{Research questions.} \textbf{RQ1:} In \emph{Imvo}, does allocation between archive language views affect segmentation and held-out bigram loss when page choice is varied separately? \textbf{RQ2:} For 1885--88 newspaper text, do preselected character-pattern changes depend on the counting unit, and which estimator gaps survive issue-permutation calibration? These are complementary, not causally linked, tests of measurement choice.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=.965\textwidth]{figures/tokenizer_contrasts.pdf}
+\caption{\textbf{Controlled tokenizer sampling effects, \emph{Imvo} (1888).} (a) View-allocation differences in BPE/Unigram segmentation. (b) Allocation and within-view page-selection differences in BPE count-bigram loss. Points: five-seed means; whiskers: 95\% paired issue-bootstrap intervals. EN/XH are archive-assigned views; negative values mean lower cost.}
+\label{fig:models}
+\end{figure*}
+
+\section{Study design}
+Page-versus-word tokenizer comparisons bundle two interventions: allocation between archive-assigned English (EN) and isiXhosa (XH) text views, and page choice \emph{within} each view. We cross page-like (P) and word-like (W) rules for both factors: PP, PW, WP and WW (allocation first). Page-like allocation averages page view proportions; word-like allocation pools eligible words. Within-view selection samples pages by view share or view-word mass. Factor contrasts isolate effects concealed by PP--WW alone.
+
+BPE and Unigram share approximately 500,000 alphabetic training characters, 2,000-piece vocabularies, five seeds per policy and identical evaluation strings. Training uses \emph{Imvo} 1885 and January--September 1887; bigram smoothing is chosen on October--December 1887, with 1888 held out. Previously inspected 1889--94 data provide a dependent check, not independent validation. Segmentation cost is pieces per 100 alphabetic characters; count-bigram predictive loss is bits per character (BPC). Bigram models use identical raw training and test texts, isolating the effect of the resulting token sequences. Paired issue-level bootstraps respect dependence between pages published together.
+
+Independently, \emph{ArchiveLens} audits XH-assigned views in \emph{Imvo} and \emph{Isigidimi sama-Xosa}. It fixes 120 within-word four-character sequences from 1887 text before estimating 1885--88 changes, avoiding selection directly on the reported contrasts. Frequencies per 10,000 eligible four-gram positions give equal weight to positions (character mass), pages, issues or calendar months. Each corresponds to a different surviving unit of the printed record. Writing $\Delta_{g,w}$ for a pattern's 1888-minus-1885 change under rule $w$, we define its largest disagreement with mass weighting as
+\begin{equation}\label{eq:gap}
+ S_g=\max_{w\in\{\mathrm{page,issue,month}\}}
+ |\Delta_{g,w}-\Delta_{g,\mathrm{mass}}|.
+\end{equation}
+Because tiny changes can reverse sign, we separately test the \emph{total reversal count} and each pattern's maximum estimator gap against 4,999 whole-issue year-label permutations within calendar months. Holm correction covers 120 patterns per newspaper and test family \citep{holm1979}. Nested month/issue bootstrap intervals describe uncertainty; leave-one-issue and exact-repeat checks assess sensitivity. Permutations provide a conditional benchmark, not proof that historical years are exchangeable.
+
+\section{Findings}
+Word-like view allocation reduces English-view BPE segmentation cost by 1.88 pieces per 100 characters but increases XH cost by 0.45; Unigram shows the same trade-off (Fig.~\ref{fig:models}a). The downstream effects oppose one another: under BPE, allocation reduces EN bigram loss by 0.037 BPC, whereas word-like \emph{within-view page selection} raises it by 0.019 (Fig.~\ref{fig:models}b). The XH bigram-loss effect is small on average, with signs differing across seeds despite increased segmentation cost. The 1889--94 WW--PP EN loss contrast is not robust to year resampling.
+
+In \emph{Imvo}, 23 observed direction reversals are not unusually numerous relative to the permutation mean of 29 (upper-tail $p=.888$).
+
+By contrast, the maximum estimator gap survives Holm correction for 29 of 120 patterns; equal-page versus character-mass weighting produces every maximum. None survive in \emph{Isigidimi}; it has only 12 eligible issues per comparison year against \emph{Imvo}'s 49 and 52, so this is not evidence of greater stability.
+
+For the \emph{Imvo} fragment \texttt{ants}, mass weighting yields $-0.23$ and equal-page weighting $+4.80$ per 10,000 positions (Fig.~\ref{fig:archive}b). The maximum estimator gap, attained by this pair, survives Holm adjustment ($p_{\mathrm{adj}}=.024$); the mass-weighted temporal change does not. The bootstrap intervals are unadjusted; this test does not establish opposing historical trends.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.985\columnwidth]{figures/archivelens_audit.pdf}
+\caption{\textbf{ArchiveLens estimates (1885--88).} (a) Observed reversal counts (diamonds) versus issue-permutation nulls (shading: central 95\%; ticks: means). (b) \emph{Imvo} \texttt{ants} by weighting rule, with unadjusted 95\% bootstrap intervals. Holm-adjusted $p=.024$ concerns the maximum estimator gap, not two historical trends.}
+\label{fig:archive}
+\end{figure}
+
+\Needspace{4\baselineskip}
+\section{Discussion}
+PP--WW confounds view allocation with page choice; the factorial experiment separates them. In bilingual \emph{Imvo}, a pooled gain could hide a higher segmentation cost for XH-assigned text. Fewer pieces need not lower count-bigram BPC because resegmentation changes its estimated transitions. These are effects on archived text, not neural-model quality or fairness to historical speakers.
+
+ArchiveLens asks what a historical rate describes. Character mass represents pooled text, whereas equal pages, issues and months represent averages of surviving publication units. None is universally preferable, especially for papers with different editorial origins and publication schedules. The count test asks how \emph{many} reversals arise; Holm-adjusted tests ask which individual gaps are unusually \emph{large}. Neither assigns cultural meaning to a four-gram.
+
+IsiXIT retains page layouts alongside corrected searchable text \citep{schoots2023archive}. For page length $n_i$ and pattern rate $r_i$, $R_{\mathrm{mass}}-R_{\mathrm{page}}=\operatorname{Cov}(n_i,r_i)/\bar n$: year differences can reflect how length and frequency covary. Among 29 corrected \emph{Imvo} gaps, a \emph{post-hoc} decomposition attributes a median 85\% of the absolute discrepancy to differences \emph{between page positions within issues}. Removing first pages shrinks 25 gaps; masking exact repeats shrinks 15 but enlarges 14. This shows structural sensitivity, not why it arose: we did not link page positions to the archive's article-type labels for selected issues \citep{schoots2023archive}.
+
+A typical surviving page is not a representative author or political perspective; reweighting cannot reconstruct missing editions \citep{schoots2023archive}. We recommend reporting provenance, coverage and estimands; separating sampling factors; clustering by issue; and checking alternative weights before interpreting historical change. Limitations include archive-assigned language labels, repeated text, previously inspected years and conditional permutation exchangeability. The \href{https://github.com/Stralb/isixhosa-archive-nlp/tree/aff05ae34597f28309dc94561adbcd962901e2f4}{pinned repository} distinguishes frozen and exploratory evidence.
+
+\clearpage
+\bibliographystyle{apacite}
+\setlength{\bibleftmargin}{.125in}
+\setlength{\bibindent}{-\bibleftmargin}
+\bibliography{paper_references}
+\end{document}
