@@ -1,0 +1,215 @@
+{
+  "H31c": {
+    "Imvo_exclusive_worst_regret": 0.01942387727450523,
+    "Isig_exclusive_worst_regret": 0.0035154826958034846,
+    "balanced_worst_regret": 0.019198542805114016,
+    "best_exclusive_worst_regret": 0.0035154826958034846,
+    "fraction_reduced": -4.461139896387991,
+    "gain_95ci": [
+      -0.030060698934696362,
+      -0.00022698509881955814
+    ],
+    "gain_words": -0.01568306010931053
+  },
+  "audit": {
+    "additivity_mismatch_count": 0,
+    "all_pages_in_target_periods": {
+      "EARLY_ISIG": 1255,
+      "LATE_IMVO": 1225
+    },
+    "cohort_sha256": "80294a1c00f097f0ce0d42bb192c73ad238a92e4b235e0a047927da07aa36b6a",
+    "eligible_issues": {
+      "EARLY_ISIG": 164,
+      "LATE_IMVO": 305
+    },
+    "eligible_pages": 1862,
+    "excluded_pages": {
+      "EARLY_ISIG_short_page": 167,
+      "LATE_IMVO_short_page": 451
+    },
+    "first_ten_mismatches": [],
+    "model_sha256": {
+      "BAL_A_0": {
+        "bytes": 14169,
+        "original_zip_member": "Phase30/LINE_PLACEBO_A_seed0.model",
+        "sha256": "fe86c32952b1a0dee748c6b6ef73d591d07106b7b0c19f01bbe93f7b1278093f"
+      },
+      "BAL_A_1": {
+        "bytes": 14015,
+        "original_zip_member": "Phase30/LINE_PLACEBO_A_seed1.model",
+        "sha256": "c62f50f8ca13e2db294e2bdeae73fa6df7104a0398592fd40545ff8c559e06a2"
+      },
+      "BAL_A_2": {
+        "bytes": 14082,
+        "original_zip_member": "Phase30/LINE_PLACEBO_A_seed2.model",
+        "sha256": "4eab026949d15a63f1b28cb0b8ae1f8e886b4bb67813f6c3315ae6304dabe00d"
+      },
+      "BAL_B_0": {
+        "bytes": 14103,
+        "original_zip_member": "Phase30/LINE_PLACEBO_B_seed0.model",
+        "sha256": "57e2818f984198226304a95b8ad7cc540bf55e653e9619c717b333f7c42ab99b"
+      },
+      "BAL_B_1": {
+        "bytes": 14097,
+        "original_zip_member": "Phase30/LINE_PLACEBO_B_seed1.model",
+        "sha256": "f11247c09bcd51cd88117dbd85bd4ce9b5a2c4c3b65effe45cbba5bb7a6557c4"
+      },
+      "BAL_B_2": {
+        "bytes": 14188,
+        "original_zip_member": "Phase30/LINE_PLACEBO_B_seed2.model",
+        "sha256": "715a5b393b0414781e261ce1772134322d0fbc8efc1a2e1995907a5d57230860"
+      },
+      "IMVO_0": {
+        "bytes": 14150,
+        "original_zip_member": "Phase30/inputs/BPE_IMVO_seed0.model",
+        "sha256": "e95e4770c4fae25c76fc97f35bc8a976c6efaf9083ea88ca96574ea8527ff8f2"
+      },
+      "IMVO_1": {
+        "bytes": 14252,
+        "original_zip_member": "Phase30/inputs/BPE_IMVO_seed1.model",
+        "sha256": "b1b667609fa0fd0a87087542524f9908912c8860910ffdbd41f13d6aad35a27f"
+      },
+      "IMVO_2": {
+        "bytes": 14059,
+        "original_zip_member": "Phase30/inputs/BPE_IMVO_seed2.model",
+        "sha256": "30421cc6bea8184a028fbb71aff13b150896bec9daacf904b4e5b033273144e4"
+      },
+      "ISIG_0": {
+        "bytes": 14172,
+        "original_zip_member": "Phase30/inputs/BPE_ISIG_seed0.model",
+        "sha256": "19ec953c14750da83c4008d0d42bd8a6ee3be4dd37c156c7677d9f91ad845018"
+      },
+      "ISIG_1": {
+        "bytes": 14103,
+        "original_zip_member": "Phase30/inputs/BPE_ISIG_seed1.model",
+        "sha256": "d3e7f1523c5c2021ec3e5b5f9fc8a0a23653a01f8729caf676ef4c65123121da"
+      },
+      "ISIG_2": {
+        "bytes": 14148,
+        "original_zip_member": "Phase30/inputs/BPE_ISIG_seed2.model",
+        "sha256": "2e05012db12927d75465e2acc1699a03d5fda24a9bab9980f0f00f1c886d8dd4"
+      }
+    },
+    "precommit_sha256": "c3811c869a0ed819ad215a41d1e6564dfe627883600bfa7d846c3be4d35de785",
+    "score_sha256": "5ba7a71bdcd5480b9fcedea9d6a01f8160422c0e05f5e4d726b6ce1506409705"
+  },
+  "bootstrap_replicates": 2000,
+  "bootstrap_seed": 31024,
+  "decisions": {
+    "H31a_out_of_period_specialisation": true,
+    "H31b_at_least_two_extra_words_at_256": false,
+    "H31c_balanced_reduces_best_fixed_regret_at_least_half": false
+  },
+  "groups": {
+    "EARLY_ISIG": {
+      "B256_fullfit_rate_BALANCED": 0.9799325980392157,
+      "B256_fullfit_rate_IMVO": 0.977328431372549,
+      "B256_fullfit_rate_ISIG": 0.9822303921568627,
+      "B256_retained_BALANCED": 89.91441032713898,
+      "B256_retained_FOREIGN": 89.90292053813394,
+      "B256_retained_OWN": 89.92234441540845,
+      "issues": 164,
+      "pages": 1088,
+      "secondary_budgets": {
+        "192": {
+          "BALANCED": 80.04889844657376,
+          "FOREIGN": 79.97429708672087,
+          "OWN": 80.40412674216029,
+          "specialist_gain": 0.4298296554394111
+        },
+        "224": {
+          "BALANCED": 88.58720177603561,
+          "FOREIGN": 88.4696852013163,
+          "OWN": 88.7619241192412,
+          "specialist_gain": 0.2922389179248934
+        },
+        "288": {
+          "BALANCED": 89.99489752710026,
+          "FOREIGN": 89.99441056910568,
+          "OWN": 89.99568089430893,
+          "specialist_gain": 0.0012703252032520904
+        },
+        "320": {
+          "BALANCED": 90.0,
+          "FOREIGN": 90.0,
+          "OWN": 90.0,
+          "specialist_gain": 0.0
+        }
+      },
+      "specialist_E_gain_95CI": [
+        0.18303875850046936,
+        0.3270950589867319
+      ],
+      "specialist_E_gain_pieces_per_100_chars": 0.2562375350512482,
+      "specialist_retained_gain_95CI": [
+        0.002496975416182958,
+        0.03864117547425519
+      ],
+      "specialist_retained_gain_words_B256": 0.019423877274487206
+    },
+    "LATE_IMVO": {
+      "B256_fullfit_rate_BALANCED": 0.9437984496124031,
+      "B256_fullfit_rate_IMVO": 0.9483204134366925,
+      "B256_fullfit_rate_ISIG": 0.9487510766580534,
+      "B256_retained_BALANCED": 89.74539162112931,
+      "B256_retained_FOREIGN": 89.76107468123863,
+      "B256_retained_OWN": 89.76459016393443,
+      "issues": 305,
+      "pages": 774,
+      "secondary_budgets": {
+        "192": {
+          "BALANCED": 77.27991803278688,
+          "FOREIGN": 76.91750455373406,
+          "OWN": 77.88650273224043,
+          "specialist_gain": 0.9689981785063757
+        },
+        "224": {
+          "BALANCED": 87.42922586520947,
+          "FOREIGN": 87.22398907103826,
+          "OWN": 87.64888888888889,
+          "specialist_gain": 0.4248998178506377
+        },
+        "288": {
+          "BALANCED": 89.97632058287796,
+          "FOREIGN": 89.97559198542805,
+          "OWN": 89.98688524590163,
+          "specialist_gain": 0.011293260473588338
+        },
+        "320": {
+          "BALANCED": 89.99872495446266,
+          "FOREIGN": 90.0,
+          "OWN": 90.0,
+          "specialist_gain": 0.0
+        }
+      },
+      "specialist_E_gain_95CI": [
+        0.4125790531590635,
+        0.5850157825773804
+      ],
+      "specialist_E_gain_pieces_per_100_chars": 0.4980261533159601,
+      "specialist_retained_gain_95CI": [
+        -0.03127504553734049,
+        0.04012841530054651
+      ],
+      "specialist_retained_gain_words_B256": 0.0035154826958105666
+    }
+  },
+  "unknown_fraction": {
+    "BAL_A": {
+      "EARLY_ISIG": 0.0,
+      "LATE_IMVO": 0.0
+    },
+    "BAL_B": {
+      "EARLY_ISIG": 0.0,
+      "LATE_IMVO": 0.0
+    },
+    "IMVO": {
+      "EARLY_ISIG": 0.0,
+      "LATE_IMVO": 0.0
+    },
+    "ISIG": {
+      "EARLY_ISIG": 0.0,
+      "LATE_IMVO": 0.0
+    }
+  }
+}

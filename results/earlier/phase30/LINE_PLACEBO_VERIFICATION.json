@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "original_line_multiset_preserved_exactly": true,
+  "placebo_model_counts": 6,
+  "test_rows_verified": 621,
+  "source_training_budget_each": 60000,
+  "subword_scores_exact": true,
+  "placebo_sensitivity_gate_result": true
+}

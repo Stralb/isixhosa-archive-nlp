@@ -1,0 +1,10 @@
+{
+  "verified": true,
+  "recomputed_h32a": 0.2849123069118697,
+  "recomputed_h32b": 0.0683163163871284,
+  "recomputed_h32c": -0.035294667800102375,
+  "num_pages": 3608,
+  "num_issues": 718,
+  "tracker_matches": 3608,
+  "archive_sha256": "375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5"
+}

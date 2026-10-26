@@ -1,0 +1,108 @@
+{
+  "posthoc_exploratory": true,
+  "by_frame": {
+    "A": {
+      "n": 718,
+      "cross_issue_repeated": 155,
+      "median_paragraph_length_all": 79.5,
+      "median_paragraph_length_repeated": 65.0,
+      "median_paragraph_length_not_repeated": 88.0,
+      "n_paragraph_le100": 478,
+      "repeat_by_paragraph_tokens": {
+        "50-74": {
+          "n": 325,
+          "repeated": 108,
+          "rate": 0.3323076923076923
+        },
+        "75-99": {
+          "n": 147,
+          "repeated": 32,
+          "rate": 0.21768707482993196
+        },
+        "100-149": {
+          "n": 128,
+          "repeated": 10,
+          "rate": 0.078125
+        },
+        "150-249": {
+          "n": 89,
+          "repeated": 4,
+          "rate": 0.0449438202247191
+        },
+        "250-350": {
+          "n": 29,
+          "repeated": 1,
+          "rate": 0.034482758620689655
+        }
+      },
+      "repeat_page_multiplicity_quantiles": [
+        2.0,
+        10.0,
+        79.6,
+        150.0
+      ],
+      "source_count": {
+        "IMVO": 517,
+        "ISIG": 201
+      }
+    },
+    "B": {
+      "n": 718,
+      "cross_issue_repeated": 26,
+      "median_paragraph_length_all": 128.0,
+      "median_paragraph_length_repeated": 74.0,
+      "median_paragraph_length_not_repeated": 130.5,
+      "n_paragraph_le100": 259,
+      "repeat_by_paragraph_tokens": {
+        "50-74": {
+          "n": 138,
+          "repeated": 14,
+          "rate": 0.10144927536231885
+        },
+        "75-99": {
+          "n": 118,
+          "repeated": 7,
+          "rate": 0.059322033898305086
+        },
+        "100-149": {
+          "n": 171,
+          "repeated": 1,
+          "rate": 0.005847953216374269
+        },
+        "150-249": {
+          "n": 204,
+          "repeated": 2,
+          "rate": 0.00980392156862745
+        },
+        "250-350": {
+          "n": 87,
+          "repeated": 2,
+          "rate": 0.022988505747126436
+        }
+      },
+      "repeat_page_multiplicity_quantiles": [
+        2.0,
+        12.0,
+        64.5,
+        141.0
+      ],
+      "source_count": {
+        "IMVO": 517,
+        "ISIG": 201
+      }
+    }
+  },
+  "frame_a_minus_b_cross_issue_rate": {
+    "macro": 0.1399626625095028,
+    "by_source": {
+      "IMVO": 0.23017408123791103,
+      "ISIG": 0.04975124378109453
+    },
+    "descriptive_pair_bootstrap_ci95": [
+      0.11163705168547976,
+      0.16829164140612216
+    ],
+    "analysis": "post_result_exploratory"
+  },
+  "limitations": "No genre annotation, natural user-query distribution, or independent relevance labels. Structural units only."
+}

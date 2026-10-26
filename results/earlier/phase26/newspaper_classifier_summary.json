@@ -1,0 +1,38 @@
+[
+  {
+    "model": "char_wb_3_5",
+    "train_pages": 374,
+    "test_pages": 207,
+    "train_issues": 122,
+    "test_issues": 64,
+    "balanced_accuracy_page": 0.7571138211382114,
+    "balanced_accuracy_issue": 0.7639652014652014,
+    "issue_bootstrap_95ci": [
+      0.7044323298229548,
+      0.821269268925519
+    ],
+    "roc_auc_page": 0.8427216415021291,
+    "test_source_accuracy": {
+      "IMVO": 0.7642276422764228,
+      "ISIG": 0.75
+    }
+  },
+  {
+    "model": "word_unigram",
+    "train_pages": 374,
+    "test_pages": 207,
+    "train_issues": 122,
+    "test_issues": 64,
+    "balanced_accuracy_page": 0.7186411149825784,
+    "balanced_accuracy_issue": 0.7197802197802199,
+    "issue_bootstrap_95ci": [
+      0.6534226190476191,
+      0.7820455586080586
+    ],
+    "roc_auc_page": 0.8170731707317073,
+    "test_source_accuracy": {
+      "IMVO": 0.6991869918699187,
+      "ISIG": 0.7380952380952381
+    }
+  }
+]
