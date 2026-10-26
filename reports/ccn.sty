@@ -1,0 +1,121 @@
+%begin COGSCI.STY
+% Modified: Niels Taatgen (taatgen@cmu.edu) 10/24/2006
+% Place this in a file called cogsci.sty in the TeX search path.
+% Start your LaTeX file with:
+%   \documentclass[10pt]{article}
+%   \usepackage{cogsci}
+% Modified from earlier style files published by P.F. Patel-Schneider
+% and others for IJCAI-89, AAAI-90, COGSCI-91, and other conferences.
+% Ashwin Ram, ashwin@cc.gatech.edu, 4/1/94
+% Modified : Eli M. Silk (esilk@pitt.edu) 05/24/2005
+% Author information can be set in various styles.
+% For authors with different institutions use \And, and for rows use \AND.
+\typeout{Conference Style for CCN -- last modified October 24, 2016}
+\setlength\oddsidemargin{-0.25in}
+\setlength\textheight{9.25in}
+\setlength\textwidth{7in}
+\setlength\columnsep{0.25in}
+\setlength\headheight{0pt}
+\setlength\headsep{0pt}
+\ifx\pdfoutput\@undefined
+\setlength\topmargin{0.75in}
+\else
+\setlength\topmargin{0in}
+\setlength\pdfpagewidth{8.5in}
+\setlength\pdfpageheight{11in}
+\fi
+\setlength\footskip{0pt}
+\thispagestyle{empty}
+\pagestyle{empty}
+\flushbottom
+\twocolumn
+\sloppy
+\newcommand{\startpage}[1]{\setcounter{page}{#1}}
+\AtBeginDocument{\setlength\baselineskip{12pt}}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\def\addcontentsline#1#2#3{}
+\def\maketitle{\par
+ \begingroup
+   \twocolumn[\@maketitle] \@thanks
+ \endgroup
+ \let\maketitle\relax \let\@maketitle\relax
+ \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
+\def\@maketitle%
+    {%
+      \linewidth\hsize
+      \centering
+          {\LARGE\bf \@title \par} \vskip 1em%
+          {\def\and{\unskip\enspace{\rm and}\enspace}%
+            \def\And{\end{tabular}\hss \egroup \hskip 1in plus 2fil
+           \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}}%
+            \def\AND{\end{tabular}\hss\egroup \hfil\hfil\egroup
+           \vskip 1em
+           \hbox to \linewidth\bgroup \hfil\hfil
+           \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}}
+            \hbox to \linewidth\bgroup \hfil\hfil
+            \hbox to 0pt\bgroup\hss \begin{tabular}[t]{c}\@author
+            \end{tabular}\hss\egroup
+            \hfil\hfil\egroup}
+          \vskip 2em
+          }
+\renewenvironment{abstract}
+                 {\centerline{\bf Abstract}
+                   \begin{quote}\small}
+                 {\par\end{quote}}
+\def\section{\@startsection {section}{1}{\z@}{-1.5ex plus
+    -0.25ex minus -.2ex}{3pt plus 2pt minus 1pt}{\Large\bf\centering}}
+\def\subsection{\@startsection{subsection}{2}{\z@}{-1.5ex plus
+    -0.25ex minus -.2ex}{3pt plus 2pt minus 1pt}{\large\bf\raggedright}}
+\def\subsubsection{\@startsection{subparagraph}{3}{\z@}{-6pt plus
+   2pt minus 1pt}{-1em}{\normalsize\bf}}
+\setcounter{secnumdepth}{0}
+\footnotesep 6.65pt
+\skip\footins 9pt plus 4pt minus 2pt
+\def\footnoterule{\kern-3pt \hrule width 5pc \kern 2.6pt}
+\setcounter{footnote}{0}
+\parindent 10pt
+\topsep 4pt plus 1pt minus 2pt
+\partopsep 1pt plus 0.5pt minus 0.5pt
+\itemsep 1pt plus 1pt minus 0.5pt
+\parsep 1pt plus 1pt minus 0.5pt
+\leftmargin 10pt
+\leftmargini\leftmargin
+\leftmarginii 10pt
+\leftmarginiii 5pt
+\leftmarginiv 5pt
+\leftmarginv 5pt
+\leftmarginvi 5pt
+\labelwidth\leftmargini\advance\labelwidth-\labelsep \labelsep 5pt
+\def\@listi{\leftmargin\leftmargini}
+\def\@listii{\leftmargin\leftmarginii
+   \labelwidth\leftmarginii\advance\labelwidth-\labelsep
+   \topsep 2pt plus 1pt minus 0.5pt
+   \parsep 1pt plus 0.5pt minus 0.5pt
+   \itemsep \parsep}
+\def\@listiii{\leftmargin\leftmarginiii
+    \labelwidth\leftmarginiii\advance\labelwidth-\labelsep
+    \topsep 1pt plus 0.5pt minus 0.5pt
+    \parsep \z@ \partopsep 0.5pt plus 0pt minus 0.5pt
+    \itemsep \topsep}
+\def\@listiv{\leftmargin\leftmarginiv
+     \labelwidth\leftmarginiv\advance\labelwidth-\labelsep}
+\def\@listv{\leftmargin\leftmarginv
+     \labelwidth\leftmarginv\advance\labelwidth-\labelsep}
+\def\@listvi{\leftmargin\leftmarginvi
+     \labelwidth\leftmarginvi\advance\labelwidth-\labelsep}
+\abovedisplayskip 7pt plus2pt minus5pt
+\belowdisplayskip \abovedisplayskip
+\abovedisplayshortskip 0pt plus3pt
+\belowdisplayshortskip 4pt plus3pt minus3pt
+\def\@normalsize{\@setsize\normalsize{10pt}\xpt\@xpt}
+\def\small{\@setsize\small{9pt}\ixpt\@ixpt}
+\def\footnotesize{\@setsize\footnotesize{9pt}\ixpt\@ixpt}
+\def\scriptsize{\@setsize\scriptsize{7pt}\viipt\@viipt}
+\def\tiny{\@setsize\tiny{6pt}\vipt\@vipt}
+\def\large{\@setsize\large{13pt}\xipt\@xipt}
+\def\Large{\@setsize\Large{15pt}\xiipt\@xiipt}
+\def\LARGE{\@setsize\LARGE{17pt}\xivpt\@xivpt}
+\def\huge{\@setsize\huge{20pt}\xviipt\@xviipt}
+\def\Huge{\@setsize\Huge{23pt}\xxpt\@xxpt}
+%end CCN.STY
