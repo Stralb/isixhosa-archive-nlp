@@ -1,0 +1,40 @@
+{
+  "PASS": true,
+  "refits": 4,
+  "windows_reencoded": 1376,
+  "models": [
+    {
+      "name": "bpe_PP_441",
+      "sampling_sha256": "6fb878b3304d436f1b1e813e867490b2c8b068e9474ad2e1208f580d84210b40",
+      "vocabulary_fingerprint_sha256": "de8ebf743eab04db2be0cebcb2b6103df07db75514c1e52bc386160bbe0d0622",
+      "windows_same_encoding": 344,
+      "vocab_size": 2000,
+      "semantic_replay_PASS": true
+    },
+    {
+      "name": "bpe_WP_443",
+      "sampling_sha256": "56eb45a9ea86a46d56a42c47800b69eb51d9b50ebf38b21fffce520b05e41c7c",
+      "vocabulary_fingerprint_sha256": "027de23395880b483fb0655ddba3ca4cff402e29ff38107204528f58b3825229",
+      "windows_same_encoding": 344,
+      "vocab_size": 2000,
+      "semantic_replay_PASS": true
+    },
+    {
+      "name": "unigram_PW_442",
+      "sampling_sha256": "f884e8f497de9a39d90622bdbe325f25a1eea9ade3b80d207d34739ac9cf6581",
+      "vocabulary_fingerprint_sha256": "7c3ea8856fa63e65cb2efc98438e26b83f8d6ead201d2dee9e117089752fb861",
+      "windows_same_encoding": 344,
+      "vocab_size": 2000,
+      "semantic_replay_PASS": true
+    },
+    {
+      "name": "unigram_WW_445",
+      "sampling_sha256": "7c89e67402f48bb4423b872491f7d459eb97bbb08c0e80b7a2a542820f71ad39",
+      "vocabulary_fingerprint_sha256": "9e03f6d1ff94ed75c9bb4a9c039078f6318e0b8892b86b495468b1b9b8b49643",
+      "windows_same_encoding": 344,
+      "vocab_size": 2000,
+      "semantic_replay_PASS": true
+    }
+  ],
+  "note": "Fresh independent process and output directory; compared learned pieces, scores, encodings, not path-dependent serialized bytes"
+}

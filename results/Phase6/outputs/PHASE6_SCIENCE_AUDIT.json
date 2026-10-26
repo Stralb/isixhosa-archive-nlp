@@ -1,0 +1,703 @@
+{
+  "status": "SCIENTIFIC_AUDIT_PASS_SUBMISSION_NOT_YET_COMPLETE",
+  "tests": [
+    {
+      "test": "source_zip_sha256",
+      "status": "PASS",
+      "evidence": "375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5"
+    },
+    {
+      "test": "frozen_protocol_sha256",
+      "status": "PASS",
+      "evidence": "bc443d883fa1c2b8eb09ced5f87d8f65b352d55512ef2c594b1b23e64d496bf4"
+    },
+    {
+      "test": "validation_selection_lock",
+      "status": "PASS",
+      "evidence": {
+        "alpha": 100,
+        "selected_from": [
+          1,
+          10,
+          100
+        ],
+        "windows_per_model": 344,
+        "validation_rows": 13760
+      }
+    },
+    {
+      "test": "model_fits_and_hashes",
+      "status": "PASS",
+      "evidence": {
+        "trained_models": 40,
+        "training_budget_tolerance": 30,
+        "exposure": [
+          {
+            "family": "bpe",
+            "arm": "PP",
+            "mean": 0.1846040500260166,
+            "min": 0.1792077920779207,
+            "max": 0.1874931249587497
+          },
+          {
+            "family": "bpe",
+            "arm": "PW",
+            "mean": 0.18643724556149827,
+            "min": 0.1785237852378523,
+            "max": 0.1993547974191896
+          },
+          {
+            "family": "bpe",
+            "arm": "WP",
+            "mean": 0.26271140088507006,
+            "min": 0.2551670206680826,
+            "max": 0.2775967759677596
+          },
+          {
+            "family": "bpe",
+            "arm": "WW",
+            "mean": 0.2657658754671365,
+            "min": 0.2610676640598436,
+            "max": 0.2759445518891038
+          },
+          {
+            "family": "unigram",
+            "arm": "PP",
+            "mean": 0.1846040500260166,
+            "min": 0.1792077920779207,
+            "max": 0.1874931249587497
+          },
+          {
+            "family": "unigram",
+            "arm": "PW",
+            "mean": 0.18643724556149827,
+            "min": 0.1785237852378523,
+            "max": 0.1993547974191896
+          },
+          {
+            "family": "unigram",
+            "arm": "WP",
+            "mean": 0.26271140088507006,
+            "min": 0.2551670206680826,
+            "max": 0.2775967759677596
+          },
+          {
+            "family": "unigram",
+            "arm": "WW",
+            "mean": 0.2657658754671365,
+            "min": 0.2610676640598436,
+            "max": 0.2759445518891038
+          }
+        ]
+      }
+    },
+    {
+      "test": "paired_evaluation_and_raw_score_consistency",
+      "status": "PASS",
+      "evidence": {
+        "phase3_rows": 99720,
+        "phase5_rows": 99720,
+        "unique_pageviews": 2493,
+        "issues_1888": 52,
+        "issues_later": 306,
+        "unknown_tokens": 0
+      }
+    },
+    {
+      "test": "factorial_effects_recalculated",
+      "status": "PASS",
+      "evidence": {
+        "phase3_contrasts": 32,
+        "phase5_contrasts": 32,
+        "max_abs_residual": {
+          "phase3": 2.220446049250313e-16,
+          "phase5": 5.121771062821523e-16
+        }
+      }
+    },
+    {
+      "test": "principal_claim_and_counterexample",
+      "status": "PASS",
+      "evidence": {
+        "F5_support": true,
+        "primary_F5_1888": {
+          "family": "bpe",
+          "period": "1888",
+          "view": "en",
+          "contrast": "allocation",
+          "value": -0.037216654818634384,
+          "ci_low": -0.0423644430623778,
+          "ci_high": -0.0321188374919336,
+          "seed_directions": [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ]
+        },
+        "later_F5": {
+          "family": "bpe",
+          "period": "1889-94",
+          "view": "en",
+          "contrast": "allocation",
+          "value": -0.02519238038021503,
+          "ci_low": -0.0266522230529381,
+          "ci_high": -0.0236544831726644,
+          "seed_directions": [
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+          ]
+        },
+        "later_whole_policy_counterexample": {
+          "family": "bpe",
+          "period": "1889-94",
+          "view": "en",
+          "contrast": "WW_minus_PP",
+          "value": 0.004503291900336492,
+          "ci_low": 0.0017581677031783,
+          "ci_high": 0.007283322219532,
+          "seed_directions": [
+            1,
+            -1,
+            1,
+            1,
+            -1
+          ]
+        },
+        "PP_1888_English_reference_BPC": 2.8918731968869076,
+        "primary_relative_magnitude_percent": 1.2869393740603148
+      }
+    }
+  ],
+  "warnings": [
+    "The later-year corpus belongs to the same publication, not a new historical newspaper.",
+    "The same held-out historical years were inspected in Phases 26-33; research-program external validation is NOT independent.",
+    "Confidence intervals resample publication issues and hold model seeds fixed; no generalization to contemporary languages or people.",
+    "EnTxt and XhTxt are archive block assignments, not human-verified gold-standard language labels.",
+    "Exact-reprint filtering is a selective 13-word matching diagnostic, not proof of all-duplicate removal.",
+    "Selected smoothing alpha=100 is the edge of prespecified {1,10,100} grid; do not claim exhaustive hyperparameter optimization.",
+    "BPC measures a smoothed token bigram model, NOT neural accuracy, cultural understanding or societal harm.",
+    "Source-data license and redistribution rights not established by these output files."
+  ],
+  "phase5_key_effects": [
+    {
+      "family": "bpe",
+      "period": "1888",
+      "view": "en",
+      "contrast": "allocation",
+      "value": -0.037216654818634384,
+      "ci_low": -0.0423644430623778,
+      "ci_high": -0.0321188374919336,
+      "seed_directions": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    },
+    {
+      "family": "bpe",
+      "period": "1888",
+      "view": "en",
+      "contrast": "within_view",
+      "value": 0.019378108713970343,
+      "ci_low": 0.0114589338819068,
+      "ci_high": 0.0276860522382092,
+      "seed_directions": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "family": "bpe",
+      "period": "1888",
+      "view": "en",
+      "contrast": "interaction",
+      "value": -0.007840350147790697,
+      "ci_low": -0.0121504379898142,
+      "ci_high": -0.0036538484229761,
+      "seed_directions": [
+        -1,
+        -1,
+        1,
+        -1,
+        1
+      ]
+    },
+    {
+      "family": "bpe",
+      "period": "1888",
+      "view": "en",
+      "contrast": "WW_minus_PP",
+      "value": -0.017838546104664045,
+      "ci_low": -0.0256331291704785,
+      "ci_high": -0.0101906519834387,
+      "seed_directions": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    },
+    {
+      "family": "bpe",
+      "period": "1888",
+      "view": "xh",
+      "contrast": "allocation",
+      "value": -0.0027460123208001173,
+      "ci_low": -0.0052337315430687,
+      "ci_high": -0.000141171390548,
+      "seed_directions": [
+        1,
+        -1,
+        -1,
+        1,
+        -1
+      ]
+    },
+    {
+      "family": "bpe",
+      "period": "1888",
+      "view": "xh",
+      "contrast": "within_view",
+      "value": 0.009836995568404694,
+      "ci_low": 0.0048415491940494,
+      "ci_high": 0.0152364378711032,
+      "seed_directions": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "family": "bpe",
+      "period": "1888",
+      "view": "xh",
+      "contrast": "interaction",
+      "value": -0.01560573339265554,
+      "ci_low": -0.0187614923563275,
+      "ci_high": -0.0124642562151026,
+      "seed_directions": [
+        -1,
+        -1,
+        -1,
+        1,
+        1
+      ]
+    },
+    {
+      "family": "bpe",
+      "period": "1888",
+      "view": "xh",
+      "contrast": "WW_minus_PP",
+      "value": 0.007090983247604576,
+      "ci_low": 0.0005113711303751,
+      "ci_high": 0.0139470050088547,
+      "seed_directions": [
+        1,
+        -1,
+        -1,
+        1,
+        1
+      ]
+    },
+    {
+      "family": "bpe",
+      "period": "1889-94",
+      "view": "en",
+      "contrast": "allocation",
+      "value": -0.02519238038021503,
+      "ci_low": -0.0266522230529381,
+      "ci_high": -0.0236544831726644,
+      "seed_directions": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    },
+    {
+      "family": "bpe",
+      "period": "1889-94",
+      "view": "en",
+      "contrast": "within_view",
+      "value": 0.029695672280551522,
+      "ci_low": 0.0274058592242353,
+      "ci_high": 0.0320386774909785,
+      "seed_directions": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "family": "bpe",
+      "period": "1889-94",
+      "view": "en",
+      "contrast": "interaction",
+      "value": 0.0011404741047765122,
+      "ci_low": -0.0008745666117362,
+      "ci_high": 0.0031691809077683,
+      "seed_directions": [
+        1,
+        1,
+        1,
+        -1,
+        -1
+      ]
+    },
+    {
+      "family": "bpe",
+      "period": "1889-94",
+      "view": "en",
+      "contrast": "WW_minus_PP",
+      "value": 0.004503291900336492,
+      "ci_low": 0.0017581677031783,
+      "ci_high": 0.007283322219532,
+      "seed_directions": [
+        1,
+        -1,
+        1,
+        1,
+        -1
+      ]
+    },
+    {
+      "family": "bpe",
+      "period": "1889-94",
+      "view": "xh",
+      "contrast": "allocation",
+      "value": -0.007045350070350986,
+      "ci_low": -0.0077803569525281,
+      "ci_high": -0.0063198912227686,
+      "seed_directions": [
+        -1,
+        -1,
+        -1,
+        1,
+        -1
+      ]
+    },
+    {
+      "family": "bpe",
+      "period": "1889-94",
+      "view": "xh",
+      "contrast": "within_view",
+      "value": 0.009590254433402246,
+      "ci_low": 0.0078588675483499,
+      "ci_high": 0.0113631653714806,
+      "seed_directions": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "family": "bpe",
+      "period": "1889-94",
+      "view": "xh",
+      "contrast": "interaction",
+      "value": -0.011999335633429009,
+      "ci_low": -0.0131254960860181,
+      "ci_high": -0.0108513160097982,
+      "seed_directions": [
+        -1,
+        -1,
+        -1,
+        1,
+        1
+      ]
+    },
+    {
+      "family": "bpe",
+      "period": "1889-94",
+      "view": "xh",
+      "contrast": "WW_minus_PP",
+      "value": 0.002544904363051259,
+      "ci_low": 0.0005435360161603,
+      "ci_high": 0.0045187818556696,
+      "seed_directions": [
+        -1,
+        -1,
+        -1,
+        1,
+        1
+      ]
+    },
+    {
+      "family": "unigram",
+      "period": "1888",
+      "view": "en",
+      "contrast": "allocation",
+      "value": -0.038339798714980014,
+      "ci_low": -0.0436609960077053,
+      "ci_high": -0.033175001937525,
+      "seed_directions": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    },
+    {
+      "family": "unigram",
+      "period": "1888",
+      "view": "en",
+      "contrast": "within_view",
+      "value": 0.009135022966791917,
+      "ci_low": -0.0012184534721606,
+      "ci_high": 0.0205348775195005,
+      "seed_directions": [
+        1,
+        -1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "family": "unigram",
+      "period": "1888",
+      "view": "en",
+      "contrast": "interaction",
+      "value": -0.008295852278481508,
+      "ci_low": -0.0145682587626585,
+      "ci_high": -0.0021190737689035,
+      "seed_directions": [
+        -1,
+        1,
+        1,
+        -1,
+        -1
+      ]
+    },
+    {
+      "family": "unigram",
+      "period": "1888",
+      "view": "en",
+      "contrast": "WW_minus_PP",
+      "value": -0.029204775748188094,
+      "ci_low": -0.0394167722628787,
+      "ci_high": -0.018821551798719,
+      "seed_directions": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    },
+    {
+      "family": "unigram",
+      "period": "1888",
+      "view": "xh",
+      "contrast": "allocation",
+      "value": 0.010475732865087472,
+      "ci_low": 0.0080468971054381,
+      "ci_high": 0.0128565073113332,
+      "seed_directions": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "family": "unigram",
+      "period": "1888",
+      "view": "xh",
+      "contrast": "within_view",
+      "value": 0.0025539004612737948,
+      "ci_low": -0.0029876577806918,
+      "ci_high": 0.0082894130943985,
+      "seed_directions": [
+        1,
+        1,
+        -1,
+        1,
+        1
+      ]
+    },
+    {
+      "family": "unigram",
+      "period": "1888",
+      "view": "xh",
+      "contrast": "interaction",
+      "value": -0.009690574437274968,
+      "ci_low": -0.0138602510094618,
+      "ci_high": -0.0056835696918841,
+      "seed_directions": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    },
+    {
+      "family": "unigram",
+      "period": "1888",
+      "view": "xh",
+      "contrast": "WW_minus_PP",
+      "value": 0.013029633326361267,
+      "ci_low": 0.006884314282762,
+      "ci_high": 0.0193301732869418,
+      "seed_directions": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "family": "unigram",
+      "period": "1889-94",
+      "view": "en",
+      "contrast": "allocation",
+      "value": -0.023909213467088096,
+      "ci_low": -0.0256774611541103,
+      "ci_high": -0.0221852992108065,
+      "seed_directions": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ]
+    },
+    {
+      "family": "unigram",
+      "period": "1889-94",
+      "view": "en",
+      "contrast": "within_view",
+      "value": 0.023524630621843023,
+      "ci_low": 0.0209942311297179,
+      "ci_high": 0.0260597899381957,
+      "seed_directions": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "family": "unigram",
+      "period": "1889-94",
+      "view": "en",
+      "contrast": "interaction",
+      "value": -0.0213007915061695,
+      "ci_low": -0.0237006804951724,
+      "ci_high": -0.0188815893602695,
+      "seed_directions": [
+        -1,
+        1,
+        -1,
+        -1,
+        -1
+      ]
+    },
+    {
+      "family": "unigram",
+      "period": "1889-94",
+      "view": "en",
+      "contrast": "WW_minus_PP",
+      "value": -0.0003845828452450739,
+      "ci_low": -0.0034365004295518,
+      "ci_high": 0.0025639773796895,
+      "seed_directions": [
+        1,
+        -1,
+        1,
+        -1,
+        -1
+      ]
+    },
+    {
+      "family": "unigram",
+      "period": "1889-94",
+      "view": "xh",
+      "contrast": "allocation",
+      "value": 0.004791750682245599,
+      "ci_low": 0.0038002790127881,
+      "ci_high": 0.0057621753054832,
+      "seed_directions": [
+        1,
+        1,
+        1,
+        -1,
+        1
+      ]
+    },
+    {
+      "family": "unigram",
+      "period": "1889-94",
+      "view": "xh",
+      "contrast": "within_view",
+      "value": -0.001669043269700854,
+      "ci_low": -0.0032095760909485,
+      "ci_high": -4.676070823219449e-05,
+      "seed_directions": [
+        -1,
+        -1,
+        -1,
+        1,
+        1
+      ]
+    },
+    {
+      "family": "unigram",
+      "period": "1889-94",
+      "view": "xh",
+      "contrast": "interaction",
+      "value": -0.016387436669814192,
+      "ci_low": -0.0180588109734714,
+      "ci_high": -0.0147542778469431,
+      "seed_directions": [
+        -1,
+        1,
+        -1,
+        -1,
+        -1
+      ]
+    },
+    {
+      "family": "unigram",
+      "period": "1889-94",
+      "view": "xh",
+      "contrast": "WW_minus_PP",
+      "value": 0.003122707412544745,
+      "ci_low": 0.0012362697593386,
+      "ci_high": 0.0050431154998329,
+      "seed_directions": [
+        1,
+        1,
+        -1,
+        1,
+        1
+      ]
+    }
+  ],
+  "source_required_external": "TxtLangFiles1870-1894_TB.zip",
+  "archive_sha256": "375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5",
+  "protocol_sha256": "bc443d883fa1c2b8eb09ced5f87d8f65b352d55512ef2c594b1b23e64d496bf4"
+}

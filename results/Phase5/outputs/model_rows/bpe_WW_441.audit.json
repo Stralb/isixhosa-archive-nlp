@@ -1,0 +1,10 @@
+{
+  "LM_docs": 545,
+  "LM_tokens": 128506,
+  "heldout_bits": 4991007.668757823,
+  "heldout_rows": 2493,
+  "heldout_unknown": 0,
+  "model": "bpe_WW_441",
+  "model_sha256": "3c48bf495de950055c5953a867872784a6a0ab890120263b4bfb8301e57809de",
+  "scores_sha256": "4765b9df0d1cdac1960372618e9ba0d792bc8f2ea1414f7e41146239dbc44090"
+}

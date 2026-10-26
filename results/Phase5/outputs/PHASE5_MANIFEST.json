@@ -1,0 +1,79 @@
+{
+  "LM_train_doc_sha256": "47954665fe17cfbab11d0351d1fa085cb908413f3f0499d92cc6542882ec6583",
+  "LM_train_docs": 545,
+  "LM_train_view_counts": {
+    "en": 204,
+    "xh": 341
+  },
+  "analyst_reuse_caveat": "1888-1894 newspaper test years studied in Phases 26-33 and Excellence Sprint 3-4; not untouched external evidence",
+  "archive_sha256": "375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5",
+  "comparisons": 32,
+  "decision": {
+    "1888": {
+      "ci_high": -0.03211883749193364,
+      "ci_low": -0.04236444306237788,
+      "contrast": "allocation",
+      "family": "bpe",
+      "issues": 52,
+      "mean": -0.03721665481863443,
+      "page_views": 134,
+      "period": "1888",
+      "seed_max": -0.03174737925746185,
+      "seed_min": -0.040658866074819056,
+      "seeds": 5,
+      "seeds_negative": 5,
+      "seeds_positive": 0,
+      "view": "en"
+    },
+    "1889_94": {
+      "ci_high": -0.023654483172664494,
+      "ci_low": -0.026652223052938163,
+      "contrast": "allocation",
+      "family": "bpe",
+      "issues": 306,
+      "mean": -0.025192380380215075,
+      "page_views": 927,
+      "period": "1889-94",
+      "seed_max": -0.014111649582175145,
+      "seed_min": -0.03972985281632124,
+      "seeds": 5,
+      "seeds_negative": 5,
+      "seeds_positive": 0,
+      "view": "en",
+      "year_cluster_ci_high": -0.021211858369272522,
+      "year_cluster_ci_low": -0.029506884753734097
+    },
+    "F5": "SUPPORTED",
+    "alpha": 100.0,
+    "full_support_required": true,
+    "interpretation": "smoothed count bigram LM only; no neural, social harm or cultural inference",
+    "preregistered_requirements": {
+      "bpe_1888_ci_high_below_zero": true,
+      "bpe_1888_en_allocation_at_most_negative_0_01": true,
+      "later_same_negative_sign": true
+    }
+  },
+  "fixed_alpha": 100.0,
+  "heldout_issues": 358,
+  "heldout_pageviews": 2493,
+  "model_scores": 99720,
+  "models": 40,
+  "periods": {
+    "1888": {
+      "issues": 52,
+      "pageviews": 342
+    },
+    "1889-94": {
+      "issues": 306,
+      "pageviews": 2151
+    }
+  },
+  "phase2_selection_sha256": "fb6a8af93c55b628cf32903affd94791e953616f03e2a92dfe095409a4066a9c",
+  "phase5_completed": true,
+  "phase5_precommit_sha256": "8575dc1ae52a22391318933bc5d4c8cee8777c15645a9eed13bbe34bb15583f8",
+  "protocol_sha256": "bc443d883fa1c2b8eb09ced5f87d8f65b352d55512ef2c594b1b23e64d496bf4",
+  "seed_effects": 160,
+  "train_test_13gram_clean_pages": 1979,
+  "unknown_tokens": 0,
+  "yearly_effects": 96
+}

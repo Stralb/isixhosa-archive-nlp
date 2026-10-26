@@ -1,0 +1,10 @@
+{
+  "LM_docs": 545,
+  "LM_tokens": 126709,
+  "heldout_bits": 4918070.972790613,
+  "heldout_rows": 2493,
+  "heldout_unknown": 0,
+  "model": "unigram_WW_441",
+  "model_sha256": "6bffdbe75d8632cc0d4dd1b5fc81dbcaf7f059901950f3007d16dc62e3253f4d",
+  "scores_sha256": "90e87b628f7259e6707fc7d5363db6f11838bea59118ac1da89160f9787db574"
+}

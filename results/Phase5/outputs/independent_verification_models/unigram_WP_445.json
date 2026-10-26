@@ -1,0 +1,10 @@
+{
+  "LM_tokens": 125199,
+  "checked_score_sha256": "7330817bfaab086a9d899e290f7d89421f3d71e19d38fbb83360d83af2a60d45",
+  "max_abs_bits": 5.002220859751105e-12,
+  "max_abs_bpc": 7.105427357601002e-15,
+  "model": "unigram_WP_445",
+  "model_sha256": "049816ae9e7aa8203e0477a683c685a175d75aecbf0ab3b4f6c062c8de2d6841",
+  "score_rows": 2493,
+  "unknown_tokens": 0
+}
