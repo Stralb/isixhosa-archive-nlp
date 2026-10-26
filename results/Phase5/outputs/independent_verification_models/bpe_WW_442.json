@@ -1,0 +1,10 @@
+{
+  "LM_tokens": 127342,
+  "checked_score_sha256": "e6976a5f960f709ca4165b53ee7c6674e659d80bd4ec2afc41e3d58a2e77b00d",
+  "max_abs_bits": 4.547473508864641e-12,
+  "max_abs_bpc": 7.105427357601002e-15,
+  "model": "bpe_WW_442",
+  "model_sha256": "d445f68b8467dec3cee4e5233cfa7badc7e110998d5642dd16f0da8562f9f1ef",
+  "score_rows": 2493,
+  "unknown_tokens": 0
+}

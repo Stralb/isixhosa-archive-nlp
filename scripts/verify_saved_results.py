@@ -6,7 +6,7 @@ import hashlib
 import json
 
 ROOT = Path(__file__).resolve().parents[1]
-EXP = ROOT / "coursework" / "isiXhosa_Excellence_Sprint"
+EXP = ROOT / "results"
 
 
 def rows(relative):

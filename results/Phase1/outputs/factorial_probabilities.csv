@@ -1,0 +1,5 @@
+arm,language_allocation,page_conditional,view_draw_english_probability,nonzero_page_view_cells,probability_sum
+PP,page_like,page_conditional,0.2355156431627374,595,1.0
+PW,page_like,word_conditional,0.2355156431627374,595,1.0
+WP,word_like,page_conditional,0.325647183088465,595,1.0
+WW,word_like,word_conditional,0.325647183088465,595,1.0

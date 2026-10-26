@@ -1,7 +1,6 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
-.ipynb_checkpoints/
 .venv/
 venv/
 .env
@@ -9,19 +8,8 @@ venv/
 .DS_Store
 *.swp
 *.tmp
-*_replay/
-_replay/
+/runs/
+/output/
+/data/raw/
 TxtLangFiles1870-1894_TB.zip
 1. TxtFiles1870-1894_TB.zip
-source_data/
-data/raw/
-
-# Reconstructed experimental outputs are already preserved by the
-# verified release archives. Avoid accidental commits of decoded duplicates.
-coursework/isiXhosa_Excellence_Sprint/Phase*/outputs/
-
-# Restored artifacts and large numerical tables are reproducible from the
-# tracked portable snapshots and 97-part output archive. Tracked summary
-# tables and recorded manifests remain versioned.
-/coursework/isiXhosa_Excellence_Sprint/Phase*/outputs/
-/runs/

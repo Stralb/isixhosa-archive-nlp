@@ -1,6 +1,6 @@
 # Findings and negative results
 
-The reported estimands and intervals below are taken from the frozen [Phase 6 claim ledger](../coursework/isiXhosa_Excellence_Sprint/Phase6/CLAIM_LEDGER.md) and independently reproduced numerical files. Contrast signs always follow the referenced phase definition.
+The reported estimands and intervals below are taken from the frozen [Phase 6 claim ledger](../research-notes/Phase6/CLAIM_LEDGER.md) and independently reproduced numerical files. Contrast signs always follow the referenced phase definition.
 
 ## F1 to F4: sampling and representation
 
@@ -28,7 +28,7 @@ For the primary 1888 isolated allocation effect, the 95% conditional issue-boots
 
 The later-year **whole-policy counterexample matters**. A favourable isolated factor effect does not establish that all other changes bundled into word-based corpus construction will help. Selection inside the views matters too. The isiXhosa-view BPE and Unigram BPC contrasts also need not track segmentation compactness in identical ways.
 
-![Whole-policy counterexample](../coursework/isiXhosa_Excellence_Sprint/Phase6/outputs/PHASE6_WHOLE_POLICY_COUNTEREXAMPLE.png)
+![Whole-policy counterexample](../results/Phase6/outputs/PHASE6_WHOLE_POLICY_COUNTEREXAMPLE.png)
 
 ## F6: repeated-text falsification
 
@@ -52,4 +52,4 @@ These are publication-issue bootstraps **conditional on the available Imvo colle
 - No verified human-level fairness or downstream task accuracy result.
 - No independent replication of this particular factorial experiment on Isigidimi.
 
-For exact source figures and checks: [`Phase6/outputs`](../coursework/isiXhosa_Excellence_Sprint/Phase6/outputs), [`Phase3/outputs`](../coursework/isiXhosa_Excellence_Sprint/Phase3/outputs), [`Phase5/outputs`](../coursework/isiXhosa_Excellence_Sprint/Phase5/outputs).
+For exact source figures and checks: [`Phase6/outputs`](../results/Phase6/outputs), [`Phase3/outputs`](../results/Phase3/outputs), [`Phase5/outputs`](../results/Phase5/outputs).

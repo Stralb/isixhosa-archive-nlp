@@ -1,0 +1,17 @@
+{
+  "all_filtered_have_no_repeated_13grams": true,
+  "all_same_page_view_support": true,
+  "archive_sha256": "375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5",
+  "common_support_controls": 10,
+  "equal_budget_range": [
+    499979,
+    500000
+  ],
+  "filtered_models": 10,
+  "model_count": 20,
+  "model_manifest_sha256": "d3a0c47c1c4fff7cdd14117f6fef6671a9ac87b45e37230e451abfa5d8593fdc",
+  "precommit_sha256": "1fb49e638a51cedc7f8157743d2c2d90ba65003f4d049990cf8d23c30f00714e",
+  "support_manifest_sha256": "675976db7591f3b1cf9692942f7725c46d9762d5f95e7707612fc7de2364fcb6",
+  "test_content_read": false,
+  "training_complete": true
+}

@@ -1,0 +1,24 @@
+{
+  "archive_sha256": "375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5",
+  "arm_expected_en_share": {
+    "PP": 0.230897467843588,
+    "WW": 0.32453814376713297
+  },
+  "clean_window_count": 611890,
+  "common_support_pageviews": 533,
+  "control_window_count": 742078,
+  "cross_issue_repeated_13gram_types": 16691,
+  "dropped_english_pageviews": 56,
+  "dropped_isixhosa_pageviews": 6,
+  "dropped_pageviews": 62,
+  "matched_support_SHA256": "5f801fb84dfdbe37270d8308672683458546db6b5246d6c8139bf134077d55bb",
+  "original_eligible_pageviews": 595,
+  "phase": "4",
+  "phase1_protocol_sha256": "bc443d883fa1c2b8eb09ced5f87d8f65b352d55512ef2c594b1b23e64d496bf4",
+  "phase4_precommit_sha256": "1fb49e638a51cedc7f8157743d2c2d90ba65003f4d049990cf8d23c30f00714e",
+  "read_heldout_content": false,
+  "retained_english_pageviews": 198,
+  "retained_isixhosa_pageviews": 335,
+  "training_issues": 86,
+  "training_pages": 342
+}

@@ -1,0 +1,18 @@
+{
+  "archive_sha256": "375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5",
+  "heldout_content_reads": 0,
+  "lm_train_docs": 545,
+  "protocol_sha256": "bc443d883fa1c2b8eb09ced5f87d8f65b352d55512ef2c594b1b23e64d496bf4",
+  "train_13grams_by_view": {
+    "en": 240511,
+    "xh": 443859
+  },
+  "train_issues": 86,
+  "train_pages": 342,
+  "train_pageviews": 595,
+  "validation_issues": 12,
+  "validation_pages": 48,
+  "validation_windows": 344,
+  "validation_windows_en": 104,
+  "validation_windows_xh": 240
+}

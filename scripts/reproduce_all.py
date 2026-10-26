@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Reproduce the original six-phase coursework experiment in a clean workspace.
 
-Unlike the alternative implementation in factory/, this orchestrates the
-original frozen research scripts committed under coursework/. It does not
+Unlike the alternative implementation in experiments/independent/, this orchestrates the
+original frozen research scripts committed under experiments/. It does not
 rewrite those scripts, rename a source split or silently reuse saved outputs.
 
 Usage:
@@ -21,7 +21,7 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
-ORIGINAL = REPO / "coursework" / "isiXhosa_Excellence_Sprint"
+ORIGINAL = REPO / "experiments"
 ARCHIVE_SHA256 = "375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5"
 PROTOCOL_SHA256 = "bc443d883fa1c2b8eb09ced5f87d8f65b352d55512ef2c594b1b23e64d496bf4"
 STAGES = ("train", "segmentation", "repetition", "bigram", "audit")
@@ -83,6 +83,11 @@ def prepare_workspace(work: Path) -> None:
         shutil.copytree(source, work / f"Phase{phase}",
                         ignore=shutil.ignore_patterns("outputs", "__pycache__", "*.pyc", "*.model", "*.vocab"))
         (work / f"Phase{phase}" / "outputs").mkdir(exist_ok=True)
+        # Copy immutable preregistration files without changing their bytes.
+        for name in ("FROZEN_PROTOCOL.md", "PRECOMMIT.md"):
+            frozen = REPO / "protocols" / f"Phase{phase}" / name
+            if frozen.exists():
+                shutil.copy2(frozen, work / f"Phase{phase}" / name)
     for name in ("README.txt", "README.md", "ROADMAP.md"):
         file = ORIGINAL / name
         if file.exists():

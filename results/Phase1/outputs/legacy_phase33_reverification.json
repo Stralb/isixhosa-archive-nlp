@@ -1,0 +1,20 @@
+{
+  "pass": true,
+  "page_rows": 37395,
+  "issue_years": [
+    1888,
+    1889,
+    1890,
+    1891,
+    1892,
+    1893,
+    1894
+  ],
+  "observed_page_view_units": 2493,
+  "token_recomputations_from_source": 194,
+  "independent_saved_aggregate_recomputations": 60,
+  "model_hashes_checked": 15,
+  "all_unknown_counts_zero": true,
+  "sampling_precommit_sha256": "e7fc0f5c350d66c8d6fc56d79df5279fb7298e94822c77ea11ee3ae1db764286",
+  "notes": "Re-encodes source strings and checks all saved aggregates. LM probability matrix independently verified in separate script."
+}
