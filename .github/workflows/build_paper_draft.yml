@@ -1,0 +1,56 @@
+name: Build CCN paper draft
+
+on:
+  push:
+    branches:
+      - paper/official-ccn-draft-and-template-sources-2026-10-26
+    paths:
+      - 'reports/report.tex'
+      - 'reports/paper_references.bib'
+      - 'reports/ccn.sty'
+      - 'reports/neurips_checklist_filled.tex'
+      - 'reports/make_figure.py'
+      - '.github/workflows/build_paper_draft.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python -m pip install -r requirements.txt
+      - name: Regenerate plot from pinned verified statistics
+        run: python reports/make_figure.py
+      - name: Compile through TeX Live
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: report.tex
+          working_directory: reports
+          latexmk_use_lualatex: false
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+      - name: Verify that body ends before references
+        shell: bash
+        run: |
+          set -euo pipefail
+          pdftotext -f 2 -l 2 reports/report.pdf /tmp/body2.txt
+          pdftotext -f 3 -l 3 reports/report.pdf /tmp/refs3.txt
+          grep -q "Conclusion" /tmp/body2.txt
+          grep -q "References" /tmp/refs3.txt
+          if grep -q "References" /tmp/body2.txt; then
+            echo "ERROR: scientific body exceeds two pages"
+            exit 1
+          fi
+          pdfinfo reports/report.pdf | grep '^Pages:'
+      - name: Upload compiled PDF for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: NLP2-CCN-draft-PDF-needs-author-review
+          path: reports/report.pdf
+          retention-days: 14
