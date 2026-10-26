@@ -18,4 +18,6 @@ jobs:
       - run: python src/run.py check
       - name: Independent 84-contrast and bootstrap audit
         run: python src/audit/independent_ci.py --root .
+      - name: Independently verify exploratory metric-coupling and length artifacts
+        run: python src/analysis/metric_relationships.py --root . --verify
       - run: python src/run.py reproduce --data data/source-not-included.zip --out /tmp/replay --dry-run
