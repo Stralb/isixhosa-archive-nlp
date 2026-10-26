@@ -1,0 +1,26 @@
+{
+  "exploratory_after_first_pilot": true,
+  "complete_archive_and_true_selection_rule_assumed": true,
+  "results": [
+    {
+      "scenario": "SOURCE",
+      "oracle_null_draws": 5000,
+      "original_replicates": 200,
+      "median_BH_discoveries": 0.0,
+      "mean_BH_discoveries": 0.025,
+      "fraction_reps_any_BH_discovery": 0.025,
+      "pvalue_granularity": 0.0001999600079984003,
+      "median_feature_pvalue": 0.4954009198160368
+    },
+    {
+      "scenario": "PAGE",
+      "oracle_null_draws": 5000,
+      "original_replicates": 200,
+      "median_BH_discoveries": 0.0,
+      "mean_BH_discoveries": 0.075,
+      "fraction_reps_any_BH_discovery": 0.055,
+      "pvalue_granularity": 0.0001999600079984003,
+      "median_feature_pvalue": 0.49750049990002
+    }
+  ]
+}

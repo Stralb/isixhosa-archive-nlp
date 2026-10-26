@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "source_pages_verified": 292,
+  "features_verified": 200,
+  "simulated_draws_verified": 400,
+  "per_feature_contrasts_verified": 240000,
+  "pvalues_verified": 240000,
+  "max_effect_diff": 0,
+  "max_pvalue_diff": 0,
+  "source_zip_sha256": "375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5"
+}

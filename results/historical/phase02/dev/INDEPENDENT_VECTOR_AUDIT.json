@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "split": "dev",
+  "raw_pages_independently_tokenized": 292,
+  "heldout_pages": 52,
+  "masks_replayed": 49920,
+  "full_closed_form_methods": [
+    "POOLED",
+    "SOURCE_PAGE_STD",
+    "KNOWN_IPW_ORACLE",
+    "MANSKI",
+    "GAMMA_0005",
+    "GAMMA_0020"
+  ],
+  "point_vectors_and_set_endpoints_checked": 691200,
+  "fitted_and_match_spotchecks": 36,
+  "all_summary_metrics_checked": 96,
+  "unrestricted_bounds_cover_truth": true,
+  "sensitivity_bounds_cover_truth_when_assumptions_hold": true
+}

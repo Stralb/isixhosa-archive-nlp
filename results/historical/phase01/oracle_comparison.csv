@@ -1,0 +1,3 @@
+scenario,oracle_null_draws,original_replicates,median_BH_discoveries,mean_BH_discoveries,fraction_reps_any_BH_discovery,pvalue_granularity,median_feature_pvalue
+SOURCE,5000,200,0.0,0.025,0.025,0.0001999600079984003,0.4954009198160368
+PAGE,5000,200,0.0,0.075,0.055,0.0001999600079984003,0.49750049990002
