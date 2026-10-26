@@ -1,10 +1,17 @@
-.PHONY: test source-check plan
-test:
-	python -m unittest discover -s factory/tests -v
-	python scripts/check_frozen_source.py
+.PHONY: audit test plan reproduce
 
-source-check:
-	python scripts/check_frozen_source.py
+DATA ?=
+RUN_DIR ?= ../isixhosa-fresh-run
+
+audit:
+	python scripts/factory.py audit
+
+test:
+	python -m unittest discover -s tests -v
+	python scripts/factory.py audit
 
 plan:
-	python scripts/reproduce_all.py --archive /path/to/TxtLangFiles1870-1894_TB.zip --workdir /tmp/isiXhosa-repro --dry-run
+	python scripts/factory.py full --archive "$(DATA)" --workdir "$(RUN_DIR)" --dry-run
+
+reproduce:
+	python scripts/factory.py full --archive "$(DATA)" --workdir "$(RUN_DIR)"

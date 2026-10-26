@@ -1,0 +1,19 @@
+name: Research reproducibility checks
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v
+      - run: python scripts/factory.py audit
+      - run: python scripts/factory.py full --archive /tmp/absent-source.zip --workdir /tmp/fresh-run --dry-run

@@ -1,93 +1,39 @@
-# Reproduce the research
+# Reproducibility
 
-## First, know which check you are running
+## Verify the native saved results
 
-**Source-only validation, no archival data and no retraining:**
+From the repository root, install requirements and run:
 
-\`\`\`bash
-python scripts/check_frozen_source.py
-python -m unittest discover -s factory/tests -v
-\`\`\`
-
-The original scripts, preregistered source documents and result-summary CSVs
-are checked with the source-only command. This is not the same as re-scoring
-all 99,720 saved examples.
-
-**Reproduce the original controlled experiment from the source ZIP:**
-
-\`\`\`bash
+```bash
 python -m pip install -r requirements.txt
-python scripts/reproduce_all.py \
-  --archive /absolute/path/to/TxtLangFiles1870-1894_TB.zip \
-  --workdir /absolute/path/to/clean-nlp2-run --dry-run
+python scripts/factory.py audit
+```
 
-python scripts/reproduce_all.py \
-  --archive /absolute/path/to/TxtLangFiles1870-1894_TB.zip \
-  --workdir /absolute/path/to/clean-nlp2-run
-\`\`\`
+The command checks the saved original 40 model hashes, verifies the original scientific audit, pairs 99,720 segmentation rows with 99,720 language-model score rows, and recalculates all 64 reported factorial point effects. All input files for this check are native files committed under [results](../results). There are no compressed chunks or base64 restoration steps.
 
-The \`--dry-run\` option prints the actual original training, evaluation,
-repeated-text sensitivity and verification commands. The full run writes
-its own models, manifests, score tables and logs outside the Git checkout.
-Use \`--resume\` for an interrupted run instead of deleting checkpoints.
+These checks reproduce the saved calculations, not a fresh model-training run.
 
-**Independent, compact implementation:**
+## Run the frozen original experiments
 
-\`\`\`bash
-python factory/run_experiment.py \
-  --archive /absolute/path/to/TxtLangFiles1870-1894_TB.zip \
-  --out /absolute/path/to/independent-run --mode full
-\`\`\`
+Obtain the original course-provided source archive from an authorised source. Its pinned SHA-256 is:
 
-See [factory README](../factory/README.md) for the comparison boundary.
-
-## Dataset and environment
-
-Obtain \`TxtLangFiles1870-1894_TB.zip\` from the original course distribution
-or an authorised archive provider. It is not included in this public repo.
-The original, pinned SHA256 is
-
-\`\`\`
+```
 375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5
-\`\`\`
+```
 
-The original runs used Python 3.13.5, NumPy 2.3.5, pandas 2.2.3,
-SentencePiece 0.2.1 and Matplotlib 3.10.8. Use
-\`OPENBLAS_NUM_THREADS=1\` and \`OMP_NUM_THREADS=1\` where necessary.
-A GPU is not required.
+First preview the commands, then run:
 
-## How to audit a full replay
+```bash
+python scripts/factory.py full --archive /absolute/path/to/TxtLangFiles1870-1894_TB.zip --workdir /absolute/path/to/new-run --dry-run
+python scripts/factory.py full --archive /absolute/path/to/TxtLangFiles1870-1894_TB.zip --workdir /absolute/path/to/new-run
+```
 
-After the original runner completes, inspect the work directory:
+The factory recreates the original Phase 1 to Phase 6 working layout outside this Git checkout, copies the frozen original scripts and preregistration bytes, and executes original training, held-out scoring, repeated-text controls, downstream language-model evaluation and the independent science audit. It writes isolated outputs and logs, and supports --resume after interruption.
 
-- \`Phase2/outputs/model_training_manifest.csv\` and
-  \`PHASE2_SELECTION_FREEZE.json\` for training and validation choices.
-- \`Phase3/outputs/factorial_contrasts.csv\` and
-  \`heldout_scores.csv\` for segmentation estimates.
-- \`Phase4/outputs/f6_contrasts.csv\` and
-  \`support_audit.json\` for repeated-text controls.
-- \`Phase5/outputs/bpc_factorial_contrasts.csv\` and
-  \`heldout_lm_scores.csv\` for held-out language-model likelihood.
-- \`Phase6/outputs/PHASE6_SCIENCE_AUDIT.json\` for the independent
-  seven-test audit.
-- \`logs/*.log\` for every original training and verification stage.
+The 40-tokenizer fitting stage was freshly reproduced on 25 October 2026, with identical training-sample and vocabulary hashes. SentencePiece may embed the output path in serialised model binaries, so newly trained model file hashes can change even when learned token pieces agree. A complete fresh replay of later phases is not yet certified.
 
-The saved-model fast audit in the original research package is:
-
-\`\`\`bash
-sh Phase6/submission_code/RUN_FAST_CHECK.sh /absolute/path/to/TxtLangFiles1870-1894_TB.zip
-\`\`\`
-
-Run that command from inside the fully populated research workspace,
-not from a GitHub checkout missing the larger numerical artifacts.
-It verifies frozen 40-model outputs and regenerates four figures without
-retraining all models.
+Run unit tests and native-result validation with `make test`. The second independent implementation is explained in [Independent implementation](INDEPENDENT_IMPLEMENTATION.md).
 
 ## Scientific limitations
 
-We deliberately keep unsuccessful or mixed evidence visible. The exact
-sampling contrast depends on the historical corpus, the archive's block
-assignments and the intrinsic segmentation or count-bigram metric. The heldout
-years had already been examined during earlier research. This project
-supports careful claims about corpus sampling, not cultural or social
-fairness claims.
+The archive labels are not independently adjudicated language annotations. The main experiment is from one newspaper, and the later evaluation years were inspected during earlier work. Intrinsic tokenisation and count-bigram BPC do not establish social fairness or a change in historical lexical meaning.
