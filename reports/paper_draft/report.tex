@@ -1,0 +1,82 @@
+% NLP 2026 Project 2 - scientific extended abstract draft
+% Uses the supplied CCN 10pt, two-column template style, not generic article formatting.
+% IMPORTANT: replace AUTHOR NAMES and review all checklist/AI ethics answers before submission.
+% BODY LIMIT: the material from \maketitle to \clearpage before references MUST occupy <= 2 pages.
+\documentclass[10pt,letterpaper]{article}
+\usepackage{ccn}
+\usepackage{pslatex}
+\usepackage[natbibapa]{apacite}
+\usepackage{graphicx,booktabs,amsmath,microtype,xcolor,hyperref}
+\hypersetup{hidelinks}
+\usepackage[labelfont=bf,font=sf,skip=3pt]{caption}
+\setlength{\belowcaptionskip}{0pt}
+\setlength{\abovecaptionskip}{2pt}
+\newcommand{\answerYes}[1][]{\textbf{[Yes]} #1}
+\newcommand{\answerNo}[1][]{\textbf{[No]} #1}
+\newcommand{\answerNA}[1][]{\textbf{[N/A]} #1}
+\newcommand{\answerTODO}[1][]{\textcolor{red}{\textbf{[REVIEW]}}}
+\newcommand{\justificationTODO}[1][]{\textcolor{red}{\textbf{[AUTHOR REVIEW REQUIRED]}}}
+\title{When Sampling Shapes the Story: Auditing Representation and Claim Stability in Historical isiXhosa NLP}
+\author{{\large \bf [Confirm all group authors]}\\University of the Witwatersrand, Johannesburg, South Africa}
+\date{}
+\begin{document}
+\maketitle
+\vspace{-9pt}
+\section{Abstract}
+\noindent\textbf{\small
+Digitised African-language newspapers are culturally important yet their computational representation depends on archival and sampling choices. We ask whether defensible corpus-construction decisions alter both learned language representations and the stability of quantitative historical text claims. A controlled study of \emph{Imvo Zabantsundu} reveals opposing English- and isiXhosa-view segmentation effects under a fixed training budget. We then introduce ArchiveLens, a reproducible sensitivity audit over two newspaper collections: some surface-pattern trends change with sampling estimand, but raw reversal counts are not unusual under a permutation benchmark. Its adjusted sensitivity tests and repetition diagnostics identify where caution is warranted. We argue for explicit exposure estimands, disaggregated evaluation and calibrated uncertainty---not automated claims about cultural change.}
+\par\noindent\textbf{Keywords:} Responsible NLP; historical isiXhosa; corpus sampling; measurement validity.
+\vspace{-4pt}
+\section{Introduction and Related Work}
+The isiXhosa Intellectual Traditions archive preserves African intellectual writing from the nineteenth century, including two newspapers with different institutional histories \citep{schoots2023archive}. Digitisation makes these sources searchable but does not make them representative of speakers, genres or historical beliefs. A page, a publication issue and a word position represent distinct sampling units. Thus, apparently neutral selection choices can alter both the data shown to an NLP model and a statistic describing historical text.
+
+Work on multilingual tokenisation documents language-dependent processing costs \citep{petrov2023} and warns that intrinsic segmentation measures need not predict downstream performance \citep{ali2024}. Historical-data audits similarly demonstrate that collection composition matters \citep{beelen2025}; data statements call for explicit documentation of the population behind computational claims \citep{bender2018}. Like behavioural tests that probe NLP systems beyond aggregate accuracy \citep{ribeiro2020}, ArchiveLens stresses the measurement itself. We connect these concerns through two \emph{separate} questions: \emph{(Q1)} How does sampling affect computational representation? \emph{(Q2)} How stable are descriptive changes in historical surface patterns under plausible alternative sampling estimands?
+
+\section{Methods}
+\textbf{Q1: Controlled representation study.} On \emph{Imvo}, we independently vary (A) archive English/isiXhosa-view training allocation and (B) within-view page selection, each page- or text-mass-weighted (PP, PW, WP, WW). We train BPE and Unigram tokenisers (2,000 pieces; five seeds per cell) with the same 500,000-alphabetic-character budget. Models fit 1885 and Jan--Sep 1887, tune a count-bigram baseline on Oct--Dec 1887, and test 1888; 1889--94 is a later-period diagnostic. Outcomes are \emph{pieces per 100 alphabetic characters} and smoothed count-bigram \emph{bits per character} (BPC). We estimate paired factorial contrasts with publication-issue bootstrap intervals. View labels are archive-assigned blocks, not expert language identification.
+
+\textbf{Q2: ArchiveLens claim audit.} On \emph{Imvo} and \emph{Isigidimi samaXosa}, we preselect 120 within-word character four-grams from 1887 and compare 1888-minus-1885 rates under character-mass, equal-page, equal-issue and equal-month weighting. The unit is 10,000 within-word four-gram positions. Nested month/issue bootstrap (3,000 draws) describes uncertainty. Follow-up calibration permutes whole-issue year labels within month 4,999 times; Holm correction controls the per-newspaper family of 120 tests of \emph{estimator-gap magnitude}. Leave-one-issue-out and exact cross-issue 13-word repetition masking probe archival influences. These are conditional, exploratory analyses of years examined previously, not a pristine external holdout.
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.99\textwidth]{figures/main_evidence.pdf}
+  \vspace{-2pt}
+  \caption{\textbf{Two ways that sampling matters.} \textbf{A:} In the 1888 controlled allocation contrast, negative differences mean fewer subword pieces per 100 alphabetic characters; issue-bootstrap 95\% intervals show improved English-view compactness and worse isiXhosa-view compactness for both tokeniser families. \textbf{B:} In ArchiveLens, observed numbers of four-gram temporal sign reversals are \emph{not} elevated relative to the within-month, whole-issue year-label permutation distribution (central 95\% ranges). Yet 29 Imvo patterns, and none from Isigidimi, exhibit estimator-gap \emph{magnitude} sensitivity after Holm correction. These are different statistical questions, not conflicting results.}
+  \label{fig:results}
+\end{figure*}
+
+\section{Results}
+\textbf{Exposure changes with the sampling unit.} On matched \emph{Imvo} years, English-view text constitutes 29.475\% of classified \emph{word mass} but 22.643\% when each page receives equal weight (difference 6.832 percentage points).
+
+\textbf{Representation trade-off (Fig.~\ref{fig:results}A).} Changing allocation in BPE reduces English-view segmentation cost by \(1.878\) pieces/100 characters (95\% issue-bootstrap CI \([-1.972,-1.782]\), signed difference), but \emph{increases} isiXhosa-view cost by \(0.453\) (CI \([0.407,0.497]\)). Unigram reproduces the directional trade-off (English \(-1.795\), isiXhosa \(+0.555\)). BPE English-view bigram loss also improves (\(-0.0372\) BPC, CI \([-0.0424,-0.0321]\)), whereas isolated within-view selection worsens it (\(+0.0194\) BPC). IsiXhosa-view BPE BPC changes slightly in the improving direction (\(-0.00275\)), so segmentation compactness is not a universal downstream proxy. The full-policy BPE English BPC contrast in 1889--94 is inconclusive under a six-year-cluster interval that includes zero.
+
+\textbf{Calibrated claim sensitivity (Fig.~\ref{fig:results}B).} Under alternative sampling estimands, 23/120 \emph{Imvo} and 4/120 \emph{Isigidimi} surface-pattern differences reverse point-estimate sign, but \emph{none} has statistically supported opposite directions under both estimands. Those warning counts are not unusually high under year-label permutations (Imvo 23 versus null mean 29.0; upper-tail \(p=0.888\)). However, the \emph{magnitude} of estimator disagreement exceeds the calibrated reference for 29/120 Imvo patterns after Holm correction (0/120 Isigidimi). Removing one publication issue reverses the baseline temporal direction for 7/32 flagged Imvo patterns; exact repeated-text filtering removes 10 of its original direction-reversal warnings. This mask also changes eligible text, so it is a sensitivity check rather than a causal effect.
+
+\section{Discussion: Responsible NLP}
+\textbf{Sampling is part of the scientific claim.} The controlled intervention shows that a common exposure rule can redistribute computational efficiency across the archive's language views; it is therefore insufficient to report one aggregate tokenizer score. The observational audit addresses a second failure mode: a descriptive historical-pattern claim can depend on how pages, issues, months or textual mass are weighted. The two branches do \emph{not} demonstrate that tokenisation caused historical trends. Rather, they show why language-disaggregated model evaluation and \emph{estimand-aware} interpretation should accompany archive-based NLP.
+
+\textbf{A useful warning must itself be tested.} ArchiveLens's raw sign reversals include small effects near zero. Its permutation reference does not show an excess of such flags, whereas adjusted magnitude sensitivity survives for some Imvo patterns. Issue influence and repeated text supply traceable reasons to qualify conclusions; neither validates the historical meaning of a four-character fragment. This negative result is central: a responsible auditor should distinguish alerts from evidence, not relabel every disagreement as bias.
+
+\textbf{Why negative controls matter.} Isigidimi has only 12 eligible issues in 1888 versus Imvo's 52, so its absence of Holm-positive gaps does not imply fairer curation. Exact cross-issue 13-word repeats cover about one-fifth of Imvo's evaluated words in each target year. Filtering changes alerts and sample support; it cannot isolate the causal role of reprints. Neither domain-specific distribution nor repetition is evidence about political beliefs.\par
+
+\textbf{Operational contribution.} ArchiveLens records the pattern, date contrast and exposure estimand; tests alternative weightings against a whole-issue permutation benchmark; and traces influence to issues, page positions and exact repeats. A sign change without supported opposing effects triggers a \emph{caution}, not a discovery. This gives researchers a reproducible point to defer cultural interpretation pending linguistic and archival review. We integrate established controls rather than claiming to invent a general fairness algorithm.\par
+
+\textbf{Scope and limitations.} The data are corrected transcriptions, not verified raw OCR; archive \texttt{EnTxt}/\texttt{XhTxt} views are not adjudicated linguistic labels. Newspaper and year also vary in genre, editorial context and preservation. Earlier phases inspected the evaluation years, exact sequence overlap occurs, and both papers belong to one archive. The 120 features are correlated, and original exploratory bootstrap intervals are unadjusted. We do not infer historical semantics, cultural harm, speaker-level fairness or effectiveness on modern LLMs. Independent linguistic annotation and cross-archive evaluation are needed for those claims.
+
+\section{Conclusion}
+Responsible historical-language NLP requires documenting \emph{what text is exposed}, \emph{which outcome is measured} and \emph{whether a quantitative conclusion survives reasonable analysis choices}. Our controlled study and open-source ArchiveLens instrument provide reproducible evidence for this measurement-validity approach. Full protocols, negative controls, data hashes, scripts and verification are linked in the \href{https://github.com/Stralb/isixhosa-archive-nlp}{research repository}.
+
+% Enforce a hard boundary: everything above must occupy at most two pages.
+\clearpage
+\bibliographystyle{apacite}
+\bibliography{paper_references}
+\clearpage
+\input{neurips_checklist_filled.tex}
+\clearpage
+\section*{Faculty of Science AI Ethics Statement — authors must confirm}
+\noindent\textbf{Draft disclosure:} Generative AI was used to assist with literature organisation, draft text, code/reproducibility review and formatting. All numerical claims were taken from reproducible research outputs and must be checked and accepted by the group. The human authors remain responsible for the design, research decisions, interpretation, attribution, data rights and final submission.\\[4pt]
+\textbf{REQUIRES AUTHOR ACTION:} Insert the \emph{exact} required Wits Faculty of Science AI Ethics form/wording and truthful AI-use declaration here; confirm whether university policy requires named tools, prompts, duration or signatures. This is a drafting placeholder, not the completed form.
+
+\section*{Contribution Statement — authors must confirm}
+\noindent\textbf{REQUIRES AUTHOR ACTION:} Replace with the agreed contribution of each \emph{existing registered group member}; do not invent names, percentages or group roles. Ensure this statement matches the group's actual work and the preliminary registered author list.
+\end{document}
