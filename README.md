@@ -4,6 +4,8 @@
 
 We investigated **two linked but separate questions**, using corrected historical isiXhosa Intellectual Traditions (IsiXIT) newspaper text: a **controlled** sampling/tokenizer experiment on *Imvo Zabantsundu*, and **ArchiveLens**, a reproducible claim-sensitivity auditor on *Imvo Zabantsundu* and *Isigidimi samaXosa*. ArchiveLens does not derive its trend estimates from tokenizer outputs.
 
+**Extended abstract draft (authors must review):** [Official-style CCN LaTeX source](reports/report.tex) · [paper build and sign-off instructions](reports/README_PAPER.md) · [two-panel figure generator](reports/make_figure.py). The scientific body is limited to two pages; the required references, ethics checklist and declarations are separate. The source is not a completed submission until the registered authors confirm the remaining ethics/contribution fields.
+
 **Start here:** [Paper-to-evidence reader's guide](reports/PAPER_TO_EVIDENCE_GUIDE.md) — the strongest findings, each exact source/CI, how to reproduce them, related work, and the key Responsible NLP limits.
 
 | Branch of research | One important result | Detail |
