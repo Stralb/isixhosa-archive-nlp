@@ -1,8 +1,20 @@
-# Sampling historical isiXhosa newspaper text for NLP
+# When Sampling Shapes the Story: Responsible NLP for Historical isiXhosa
 
-We tested how the way a historical newspaper corpus is sampled changes the tokenizers trained on it. The text comes from *Imvo Zabantsundu* in the isiXhosa Intellectual Traditions (IsiXIT) collection.
+**Research question:** How do historical archive sampling choices affect both computational language representation and the reliability of descriptive text-pattern claims?
 
-The experiment changes two choices: how much text to take from the archive's English and isiXhosa views, and how to sample pages within each view. We held the training-text budget nearly constant.
+We investigated **two linked but separate questions**, using corrected historical isiXhosa Intellectual Traditions (IsiXIT) newspaper text: a **controlled** sampling/tokenizer experiment on *Imvo Zabantsundu*, and **ArchiveLens**, a reproducible claim-sensitivity auditor on *Imvo Zabantsundu* and *Isigidimi samaXosa*. ArchiveLens does not derive its trend estimates from tokenizer outputs.
+
+**Start here:** [Paper-to-evidence reader's guide](reports/PAPER_TO_EVIDENCE_GUIDE.md) — the strongest findings, each exact source/CI, how to reproduce them, related work, and the key Responsible NLP limits.
+
+| Branch of research | One important result | Detail |
+| --- | --- | --- |
+| Controlled sampling → model representation | 1888 BPE allocation: English view **−1.88** and isiXhosa view **+0.45** pieces/100 characters (a trade-off, not a uniform gain) | [Frozen tokenizer results](reports/findings.md) |
+| Sampling choice → descriptive historical claims | ArchiveLens detects **23/120** IMVO surface-pattern direction reversals under alternative estimands; none has both opposite directions confidently supported | [ArchiveLens audit](reports/ARCHIVELENS_RESULTS_2026-10-26.md) |
+| Calibration → measured reliability of warnings | Sign-reversal *counts* are not elevated above month/issue permutations; **29/120** IMVO patterns show adjusted **magnitude** sensitivity (Holm), with exact repetition and influential-issue checks | [Calibration and attribution](reports/ARCHIVELENS_FOLLOWUP_2026-10-26.md) |
+
+**Research boundary:** This is a careful, auditable study of *computational and surface-text measurement*, not proof of cultural change, word-level language identity or societal fairness harm.
+
+---
 
 ## What we did
 
@@ -51,7 +63,7 @@ Use `--dry-run` to preview the commands, or `--resume` after interruption.
 | `src/` | Original Python experiments, runner and checks |
 | `results/` | CSV comparisons, raw scores, trained models and figures |
 | `reports/` | Methods, findings and frozen protocols |
-| `data/` | External source data, not committed |
+| `data/` | Original verified archive ZIPs and provenance instructions (check redistribution permissions) |
 
 The original training script is in [src/phase2](src/phase2/). The key numeric tables are [segmentation](results/segmentation.csv), [bigram](results/bigram.csv) and [repetition controls](results/repetition.csv).
 
