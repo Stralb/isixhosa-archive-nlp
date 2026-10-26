@@ -35,19 +35,26 @@ jobs:
           working_directory: reports
           latexmk_use_lualatex: false
           args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
-      - name: Verify that body ends before references
+      - name: Verify two-page scientific body before references
         shell: bash
         run: |
           set -euo pipefail
-          pdftotext -f 2 -l 2 reports/report.pdf /tmp/body2.txt
-          pdftotext -f 3 -l 3 reports/report.pdf /tmp/refs3.txt
-          grep -q "Conclusion" /tmp/body2.txt
-          grep -q "References" /tmp/refs3.txt
-          if grep -q "References" /tmp/body2.txt; then
-            echo "ERROR: scientific body exceeds two pages"
-            exit 1
-          fi
-          pdfinfo reports/report.pdf | grep '^Pages:'
+          python -m pip install pypdf
+          python - <<'PY'
+          from pypdf import PdfReader
+          r=PdfReader("reports/report.pdf")
+          assert len(r.pages)>=4, "Missing references/checklist/declarations"
+          p1=(r.pages[0].extract_text() or "")
+          p2=(r.pages[1].extract_text() or "")
+          p3=(r.pages[2].extract_text() or "")
+          assert "Abstract" in p1, "Abstract must start on page 1"
+          assert "Discussion" in p2 and "Conclusion" in p2, "Core paper overflows its two-page limit"
+          assert "References" not in p1+p2, "References begin before two-page body ends"
+          assert "References" in p3, "Bibliography does not begin on page 3"
+          assert any("NeurIPS" in (p.extract_text() or "") for p in r.pages[3:]), "Checklist missing"
+          assert any("Contribution Statement" in (p.extract_text() or "") for p in r.pages[3:]), "Contribution declaration missing"
+          print("PASS: CCN scientific body fills two pages; bibliography begins on page 3; ethics/checklist sections present; total pages",len(r.pages))
+          PY
       - name: Upload compiled PDF for review
         uses: actions/upload-artifact@v4
         with:
