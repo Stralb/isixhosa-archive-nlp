@@ -4,7 +4,7 @@ Original ZIP source is user-provided; source SHA is independently verified.
 """
 import collections,csv,hashlib,re,sys,zipfile
 from pathlib import Path
-SOURCE=Path(sys.argv[1] if len(sys.argv)>1 else '/mnt/data/TxtLangFiles1870-1894_TB.zip')
+SOURCE=Path(sys.argv[1]) if len(sys.argv)>1 else Path(__file__).resolve().parents[2] / 'data' / 'TxtLangFiles1870-1894_TB.zip'
 EXPECTED='375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5'
 assert hashlib.sha256(SOURCE.read_bytes()).hexdigest()==EXPECTED
 WORD=re.compile(r'[a-z]+')
