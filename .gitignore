@@ -19,3 +19,9 @@ paper/figures/
 # Local scratch files
 *.tmp
 .ipynb_checkpoints/
+
+# Signed student declarations and assembled PDFs should not be public
+paper/declaration*.pdf
+paper/Project2_Submission_with_Declaration.pdf
+paper/report.pdf
+paper/supplement_preview.pdf
