@@ -14,7 +14,7 @@ The primary 1888 results include:
 
 The original decisions and protocol are in [`protocol_phase1.md`](protocol_phase1.md) and [`methods.md`](methods.md). The numerical estimates are in [`results/segmentation.csv`](../results/segmentation.csv) and [`results/bigram.csv`](../results/bigram.csv). [`findings.md`](findings.md) discusses the outcomes and [`exploratory_metric_relationships_2026-10-26.md`](exploratory_metric_relationships_2026-10-26.md) examines whether segmentation and predictive loss move together.
 
-For the initial evidence that page-based and word-based sampling yield different English-view exposure, see [the Phase 32 research decision](../src/earlier/phase32/RESEARCH_DECISION.md) and [sampling estimates](../results/earlier/phase32/sampling_estimands.csv).
+For the initial evidence that page-based and word-based sampling yield different English-view exposure, see [the Phase 32 research decision](../archive/earlier/src/phase32/RESEARCH_DECISION.md) and [sampling estimates](../archive/earlier/results/phase32/sampling_estimands.csv).
 
 ## 2. ArchiveLens
 

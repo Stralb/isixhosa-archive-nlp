@@ -24,7 +24,19 @@ class RecoveredResearchTests(unittest.TestCase):
             self.assertFalse(relative.is_absolute())
             self.assertNotIn("..", relative.parts)
             self.assertIn(relative.parts[0], ("src", "results"))
-            path = ROOT / relative
+            # Manifest paths record the original recovery layout. Keep those
+            # records unchanged; only the checkout location has moved.
+            parts = relative.parts
+            if parts[:2] == ("src", "earlier"):
+                path = ROOT / "archive" / "earlier" / "src" / Path(*parts[2:])
+            elif parts[:2] == ("results", "earlier"):
+                path = ROOT / "archive" / "earlier" / "results" / Path(*parts[2:])
+            elif parts[:2] == ("src", "historical"):
+                path = ROOT / "archive" / "historical" / "src" / Path(*parts[2:])
+            elif parts[:2] == ("results", "historical"):
+                path = ROOT / "archive" / "historical" / "results" / Path(*parts[2:])
+            else:
+                self.fail(f"Unexpected recovery path: {relative}")
             self.assertTrue(path.is_file(), str(relative))
             content = path.read_bytes()
             self.assertEqual(int(item["size_bytes"]), len(content), str(relative))
@@ -36,8 +48,8 @@ class RecoveredResearchTests(unittest.TestCase):
 
     def test_separate_research_is_not_substituted_for_coursework(self):
         self.assertTrue((ROOT / "src" / "phase2" / "run_phase2.py").is_file())
-        self.assertTrue((ROOT / "src" / "earlier" / "phase33" / "scripts" / "run_phase33.py").is_file())
-        self.assertTrue((ROOT / "src" / "historical" / "phase04" / "01_recovery_value.py").is_file())
+        self.assertTrue((ROOT / "archive" / "earlier" / "src" / "phase33" / "scripts" / "run_phase33.py").is_file())
+        self.assertTrue((ROOT / "archive" / "historical" / "src" / "phase04" / "01_recovery_value.py").is_file())
         self.assertTrue((ROOT / "reports" / "report.tex").is_file())
 
 

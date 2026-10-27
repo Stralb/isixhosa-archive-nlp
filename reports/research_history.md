@@ -17,9 +17,9 @@ The previous phase numbers came from an extended research log. They are useful f
 | **32** | English/isiXhosa view visibility under different page and word weighting | How the archive is sampled changes which text is most visible to a tokenizer. This motivated a controlled intervention. |
 | **33** | BPE and Unigram sampling-policy pilot with downstream modelling | Segmentation improvements were real but policy effects were mixed, particularly for the complete sampling-policy change. This motivated the frozen final factorial design. |
 
-The surviving early source is under [`src/earlier/`](../src/earlier). Phase 1 to 6 foundations are grouped under `foundation/` because the portable original did not provide one independent code package for every early number. The intermediate packages use their original names, such as `early_transfer/`, `book_ocr/` and `phase12_13/`. Phase 16 contains only the distinctive retained audit/figure code from a rejected draft, not an endorsed publication claim.
+The surviving early source is under [`archive/earlier/src/`](../src/earlier). Phase 1 to 6 foundations are grouped under `foundation/` because the portable original did not provide one independent code package for every early number. The intermediate packages use their original names, such as `early_transfer/`, `book_ocr/` and `phase12_13/`. Phase 16 contains only the distinctive retained audit/figure code from a rejected draft, not an endorsed publication claim.
 
-For the later diagnostics, open [`phase26`](../src/earlier/phase26), [`phase27`](../src/earlier/phase27), [`phase28`](../src/earlier/phase28), [`phase29`](../src/earlier/phase29), [`phase30`](../src/earlier/phase30), [`phase31`](../src/earlier/phase31), [`phase32`](../src/earlier/phase32) or [`phase33`](../src/earlier/phase33). The most relevant links to the final study are the phase 32 visibility analysis and the phase 33 tokenizer comparison. The selected numerical summaries are in [`results/earlier/`](../results/earlier).
+For the later diagnostics, open [`phase26`](../archive/earlier/src/phase26), [`phase27`](../archive/earlier/src/phase27), [`phase28`](../archive/earlier/src/phase28), [`phase29`](../archive/earlier/src/phase29), [`phase30`](../archive/earlier/src/phase30), [`phase31`](../archive/earlier/src/phase31), [`phase32`](../archive/earlier/src/phase32) or [`phase33`](../archive/earlier/src/phase33). The most relevant links to the final study are the phase 32 visibility analysis and the phase 33 tokenizer comparison. The selected numerical summaries are in [`archive/earlier/results/`](../results/earlier).
 
 ### Important negative results
 
@@ -39,12 +39,12 @@ The research log also contains a different investigation into whether apparent c
 
 | Phase | Status and main lesson |
 | --- | --- |
-| [1](../src/historical/phase01) | A known-selection simulation and randomisation oracle showed how misleading apparent trends can arise under archive composition. No new estimator was established. |
-| [2](../src/historical/phase02) | An unknown-selection benchmark exposed difficult missing-not-at-random cases. A later audit found an important same-page pseudo-period shortcut, which invalidates the earlier proposed method comparison. |
-| [3](../src/historical/phase03) | Used distinct historical years and competitive published baseline methods. Risk and calibration transferred poorly under the unknown-selection settings. No new estimator was established. |
-| [4](../src/historical/phase04) | Compared hypothetical page recovery scenarios and catalogued archive gaps. The simulations were not authenticated recovery of lost historical text, and their identification limits remained severe. |
+| [1](../archive/historical/src/phase01) | A known-selection simulation and randomisation oracle showed how misleading apparent trends can arise under archive composition. No new estimator was established. |
+| [2](../archive/historical/src/phase02) | An unknown-selection benchmark exposed difficult missing-not-at-random cases. A later audit found an important same-page pseudo-period shortcut, which invalidates the earlier proposed method comparison. |
+| [3](../archive/historical/src/phase03) | Used distinct historical years and competitive published baseline methods. Risk and calibration transferred poorly under the unknown-selection settings. No new estimator was established. |
+| [4](../archive/historical/src/phase04) | Compared hypothetical page recovery scenarios and catalogued archive gaps. The simulations were not authenticated recovery of lost historical text, and their identification limits remained severe. |
 
-The original research scripts and crucial precommits are in [`src/historical/`](../src/historical), with selected aggregated metrics in [`results/historical/`](../results/historical). The Phase 2 shortcut is preserved, not silently corrected away. **Phase 5 acquisition is incomplete**, with no authenticated recovered page text. Phases 6 and 7 were not started. This material is included for research provenance, not as additional coursework results.
+The original research scripts and crucial precommits are in [`archive/historical/src/`](../src/historical), with selected aggregated metrics in [`archive/historical/results/`](../results/historical). The Phase 2 shortcut is preserved, not silently corrected away. **Phase 5 acquisition is incomplete**, with no authenticated recovered page text. Phases 6 and 7 were not started. This material is included for research provenance, not as additional coursework results.
 
 ## What was restored and what was not
 

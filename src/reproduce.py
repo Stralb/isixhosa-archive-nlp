@@ -6,8 +6,8 @@ rewrite those scripts, rename a source split or silently reuse saved outputs.
 
 Usage:
   python src/reproduce.py --archive /path/to/TxtLangFiles1870-1894_TB.zip --workdir /path/to/new-run
-  python scripts/reproduce_all.py --archive ... --workdir /path/to/new-run --resume
-  python scripts/reproduce_all.py --archive ... --workdir /path/to/new-run --dry-run
+  python src/reproduce.py --archive ... --workdir /path/to/new-run --resume
+  python src/reproduce.py --archive ... --workdir /path/to/new-run --dry-run
 """
 from __future__ import annotations
 
