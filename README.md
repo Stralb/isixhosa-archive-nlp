@@ -1,86 +1,72 @@
-# When Sampling Shapes the Story: Responsible NLP for Historical isiXhosa
+# Historical isiXhosa NLP: sampling and measurement validity
 
-**Latest Project 2 manuscript and forms (27 October 2026):** [Current CCN LaTeX source, fixed vector plots, full draft NeurIPS questionnaire and author-review forms](reports/paper_draft/final_2026-10-27/README.md). The two-page research body and numerical findings are unchanged. Ethics disclosures and individual contributions still require the authors' approval; only the forms **drafts** are public.
+**Research manuscript:** [*Whose Words Count? Reading Between the Samples in Historical isiXhosa NLP*](paper/README.md)  
+**Dataset:** historical newspaper transcriptions from the [IsiXhosa Intellectual Traditions (IsiXIT) archive](https://aclanthology.org/2023.rail-1.7/).  
+**Status:** research code and numerical evidence are available; academic submission forms still require author review.
 
-**Research question:** How do historical archive sampling choices affect both computational language representation and the reliability of descriptive text-pattern claims?
+This repository investigates how **sampling choices** change what we measure in historical isiXhosa newspaper text. It contains two related but distinct investigations:
 
-We investigated **two linked but separate questions**, using corrected historical isiXhosa Intellectual Traditions (IsiXIT) newspaper text: a **controlled** sampling/tokenizer experiment on *Imvo Zabantsundu*, and **ArchiveLens**, a reproducible claim-sensitivity auditor on *Imvo Zabantsundu* and *Isigidimi samaXosa*. ArchiveLens does not derive its trend estimates from tokenizer outputs.
+- **Controlled tokenizer study:** a 2 × 2 comparison of between-view allocation and within-view page selection on *Imvo Zabantsundu*, using BPE/Unigram and a smoothed count-bigram model.
+- **ArchiveLens:** an audit of how weighting text positions, pages, issues or months changes descriptive character-pattern comparisons between 1885 and 1888 in *Imvo* and *Isigidimi samaXosa*.
 
-**Earlier compiled scientific extended abstract (26 October 2026, archived):** [view the former report PDF](reports/paper_draft/report.pdf) · [editable LaTeX, bibliography, reproducible integrated figure and checklist](reports/paper_draft/) · [unaltered official CCN and NeurIPS template ZIPs](templates/original/). Authors are **Arno Strauss (2613224), Priyanka Gohil (2586288), Mohammed Bangie (2610990)** in the requested order. The body fits two pages; references/checklists follow. **Faculty AI statement, actual group contributions, final ethics answers and archive redistribution permission remain unconfirmed**. Treat this as a strong scientific draft, not an already approved submission.
+The two studies share a measurement-validity motivation; ArchiveLens is **not** a downstream effect of tokenization.
 
-**Start here:** [Paper-to-evidence reader's guide](reports/PAPER_TO_EVIDENCE_GUIDE.md) — the strongest findings, each exact source/CI, how to reproduce them, related work, and the key Responsible NLP limits.
+## Key results
 
-| Branch of research | One important result | Detail |
+| Study | Finding | Qualification |
 | --- | --- | --- |
-| Controlled sampling → model representation | 1888 BPE allocation: English view **−1.88** and isiXhosa view **+0.45** pieces/100 characters (a trade-off, not a uniform gain) | [Frozen tokenizer results](reports/findings.md) |
-| Sampling choice → descriptive historical claims | ArchiveLens detects **23/120** IMVO surface-pattern direction reversals under alternative estimands; none has both opposite directions confidently supported | [ArchiveLens audit](reports/ARCHIVELENS_RESULTS_2026-10-26.md) |
-| Calibration → measured reliability of warnings | Sign-reversal *counts* are not elevated above month/issue permutations; **29/120** IMVO patterns show adjusted **magnitude** sensitivity (Holm), with exact repetition and influential-issue checks | [Calibration and attribution](reports/ARCHIVELENS_FOLLOWUP_2026-10-26.md) |
+| Tokenizer sampling, 1888 | More word-like view allocation changes BPE segmentation by **−1.88** pieces/100 characters in the English-assigned view and **+0.45** in the isiXhosa-assigned view | A trade-off in processing archived text, not a social fairness measure |
+| Downstream count-bigram | Isolated allocation changes English-view loss by **−0.0372** bits/character | Not evidence of neural or Transformer performance |
+| ArchiveLens | **23/120** Imvo patterns reverse observed change direction under alternative weighting, but that count is unexceptional under whole-issue permutations | A sign reversal alone is not a verified historical trend |
+| Calibrated estimator sensitivity | **29/120** Imvo patterns have Holm-adjusted *magnitude* sensitivity; **0/120** in Isigidimi | Conditional historical-archive comparison, not a linguistic or cultural discovery |
 
-**Research boundary:** This is a careful, auditable study of *computational and surface-text measurement*, not proof of cultural change, word-level language identity or societal fairness harm.
+Source figures, confidence intervals, negative findings and limitations: [paper-to-evidence guide](reports/PAPER_TO_EVIDENCE_GUIDE.md).
 
----
+## Quick start
 
-## What we did
-
-We compared four sampling policies (PP, PW, WP, WW), two SentencePiece models (BPE and Unigram), and five seeds. That produced 40 main tokenizers, each trained on roughly 500,000 alphabetic characters. We trained 20 more BPE models to check whether repeated newspaper text explained the effects.
-
-Training used 1885 and January to September 1887. We selected smoothing on October to December 1887, evaluated on 1888, then checked 1889 to 1894.
-
-## Main results
-
-| Effect of changing allocation in 1888 | Difference | 95% issue-bootstrap interval |
-| --- | ---: | ---: |
-| English-view BPE pieces per 100 letters | -1.88 | [-1.97, -1.78] |
-| English-view Unigram pieces per 100 letters | -1.79 | [-1.91, -1.67] |
-| isiXhosa-view BPE pieces per 100 letters | +0.45 | [+0.41, +0.50] |
-| English-view bigram bits per character | -0.0372 | [-0.0424, -0.0321] |
-
-Lower values are better. The English-view improvement comes with a segmentation cost in the isiXhosa view. Changing the **entire** policy was not always better: it slightly worsened English-view bigram loss in the later years (+0.0045 BPC). See [findings](reports/findings.md) for the controls and limitations.
-
-![English-view bigram results](results/figures/PHASE6_ENGLISH_LM.png)
-
-## Run it
-
-Install Python 3.13 and the pinned packages:
+Run from the **repository root** with Python 3.13:
 
 ```bash
+python -m venv .venv
+source .venv/bin/activate
 python -m pip install -r requirements.txt
+python -m unittest discover -s src -p 'test_*.py' -v
 python src/run.py check
+python src/audit/independent_ci.py --root .
 ```
 
-The check verifies the saved models and recalculates all 64 factorial effects from the original paired scores. It does not retrain models.
+These commands **validate saved models and outputs; they do not retrain the experiment**. The same verification is checked by [GitHub Actions](.github/workflows/ci.yml).
 
-**Full fresh reproduction (26 October 2026):** the complete Phase 2–6 pipeline was independently replayed using the pinned original source-data ZIP and the byte-verified repository scripts. All 60 regenerated SentencePiece models match after normalising path-only serialization fields; the held-out scores and published contrasts match the original archive byte-for-byte, and all seven scientific audit checks passed. See the [reproduction report](reports/fresh_reproduction_2026-10-26.md) and [certificate](results/fresh_reproduction_2026-10-26.json). This replay ran in a separate isolated compute environment, **not GitHub Actions**; the original input was provided directly to that environment. Dataset inclusion in the repository is separate from CI's saved-output checks.
-
-To rerun the original experiments, use the verified `data/TxtLangFiles1870-1894_TB.zip` if present, or copy the authorised course-provided archive into `data/` first, then run:
+For a clean retraining run with the verified source ZIP:
 
 ```bash
 python src/run.py reproduce --data data/TxtLangFiles1870-1894_TB.zip --out ../isixhosa-replay
 ```
 
-Use `--dry-run` to preview the commands, or `--resume` after interruption.
+The input file must match the hash in [data/README.md](data/README.md); the runner writes results **outside** the checkout. See [complete reproducibility instructions](docs/REPRODUCIBILITY.md).
 
-## Files
+## Where to start
 
-| Folder | Contents |
+| Want to... | Open |
 | --- | --- |
-| `src/` | Original Python experiments, runner and checks |
-| `results/` | CSV comparisons, raw scores, trained models and figures |
-| `reports/` | Methods, findings and frozen protocols |
-| `data/` | Original verified archive ZIPs and provenance instructions (check redistribution permissions) |
+| Read or compile the **current manuscript** | [`paper/`](paper/) |
+| Understand the experiments, limitations and evidence | [`docs/`](docs/) and [paper-to-evidence guide](reports/PAPER_TO_EVIDENCE_GUIDE.md) |
+| Run the original six-phase research pipeline | [`src/`](src/) |
+| Use the ArchiveLens auditor | [`src/archivelens/`](src/archivelens/) |
+| Inspect published figures, scores and trained models | [`results/`](results/) |
+| Trace frozen protocols and historical research | [`reports/`](reports/) and [research history](reports/research_history.md) |
+| Check input archive provenance | [`data/`](data/) |
 
-The original training script is in [src/phase2](src/phase2/). The key numeric tables are [segmentation](results/segmentation.csv), [bigram](results/bigram.csv) and [repetition controls](results/repetition.csv).
+The extensive `src/earlier/`, `src/historical/` and corresponding result directories are **preserved research history**, not extra required steps in the published pipeline. Their existing paths are intentionally retained for checksums, citations and reproduction.
 
-This study uses one newspaper. The archive's language views are not gold-standard labels, and the later years had already been inspected during earlier exploration. These results concern corpus sampling, not cultural understanding or social fairness. Details are in [methods](reports/methods.md).
+## Responsible use and project status
 
-Archive: [Schoots et al. (2023)](https://aclanthology.org/2023.rail-1.7/). Tokenization: [Kudo and Richardson (2018)](https://aclanthology.org/D18-2012/).
+- `EnTxt`/`XhTxt` are **archive-assigned text views**, not independently validated word-level language labels.
+- The historical evaluation years were examined during earlier exploration. The reported controlled experiments are conditional follow-ups, not untouched independent replications.
+- No surface-text result establishes historical beliefs, cultural change or societal fairness harm.
+- The [NeurIPS questionnaire and author-review worksheets](paper/author_review/) are **not approved final declarations**.
+- The repository currently tracks course-provided source ZIPs, but **redistribution rights still need verification**. See [data and licensing](docs/DATA_AND_LICENSING.md). No code licence has been agreed here.
 
-**Independent scientific audit (26 October 2026):** a separate implementation rechecked all **84** published contrasts and confidence intervals, all **249,300** individual tokenizer/count-bigram/repetition predictions, the frozen F1–F6 gates and dataset/split/overlap diagnostics. See the [full scientific audit](reports/independent_scientific_audit_2026-10-26.md) and [verification certificate](results/independent_audit_2026-10-26.json). The dataset-free [independent checker](src/audit/independent_ci.py) now runs on every GitHub CI push/PR; the full original-data and model-level checks were performed separately in an isolated local environment. The original course-provided ZIP archives are now tracked under [data/](data/); verify their checksums and applicable redistribution conditions.
+**Research authors named in the manuscript:** Arno Strauss, Priyanka Gohil and Mohammed Bangie. Individual contribution roles require confirmation.
 
-**Additional exploratory analysis (26 October 2026):** the [paired-metric and issue/length audit](reports/exploratory_metric_relationships_2026-10-26.md) re-examines existing held-out scores without retraining. On BPE isiXhosa-view 1888 material, segmentation gets less compact in 50/52 issues while BPC improves in 31/52, with 29/52 opposite-sign issue effects. English-view BPE improves in segmentation across all 52 issues, and the allocation trade-off persists across all four excerpt-length quartiles in both views. These post-hoc diagnostics are **not independent replication or proof of cultural harm**. The [source script](src/analysis/metric_relationships.py), [issue-level evidence](results/exploratory/), and [metric](results/figures/metric_coupling_1888.png) / [length](results/figures/length_quartiles_1888.png) figures are tracked. Run `python src/analysis/metric_relationships.py --root . --verify` to reproduce the reported CSV artifacts without fitting models.
-
-**ArchiveLens — newly implemented Responsible NLP research instrument (26 October 2026):** a reproducible [historical claim-sensitivity auditor](src/archivelens/README.md) with a [pre-analysis protocol](reports/ARCHIVELENS_PRECOMMIT_2026-10-26.md), independent raw-archive verification, [full scientific report](reports/ARCHIVELENS_RESULTS_2026-10-26.md), [interactive evidence explorer](results/archivelens/explorer.html) and [two-panel figure](results/figures/archivelens_claim_sensitivity.png). For 120 patterns chosen using only 1887, comparing 1885 to 1888, changing the sampling unit reverses the direction of 23/120 Imvo and 4/120 Isigidimi surface-pattern differences; 9/120 and 2/120 baseline-supported patterns, respectively, lose conditional support. **No opposite-direction pair was confidently supported under both methods.** These are **post-hoc, unadjusted, surface-form** diagnostics on two newspapers from one archive, not discoveries about historical culture or social fairness. Full results are checked from the original source ZIP in CI.
-
-**ArchiveLens calibration and attribution extension (26 October 2026):** [new scientific report](reports/ARCHIVELENS_FOLLOWUP_2026-10-26.md) · [frozen extension protocol](reports/ARCHIVELENS_FOLLOWUP_PRECOMMIT_2026-10-26.md) · [reproducible code/tests](src/archivelens/FOLLOWUP.md) · [figure](results/figures/archivelens_followup_calibration_attribution.png). Under 4,999 month-stratified whole-issue year-label permutations, the old point-sign reversal warning counts (23 Imvo, 4 Isigidimi) were **not unusually high**: null means 29.0 and 8.3, respectively. By contrast, **29/120 Imvo patterns** exhibited significant *magnitude* sensitivity across sampling estimands after Holm correction (0/120 Isigidimi); only **9 of those 29** were originally sign-reversal flags. Removing one issue can reverse the original character-mass trend for **7/32** Imvo and **4/6** Isigidimi flagged patterns. Masking exact cross-issue 13-word repeated passages removed **10** Imvo and **1** Isigidimi original sign-reversal alerts; the masked sample is not an unchanged-population causal control. **None of these tests validates historical semantics or social fairness harm.** All new evidence passes an independent raw-archive replay in CI.
-
-Earlier experiments and the separate historical inference programme are indexed in [research history](reports/research_history.md). They are supporting research, not extra tests of the main coursework result.
+For GitHub reuse, see [contributing](CONTRIBUTING.md) and [citation metadata](CITATION.cff).

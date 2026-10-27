@@ -1,3 +1,5 @@
+> **Archived 26 October 2026 paper draft.** The current manuscript source and status are in [`paper/`](../../paper/). Keep this folder for provenance and original CCN style dependencies; do not submit the older PDF as the 27 October version.
+
 # Two-page Responsible NLP extended abstract (revised scientific draft)
 
 **Authors, in requested order:** Arno Strauss (2613224), Priyanka Gohil (2586288), Mohammed Bangie (2610990).

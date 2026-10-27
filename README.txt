@@ -1,5 +1,7 @@
 NLP Project 2 - Responsible NLP in historical isiXhosa newspapers
+CURRENT MANUSCRIPT: paper/README.md
 READER GUIDE: reports/PAPER_TO_EVIDENCE_GUIDE.md
+REPOSITORY MAP: docs/README.md
 Main research: sampling allocation, BPE/Unigram, bigram language modelling.
 ArchiveLens: sampling-sensitive historical surface-pattern audit with calibrated warnings.
 
