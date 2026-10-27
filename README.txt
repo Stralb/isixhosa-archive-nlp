@@ -1,40 +1,38 @@
-NLP Project 2 - Responsible NLP in historical isiXhosa newspapers
-CURRENT MANUSCRIPT: paper/README.md
-READER GUIDE: reports/PAPER_TO_EVIDENCE_GUIDE.md
-REPOSITORY MAP: docs/README.md
-Main research: sampling allocation, BPE/Unigram, bigram language modelling.
-ArchiveLens: sampling-sensitive historical surface-pattern audit with calibrated warnings.
+NLP Project 2 - Historical isiXhosa newspaper NLP
+University of the Witwatersrand
 
-ENVIRONMENT
+Read the project overview in README.md.
+Latest paper source: paper/report.tex (build instructions: paper/README.md).
+Methods and paper evidence: reports/PAPER_TO_EVIDENCE_GUIDE.md.
+
+Python environment
   Python 3.13
   python -m pip install -r requirements.txt
 
-QUICK VERIFICATION (saved outputs; no retraining)
+Check the saved experiment results (no model retraining)
   python -m unittest discover -s src -p 'test_*.py' -v
+  python scripts/check_repository.py
   python src/run.py check
   python src/audit/independent_ci.py --root .
   python src/analysis/metric_relationships.py --root . --verify
 
-ARCHIVELENS SOURCE-DATA VERIFICATION
-  Original archive: data/TxtLangFiles1870-1894_TB.zip
-  Check its SHA-256 against data/README.md before reproduction.
+Check ArchiveLens against the original archive
   python src/archivelens/audit.py --data data/TxtLangFiles1870-1894_TB.zip --out results/archivelens --figures results/figures --report reports/ARCHIVELENS_RESULTS_2026-10-26.md --verify
   python src/archivelens/verify_independent.py --data data/TxtLangFiles1870-1894_TB.zip --out results/archivelens
   python src/archivelens/followup.py --data data/TxtLangFiles1870-1894_TB.zip --root . --verify
+  python src/archivelens/verify_followup.py --data data/TxtLangFiles1870-1894_TB.zip --root .
 
-FULL TRAINING REPRODUCTION (costlier than the checks above)
+Rebuild the models (slower; use a new output directory)
   python src/run.py reproduce --data data/TxtLangFiles1870-1894_TB.zip --out ../isixhosa-replay
 
-IN-DEPTH DOCUMENTATION
-  reports/PAPER_TO_EVIDENCE_GUIDE.md - paper claim -> files/results -> limitations
-  reports/methods.md and reports/findings.md - main controlled study
-  reports/ARCHIVELENS_RESULTS_2026-10-26.md - original ArchiveLens audit
-  reports/ARCHIVELENS_FOLLOWUP_2026-10-26.md - calibration and attribution
-  src/archivelens/README.md and src/archivelens/FOLLOWUP.md - tool usage
-  results/archivelens/explorer.html - offline interactive evidence explorer
-  .github/workflows/ci.yml - reproducibility checks on GitHub Actions
+Paper (requires pdflatex, bibtex8 and the course LaTeX dependencies)
+  cd paper
+  make pdf
 
-Archive EnTxt/XhTxt blocks are not adjudicated word-level language labels.
-Historical pattern changes are not validated cultural meaning or fairness harms.
-The original two-page extended abstract and ethical declarations are separate
-mandatory submission documents; GitHub source code is not a substitute.
+Data hashes and archive provenance: data/README.md
+ArchiveLens usage: src/archivelens/README.md
+Fresh retraining check: reports/fresh_reproduction_2026-10-26.md
+
+The EnTxt and XhTxt fields are archive-assigned text views, not manually
+verified language labels. The later test years were studied during earlier
+exploration. Check the paper's limitations before interpreting results.

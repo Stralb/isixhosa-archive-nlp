@@ -1,25 +1,18 @@
-# Original isiXhosa newspaper source archives
+# Newspaper archive files
 
-The two original course-provided ZIPs belong in this folder. Keep them **compressed**: do not extract the text into Git or rename files *inside* either ZIP.
+These are the original course-supplied newspaper transcriptions. Keep the ZIP contents unchanged: the experiments refer to the archive's original filenames and structure.
 
-| Repository path | SHA-256 | Archive purpose |
-| --- | --- | --- |
-| `data/TxtLangFiles1870-1894_TB.zip` | `375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5` | Source file required by the six-phase experiment |
-| `data/TxtFiles1870-1894_TB.zip` | `41fc2a7cab043025df3e2127ee21878c5ae5b6457a8bd55b5e210fb1c50cde10` | Original combined-view newspaper text archive; supplied under the filename `1. TxtFiles1870-1894_TB.zip` |
+- `TxtLangFiles1870-1894_TB.zip` — the language-view archive used by the experiments. SHA-256: `375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5`.
+- `TxtFiles1870-1894_TB.zip` — the combined-view archive. SHA-256: `41fc2a7cab043025df3e2127ee21878c5ae5b6457a8bd55b5e210fb1c50cde10`.
 
-Both original local ZIP files were checked with `sha256sum` and opened successfully on 26 October 2026 (14,442 and 7,220 ZIP members respectively). These names are not interchangeable.
-
-To verify after copying the files into the repository:
+Check the files before running the experiments:
 
 ```bash
 sha256sum data/TxtLangFiles1870-1894_TB.zip data/TxtFiles1870-1894_TB.zip
-python src/run.py check
 ```
 
-To do a fresh reproduction from the language-view ZIP:
+The data came from the course materials associated with the [IsiXIT newspaper corpus](https://aclanthology.org/2023.rail-1.7/).
 
-```bash
-python src/run.py reproduce --data data/TxtLangFiles1870-1894_TB.zip --out ../isixhosa-replay
-```
+**Redistribution permission has not yet been verified.** Both ZIPs are currently tracked in this public repository, but being available on GitHub does not establish a licence to redistribute them. The group should confirm the source terms with the relevant archive or course owners. Removing the files in a later commit would not remove them from Git history.
 
-The dataset is the course-supplied historical material; including it in GitHub is an explicit repository-distribution decision by the project maintainers. Attribution and any archival redistribution conditions must still be respected. The raw ZIP is approximately 29 MB and the combined-view ZIP approximately 26 MB; ordinary Git can track both individually (each is below GitHub's 50 MB warning threshold).
+The `EnTxt` and `XhTxt` blocks are labels supplied by the archive, not independently checked word-level language annotations.

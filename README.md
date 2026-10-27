@@ -1,72 +1,53 @@
-# Historical isiXhosa NLP: sampling and measurement validity
+# Historical isiXhosa newspaper NLP
 
-**Research manuscript:** [*Whose Words Count? Reading Between the Samples in Historical isiXhosa NLP*](paper/README.md)  
-**Dataset:** historical newspaper transcriptions from the [IsiXhosa Intellectual Traditions (IsiXIT) archive](https://aclanthology.org/2023.rail-1.7/).  
-**Status:** research code and numerical evidence are available; academic submission forms still require author review.
+This is our NLP Project 2 at the University of the Witwatersrand. We work with digitised nineteenth-century editions of *Imvo Zabantsundu* and *Isigidimi sama-Xosa* to ask a fairly practical question: how much do the results change when we sample and count newspaper text in different ways?
 
-This repository investigates how **sampling choices** change what we measure in historical isiXhosa newspaper text. It contains two related but distinct investigations:
+We ran two related studies:
 
-- **Controlled tokenizer study:** a 2 × 2 comparison of between-view allocation and within-view page selection on *Imvo Zabantsundu*, using BPE/Unigram and a smoothed count-bigram model.
-- **ArchiveLens:** an audit of how weighting text positions, pages, issues or months changes descriptive character-pattern comparisons between 1885 and 1888 in *Imvo* and *Isigidimi samaXosa*.
+- **Tokenisation:** On *Imvo*, we varied how training text was allocated between the archive's English and isiXhosa views, and how pages were sampled within each view. We compared BPE and Unigram tokenisers, then evaluated a simple count-bigram language model.
+- **ArchiveLens:** We compared changes in 120 character four-grams between 1885 and 1888, weighting the text by character positions, pages, issues or months. We also checked how sensitive the findings were to issue sampling and repeated passages.
 
-The two studies share a measurement-validity motivation; ArchiveLens is **not** a downstream effect of tokenization.
+These are separate experiments. ArchiveLens does not use the tokeniser outputs.
 
-## Key results
+## Findings
 
-| Study | Finding | Qualification |
-| --- | --- | --- |
-| Tokenizer sampling, 1888 | More word-like view allocation changes BPE segmentation by **−1.88** pieces/100 characters in the English-assigned view and **+0.45** in the isiXhosa-assigned view | A trade-off in processing archived text, not a social fairness measure |
-| Downstream count-bigram | Isolated allocation changes English-view loss by **−0.0372** bits/character | Not evidence of neural or Transformer performance |
-| ArchiveLens | **23/120** Imvo patterns reverse observed change direction under alternative weighting, but that count is unexceptional under whole-issue permutations | A sign reversal alone is not a verified historical trend |
-| Calibrated estimator sensitivity | **29/120** Imvo patterns have Holm-adjusted *magnitude* sensitivity; **0/120** in Isigidimi | Conditional historical-archive comparison, not a linguistic or cultural discovery |
+For the 1888 test set, word-based allocation reduced English-view BPE segmentation by about **1.88 pieces per 100 characters**, but increased the isiXhosa-view cost by **0.45**. English-view bigram loss fell by **0.037 bits per character** under the same allocation contrast.
 
-Source figures, confidence intervals, negative findings and limitations: [paper-to-evidence guide](reports/PAPER_TO_EVIDENCE_GUIDE.md).
+In ArchiveLens, 23 of 120 *Imvo* patterns changed the direction of their apparent 1885–1888 trend under different weighting rules. That number was not unusual in the permutation test, although 29 patterns showed significant differences in the *size* of their estimates after Holm correction.
 
-## Quick start
+The results concern the available digitised text, not historical opinions or a measure of social fairness. The archive's language labels were not checked word by word. The [paper](paper/README.md) and [supporting results](reports/PAPER_TO_EVIDENCE_GUIDE.md) explain the methods and limitations in detail.
 
-Run from the **repository root** with Python 3.13:
+## Running the project
+
+Use Python 3.13. From the repository root:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
+
 python -m unittest discover -s src -p 'test_*.py' -v
 python src/run.py check
-python src/audit/independent_ci.py --root .
 ```
 
-These commands **validate saved models and outputs; they do not retrain the experiment**. The same verification is checked by [GitHub Actions](.github/workflows/ci.yml).
+This checks the saved experiment outputs; it does **not** retrain the models.
 
-For a clean retraining run with the verified source ZIP:
+To rerun training from the original source archive:
 
 ```bash
 python src/run.py reproduce --data data/TxtLangFiles1870-1894_TB.zip --out ../isixhosa-replay
 ```
 
-The input file must match the hash in [data/README.md](data/README.md); the runner writes results **outside** the checkout. See [complete reproducibility instructions](docs/REPRODUCIBILITY.md).
+The full run is more expensive. The archive ZIP must match the checksum in [`data/README.md`](data/README.md). Additional verification commands, including ArchiveLens, are in [`README.txt`](README.txt), which accompanies the coursework submission.
 
-## Where to start
+## Files
 
-| Want to... | Open |
-| --- | --- |
-| Read or compile the **current manuscript** | [`paper/`](paper/) |
-| Understand the experiments, limitations and evidence | [`docs/`](docs/) and [paper-to-evidence guide](reports/PAPER_TO_EVIDENCE_GUIDE.md) |
-| Run the original six-phase research pipeline | [`src/`](src/) |
-| Use the ArchiveLens auditor | [`src/archivelens/`](src/archivelens/) |
-| Inspect published figures, scores and trained models | [`results/`](results/) |
-| Trace frozen protocols and historical research | [`reports/`](reports/) and [research history](reports/research_history.md) |
-| Check input archive provenance | [`data/`](data/) |
+- [`paper/`](paper/) — latest paper source, figures and build instructions.
+- [`src/`](src/) — experimental code; `src/run.py` is the main entry point.
+- [`results/`](results/) — recorded model outputs, scores and figures.
+- [`reports/`](reports/) — methods, results, protocols and research checks.
+- [`data/`](data/) — source archives and their checksums.
 
-The extensive `src/earlier/`, `src/historical/` and corresponding result directories are **preserved research history**, not extra required steps in the published pipeline. Their existing paths are intentionally retained for checksums, citations and reproduction.
+Earlier exploratory experiments are retained under `src/earlier/`, `src/historical/` and their matching results directories.
 
-## Responsible use and project status
-
-- `EnTxt`/`XhTxt` are **archive-assigned text views**, not independently validated word-level language labels.
-- The historical evaluation years were examined during earlier exploration. The reported controlled experiments are conditional follow-ups, not untouched independent replications.
-- No surface-text result establishes historical beliefs, cultural change or societal fairness harm.
-- The [NeurIPS questionnaire and author-review worksheets](paper/author_review/) are **not approved final declarations**.
-- The repository currently tracks course-provided source ZIPs, but **redistribution rights still need verification**. See [data and licensing](docs/DATA_AND_LICENSING.md). No code licence has been agreed here.
-
-**Research authors named in the manuscript:** Arno Strauss, Priyanka Gohil and Mohammed Bangie. Individual contribution roles require confirmation.
-
-For GitHub reuse, see [contributing](CONTRIBUTING.md) and [citation metadata](CITATION.cff).
+**Authors:** Arno Strauss, Priyanka Gohil and Mohammed Bangie. Individual contributions are to be confirmed in the course submission.
