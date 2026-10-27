@@ -23,10 +23,6 @@ Run all commands from the repository root unless stated otherwise.
    make pdf         # paper + references + 2024 NeurIPS checklist + supplement + contributions
    make supplement  # optional standalone three-page supplement preview
 
-   # When ALL authors have approved and signed the Faculty AI declaration:
-   make final DECLARATION=/path/to/signed_declaration.pdf
-   # Creates paper/Project2_Submission_with_Declaration.pdf (private; do not commit)
-
 Data file: data/TxtLangFiles1870-1894_TB.zip
 SHA-256: 375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5
 To check: sha256sum data/TxtLangFiles1870-1894_TB.zip
