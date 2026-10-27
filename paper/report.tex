@@ -86,9 +86,14 @@ For historical-language NLP, the defensible practice is to state the surviving s
 \setlength{\bibindent}{-\bibleftmargin}
 \bibliography{paper_references}
 
-% Required 2024 NeurIPS checklist follows references, before supplementary pages.
+% Required 2024 NeurIPS checklist: original single-column layout.
+% Keep this appendix after references and before the supplementary material.
 \clearpage
+\onecolumn
 \input{neurips_2024}
+% Return to the CCN paper's two-column layout for the supplement.
+\clearpage
+\twocolumn
 \input{supplementary}
 \input{contributions}
 \end{document}
