@@ -21,6 +21,7 @@ Run all commands from the repository root unless stated otherwise.
 5. Build the paper (requires pdflatex, bibtex8 and the CCN LaTeX packages):
    cd paper
    make pdf
+   make supplement  # separate three-page preview; ethics questionnaire is not yet included
 
 Data file: data/TxtLangFiles1870-1894_TB.zip
 SHA-256: 375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5
@@ -31,4 +32,5 @@ ArchiveLens code: src/archivelens/
 Model results: results/
 Research methods and findings: reports/
 Paper source: paper/report.tex
+Supplementary source: paper/supplementary.tex
 

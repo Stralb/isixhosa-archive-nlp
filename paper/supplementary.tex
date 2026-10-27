@@ -1,0 +1,337 @@
+% Supplementary material for Wits NLP 2026 Project 2.
+% Place this file beside paper/report.tex.
+% Insert with \input{supplementary} AFTER the
+% references and completed, author-approved NeurIPS 2024 questionnaire,
+% as specified by the course brief. Requires graphicx (in the CCN manuscript).
+% This is not a replacement for the required Faculty AI ethics statement.
+% This file is separate until the NeurIPS answers are author-approved.
+% It must not be appended before that required questionnaire.
+\clearpage
+\section*{Supplementary Material}
+
+\subsection*{S1. Sampling design and predictive evaluation}
+\noindent\textbf{Corpus and separation.}
+The tokenizer experiment uses the \emph{Imvo Zabantsundu} pages in the supplied
+language-view archive. It trains on 1885 and January--September 1887
+(342 pages, 86 publication issues), selects the count-bigram smoothing
+parameter on October--December 1887 (48 pages, 12 issues), and evaluates
+on 1888 (52 issues; 134 English-assigned and 208 isiXhosa-assigned
+eligible page-view excerpts). The 1889--1894 material is a dependent sensitivity check (306 issues):
+those years had been inspected in earlier exploratory work. Training and evaluation
+issue identifiers are disjoint, but identical passages can recur in
+different newspaper issues. Eligible evaluation page views contribute their first 128 alphabetic
+words when at least 40 are present. English/isiXhosa views are archive
+assignments, not manually adjudicated word-level languages.
+
+\noindent\textbf{Four sampling arms.}
+For eligible view $v$ of page $i$, let $n_{iv}$ be the number of ASCII
+alphabetic words, $n_i=\sum_v n_{iv}$, and $N$ the number of eligible
+pages. The probability of selecting a language view is either the
+page-average share or the pooled word share:
+\begin{equation}
+\begin{aligned}
+p_P(v)&=\frac{1}{N}\sum_i\frac{n_{iv}}{n_i},\\
+p_W(v)&=\frac{\sum_i n_{iv}}{\sum_i n_i}.
+\end{aligned}
+\end{equation}
+Conditional on the view, the page is drawn with probability
+$q_P(i\mid v)\propto n_{iv}/n_i$ or
+$q_W(i\mid v)\propto n_{iv}$, normalized over its eligible pages.
+In the training pool, the expected English-view draw share is
+23.55\% for $P$ and 32.56\% for $W$; realized character shares can differ
+because sampled windows vary in length.
+The cross of allocation ($P/W$) and within-view page selection ($P/W$)
+produces $PP$, $PW$, $WP$ and $WW$, respectively; changing only the first
+letter isolates the allocation factor. Each draw selects a uniformly
+random eligible 32-word within-page window. The study uses lowercase
+\texttt{[a-z]+} words, no stemming or modernization, and a training
+budget of $500{,}000\pm30$ alphabetic characters per tokenizer.
+
+Both BPE and Unigram use a fixed 2,000-piece vocabulary, identity
+SentencePiece normalization, character coverage 1.0, single-threaded
+fitting, and five sampling seeds (441--445) per arm:
+$2\times4\times5=40$ main tokenizers.
+The vocabulary size and tokenizer families were chosen in earlier
+exploration and held fixed for this study, not selected on the 1888 set. The predictive model is a
+\emph{count bigram}, not a neural language model. Each tokenizer is
+applied to the same underlying 545 training page-view texts and held-out
+raw excerpts; only the induced token sequence changes.
+
+\noindent\textbf{Measures and model selection.}
+Segmentation cost is $E=100P/C$, where $P$ is the number of SentencePiece
+tokens and $C$ is the number of alphabetic source characters. For a token
+$t$ and predecessor $h$, with token vocabulary $V$ and total training
+token count $T$, the smoothed bigram probability is
+\begin{equation}
+\begin{aligned}
+u(t)&=\frac{c(t)+0.1}{T+0.1|V|},\\
+\Pr(t\mid h)&=\frac{c(h,t)+\alpha u(t)}{c(h)+\alpha}.
+\end{aligned}
+\end{equation}
+The start-of-document predecessor is handled as a separate context.
+Held-out bits per alphabetic character (BPC) is the negative base-two
+log likelihood divided by $C$. The globally shared $\alpha$ was
+chosen from $\{1,10,100\}$ on 344 validation windows screened for
+exact training 13-word overlaps (13,760 model-window scores), averaging
+view-level BPC across tokenizer families, arms and seeds. The respective validation
+means were 3.1246, 2.8279 and 2.7329 BPC, selecting $\alpha=100$ before
+the 1888 comparison.
+
+For either response $Y\in\{E,\mathrm{BPC}\}$, the factorial
+allocation and within-view contrasts are
+\begin{equation}
+\begin{aligned}
+\Delta_A&=\tfrac12[(Y_{WP}-Y_{PP})+(Y_{WW}-Y_{PW})],\\
+\Delta_B&=\tfrac12[(Y_{PW}-Y_{PP})+(Y_{WW}-Y_{WP})].
+\end{aligned}
+\end{equation}
+The reported effects are means over five fitted seeds; 95\% percentile
+intervals use 5,000 paired resamples of \emph{entire publication issues}
+(52 issues for 1888), retaining all pages and arms of a sampled issue
+together. These intervals describe uncertainty over the observed issue clusters,
+conditional on the fixed trained seeds and archive; five seeds are not
+five independent historical samples.
+
+\subsection*{S2. Full tokenizer results and falsification checks}
+The main paper emphasizes BPE English and the language-view trade-off.
+Tables~\ref{tab:sup-seg}--\ref{tab:sup-bpc} give the complete primary
+1888 allocation contrast for both models and both archive views.
+Negative values indicate lower cost under word-like view allocation.
+
+\begin{table}[ht]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.13}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrr@{}}
+\hline
+Model/view & Effect & 95\% interval\\
+\hline
+BPE / EN & $-1.878$ & $[-1.972,-1.782]$\\
+BPE / XH & $+0.453$ & $[+0.407,+0.497]$\\
+Unigram / EN & $-1.795$ & $[-1.908,-1.671]$\\
+Unigram / XH & $+0.555$ & $[+0.513,+0.600]$\\
+\hline
+\end{tabular*}
+\caption{1888 allocation effect $\Delta_A$: subword pieces per
+100 alphabetic characters, with issue-bootstrap 95\% intervals.}
+\label{tab:sup-seg}
+\end{table}
+
+\begin{table}[ht]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.13}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrr@{}}
+\hline
+Model/view & Effect & 95\% interval\\
+\hline
+BPE / EN & $-0.03722$ & $[-0.04236,-0.03212]$\\
+BPE / XH & $-0.00275$ & $[-0.00523,-0.00014]$\\
+Unigram / EN & $-0.03834$ & $[-0.04366,-0.03318]$\\
+Unigram / XH & $+0.01048$ & $[+0.00805,+0.01286]$\\
+\hline
+\end{tabular*}
+\caption{1888 $\Delta_A$: count-bigram bits per alphabetic character.
+Held-out source texts are matched across arms.}
+\label{tab:sup-bpc}
+\end{table}
+
+BPE's XH bigram change is small and has mixed signs across seeds
+(three negative, two positive), unlike its five-of-five positive
+segmentation effect. Unigram has higher XH segmentation \emph{and}
+higher XH bigram loss. Thus a tokenizer can encode the archive more
+compactly in one view without consistently improving predictive loss
+in the other. In English-view BPE, the separately estimated
+within-view selection effect on BPC is $+0.01938$
+(95\% interval $[+0.01146,+0.02769]$), opposing the allocation benefit.
+
+For the repetition-control experiment, 20 additional BPE tokenizers
+were trained under $PP/WW$, five seeds and two matched-support
+conditions. The 1888 English $E_{PP}-E_{WW}$ contrast after filtering
+training-only repeated 13-word sequences was $+2.389$
+$[+2.182,+2.590]$ pieces per 100 characters; an unfiltered model on
+the same page-view support gave $+2.097$ $[+1.905,+2.280]$.
+Their paired difference is $+0.292$ $[+0.163,+0.421]$.
+The trade-off survives this exact reprint filter;
+the filter cannot rule out shorter, paraphrased or otherwise shared
+historical passages.
+
+A counterexample concerns the \emph{whole-policy}, rather than
+allocation-only, contrast. On dependent 1889--1894 English data,
+BPE $\mathrm{BPC}_{WW}-\mathrm{BPC}_{PP}=+0.00450$; the issue-bootstrap
+interval is $[+0.00176,+0.00728]$, but the six-year resampling
+interval $[-0.00268,+0.01305]$ includes zero. This does not support
+a reliable improvement from changing the entire sampling policy.
+
+\subsection*{S3. ArchiveLens estimands and statistical calibration}
+ArchiveLens uses the archive's XH-assigned views from both
+\emph{Imvo Zabantsundu} and \emph{Isigidimi sama-Xosa}.
+It fixes the 120 most frequent within-word four-character sequences
+by the mean of the two newspapers' normalized \emph{1887} rates;
+there is no selection from 1885/1888 outcome differences.
+A page is eligible if it has at least 40 alphabetic words.
+The 1885/1888 support comprises 195/208 pages (49/52 issues)
+for \emph{Imvo} and 95/96 pages (12/12 issues) for \emph{Isigidimi}.
+
+For pattern $g$ on page $i$, let $c_{ig}$ be its occurrence count and
+$d_i=\sum_{w\in i}\max(0,|w|-3)$ the number of eligible within-word
+four-gram positions. The \emph{mass} rate pools all counts and
+positions, while \emph{page} gives each eligible page the same weight.
+The \emph{issue} rate first pools pages within an issue, then averages
+issue rates. The \emph{month} rate averages issue rates within each
+calendar month before weighting the 12 shared calendar months equally.
+All rates are multiplied by $10^4$. Each reported historical contrast
+is the 1888 rate minus the 1885 rate. These target different exposure units rather than a single,
+unambiguously correct historical population.
+
+A 3,000-draw nested month/issue bootstrap produces descriptive
+95\% intervals, not multiplicity-adjusted discovery claims.
+Separately, 4,999 year-label permutations within calendar months move
+whole publication issues, preserve month/year issue counts and retain
+page groups. For each pattern, one test examines
+$|\Delta_{g,\mathrm{mass}}|$ (temporal change), while another examines
+$\max_{w\ne\mathrm{mass}}|\Delta_{g,w}-\Delta_{g,\mathrm{mass}}|$
+(estimator sensitivity). Each family of 120 pattern tests within a
+newspaper receives its own Holm correction. A third benchmark examines
+the \emph{number} of sign reversals, not the reliability of each
+individual reversal warning.
+
+\begin{table}[H]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.13}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrr@{}}
+\hline
+ArchiveLens result & Imvo & Isigidimi\\
+\hline
+Reversal warnings & 23/120 & 4/120\\
+Null mean & 29.02 & 8.30\\
+Central 95\% null interval & 19--40 & 3--16\\
+Upper-tail $p$ & 0.8882 & 0.9486\\
+Holm temporal effects & 26 & 0\\
+Holm estimator gaps & 29 & 0\\
+\hline
+\end{tabular*}
+\caption{Reversal-count calibration and separately Holm-adjusted year and estimator-gap tests.}
+\label{tab:sup-arch}
+\end{table}
+
+For context, the earlier \emph{unadjusted} bootstrap intervals
+excluded zero for 38 \emph{Imvo} and 21 \emph{Isigidimi}
+mass-weighted year changes. Those descriptive interval counts are not
+interchangeable with the Holm-corrected permutation tests.
+
+Neither newspaper has an unexpectedly high reversal \emph{count}
+under this conditional reference. The 29 adjusted \emph{Imvo}
+estimator gaps answer a different question: nine also had original
+sign-reversal warnings. Table~\ref{tab:sup-examples} shows several
+of those descriptive disagreements, using the same patterns and
+original corpus. For \texttt{ants}, the maximum gap has
+Holm-adjusted $p=0.024$, whereas the \emph{mass-weighted temporal}
+test has adjusted $p=1$. The gap is evidence of estimator sensitivity,
+not a pair of proven historical trends.
+
+\begin{table}[H]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrrrr@{}}
+\hline
+Fragment & Mass & Page & Issue & Month\\
+\hline
+\texttt{ants} & $-0.23$ & $+4.80$ & $-0.03$ & $+0.15$\\
+\texttt{ntsu} & $-2.03$ & $+0.81$ & $-1.79$ & $-1.65$\\
+\texttt{tsha} & $+0.40$ & $-2.23$ & $+0.20$ & $+0.12$\\
+\texttt{teto} & $-0.36$ & $+2.21$ & $-0.12$ & $-0.29$\\
+\hline
+\end{tabular*}
+\caption{Illustrative \emph{Imvo} 1888-minus-1885 rate
+changes per 10,000 eligible four-gram positions. Patterns are
+surface fragments, not validated isiXhosa words or meanings;
+individual sign changes are not adjusted discoveries.}
+\label{tab:sup-examples}
+\end{table}
+
+\clearpage
+\subsection*{S4. Archive structure, repeated text, and validity}
+Figure~\ref{fig:sup-page} shows how eligible page text varies with
+position. \emph{Imvo} page 2 has 4.24 times the within-word four-gram
+opportunities of page 1 in 1885, and 3.69 times in 1888; the
+\emph{Isigidimi} profile is considerably flatter. The same pattern
+can therefore carry different weight in character-mass and equal-page
+comparisons. Page position is not an annotated genre or evidence of
+editorial motives.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=.99\columnwidth]{supp_page_position_compact.pdf}
+\caption{Mean eligible four-gram positions per page relative to
+position 1 in each newspaper and year, using the original XH-assigned
+archive text. Positions 1--4 are present in all four source/year
+combinations. This is exposure, not a rate of a selected pattern.}
+\label{fig:sup-page}
+\end{figure}
+
+The follow-up masks words covered by exact 13-word sequences
+repeated across \emph{different} issues within the same newspaper.
+Table~\ref{tab:sup-cover} shows the text affected. After masking,
+ten original \emph{Imvo} reversal warnings and one
+\emph{Isigidimi} warning disappear;
+this changes the eligible text and is a sensitivity analysis, not an
+estimate of the causal effect of ``removing duplication.'' Among the
+32 originally flagged \emph{Imvo} patterns, seven can change their
+mass-weighted year-difference sign when one complete issue is omitted;
+four of six flagged \emph{Isigidimi} patterns do so.
+
+\begin{table}[H]
+\centering\footnotesize
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}lrrr@{}}
+\hline
+Newspaper / year & Pages & Issues & Masked words\\
+\hline
+\emph{Imvo} 1885 & 195 & 49 & 20.0\%\\
+\emph{Imvo} 1888 & 208 & 52 & 21.9\%\\
+\emph{Isigidimi} 1885 & 95 & 12 & 2.4\%\\
+\emph{Isigidimi} 1888 & 96 & 12 & 1.3\%\\
+\hline
+\end{tabular*}
+\caption{Original eligible page support and fraction of words
+covered by repeated passages in each newspaper and year.
+The mask also removes some pages from the sensitivity analysis.}
+\label{tab:sup-cover}
+\end{table}
+
+The tokenizer experiment also has disjoint date-based splits but not
+perfectly novel evaluation \emph{content}: 514 of 2,493 held-out
+page-view excerpts (20.6\%) contain an exact 13-word sequence also
+seen in training-era text. Restricting to 99 nonoverlapping 1888 English-view excerpts yields a
+post-hoc BPE bigram allocation effect of $-0.02874$ BPC, compared with
+$-0.03722$ on full support. The direction remains, but the restriction
+changes the evaluation population, and shorter or paraphrased overlaps
+remain possible.
+
+ArchiveLens uses the original text views, not fitted tokenizer
+outputs. The two studies share a question about measurement, not a
+measured causal pathway. Both use surviving transcriptions from one
+archive, with no experimental control of editorial composition,
+preservation or OCR/transcription effects. The historical years
+had been examined before the final follow-ups, and permutation
+exchangeability is a conditional reference rather than a credible
+assumption of identical historical eras. The findings support
+measurement- and sampling-sensitivity diagnostics, not claims about
+historical authors' beliefs, semantic change, social discrimination,
+or downstream neural-model fairness.
+
+\noindent\textbf{Code and reproduction.}
+The recorded model and ArchiveLens results are verified by the
+repository's Python 3.13 checks; the full tokenizer retraining requires
+the original source ZIP and is not run in routine CI. The source archive
+SHA-256 is \texttt{375c5864...be321d5} (full value in
+\texttt{README.txt}). Hardware and runtime measurements were not
+retained consistently, so none are estimated here. Archive redistribution
+rights require separate confirmation.
+The tables can be checked in
+\path{results/segmentation.csv}, \path{results/bigram.csv}, and
+\path{results/repetition.csv}. The 120-pattern estimands and their
+adjusted calibration tests are in \path{results/archivelens/}; numerical inputs for
+Fig.~\ref{fig:sup-page} are generated directly from the original ZIP
+by \path{paper/analysis/make_supp_figure.py}; the independently
+recounted inputs are in \path{paper/analysis/supp_page_position_summary.csv}.
+Reproduction commands appear in the required \path{README.txt}.
