@@ -1,38 +1,33 @@
-NLP Project 2 - Historical isiXhosa newspaper NLP
-University of the Witwatersrand
+NLP Project 2 - Historical isiXhosa Newspaper NLP
 
-Read the project overview in README.md.
-Latest paper source: paper/report.tex (build instructions: paper/README.md).
-Methods and paper evidence: reports/PAPER_TO_EVIDENCE_GUIDE.md.
+Requirements: Python 3.13 and the included newspaper archive.
+Run all commands from the repository root unless stated otherwise.
 
-Python environment
-  Python 3.13
-  python -m pip install -r requirements.txt
+1. Install dependencies:
+   python -m pip install -r requirements.txt
 
-Check the saved experiment results (no model retraining)
-  python -m unittest discover -s src -p 'test_*.py' -v
-  python scripts/check_repository.py
-  python src/run.py check
-  python src/audit/independent_ci.py --root .
-  python src/analysis/metric_relationships.py --root . --verify
+2. Check the saved experiment results:
+   python -m unittest discover -s src -p 'test_*.py'
+   python src/run.py check
+   python src/audit/independent_ci.py --root .
 
-Check ArchiveLens against the original archive
-  python src/archivelens/audit.py --data data/TxtLangFiles1870-1894_TB.zip --out results/archivelens --figures results/figures --report reports/ARCHIVELENS_RESULTS_2026-10-26.md --verify
-  python src/archivelens/verify_independent.py --data data/TxtLangFiles1870-1894_TB.zip --out results/archivelens
-  python src/archivelens/followup.py --data data/TxtLangFiles1870-1894_TB.zip --root . --verify
-  python src/archivelens/verify_followup.py --data data/TxtLangFiles1870-1894_TB.zip --root .
+3. Reproduce the tokenizer and bigram experiments (re-trains 60 models):
+   python src/run.py reproduce --data data/TxtLangFiles1870-1894_TB.zip --out ../isixhosa-replay
 
-Rebuild the models (slower; use a new output directory)
-  python src/run.py reproduce --data data/TxtLangFiles1870-1894_TB.zip --out ../isixhosa-replay
+4. Recompute and verify the ArchiveLens results:
+   python src/archivelens/audit.py --data data/TxtLangFiles1870-1894_TB.zip --out results/archivelens --figures results/figures --report reports/ARCHIVELENS_RESULTS_2026-10-26.md --verify
+   python src/archivelens/followup.py --data data/TxtLangFiles1870-1894_TB.zip --root . --verify
 
-Paper (requires pdflatex, bibtex8 and the course LaTeX dependencies)
-  cd paper
-  make pdf
+5. Build the paper (requires pdflatex, bibtex8 and the CCN LaTeX packages):
+   cd paper
+   make pdf
 
-Data hashes and archive provenance: data/README.md
-ArchiveLens usage: src/archivelens/README.md
-Fresh retraining check: reports/fresh_reproduction_2026-10-26.md
+Data file: data/TxtLangFiles1870-1894_TB.zip
+SHA-256: 375c5864e180717f34403287e502cf8812b038baf5a8fb4ae8ee8cdb2be321d5
+To check: sha256sum data/TxtLangFiles1870-1894_TB.zip
 
-The EnTxt and XhTxt fields are archive-assigned text views, not manually
-verified language labels. The later test years were studied during earlier
-exploration. Check the paper's limitations before interpreting results.
+Main code: src/run.py
+ArchiveLens code: src/archivelens/
+Model results: results/
+Research methods and findings: reports/
+Paper source: paper/report.tex

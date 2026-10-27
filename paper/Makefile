@@ -12,7 +12,6 @@ pdf: figures
 	bibtex8 report
 	pdflatex -interaction=nonstopmode -halt-on-error report.tex
 	pdflatex -interaction=nonstopmode -halt-on-error report.tex
-	@echo "Review paper/report.pdf visually and append approved course declarations separately."
 
 clean:
 	rm -f report.aux report.bbl report.blg report.log report.out report.synctex.gz report.toc ccn.sty apacite.bst
