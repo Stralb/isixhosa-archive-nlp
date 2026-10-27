@@ -32,4 +32,3 @@ Model results: results/
 Research methods and findings: reports/
 Paper source: paper/report.tex
 
-Older exploratory work: archive/ (not required for the main checks).
