@@ -28,4 +28,9 @@ jobs:
         run: |
           python src/archivelens/followup.py --data data/TxtLangFiles1870-1894_TB.zip --root . --verify
           python src/archivelens/verify_followup.py --data data/TxtLangFiles1870-1894_TB.zip --root .
+      - name: Verify supplementary page-position figure from original archive
+        run: |
+          python paper/analysis/make_supp_figure.py --archive data/TxtLangFiles1870-1894_TB.zip --outdir paper
+          git diff --exit-code -- paper/analysis/supp_page_position_summary.csv
+          test -s paper/supp_page_position_compact.pdf
       - run: python src/run.py reproduce --data data/source-not-included.zip --out /tmp/replay --dry-run

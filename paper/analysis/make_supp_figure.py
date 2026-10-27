@@ -106,7 +106,7 @@ def main():
     summary = args.outdir/"analysis"/"supp_page_position_summary.csv"
     summary.parent.mkdir(parents=True, exist_ok=True)
     with summary.open("w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     plot(rows, args.outdir)
