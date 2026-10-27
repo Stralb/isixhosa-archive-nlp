@@ -1,3 +1,4 @@
+.DEFAULT_GOAL := pdf
 PYTHON ?= python
 .PHONY: figures pdf clean
 

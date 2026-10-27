@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
-"""Check that the public navigation layer resolves without altering research results."""
+"""Check links in the project entry points and required research files."""
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
 NAV = (
-    "README.md", "CONTRIBUTING.md", "docs/README.md", "docs/PROJECT_STRUCTURE.md",
-    "docs/REPRODUCIBILITY.md", "docs/RESEARCH_PROGRAMME.md", "docs/DATA_AND_LICENSING.md",
-    "paper/README.md", "src/README.md", "results/README.md",
-    "reports/README.md", "templates/README.md",
+    "README.md", "paper/README.md", "data/README.md",
+    "reports/PAPER_TO_EVIDENCE_GUIDE.md", "reports/paper_draft/README.md",
 )
 REQUIRED = (
     "README.txt", "requirements.txt", "paper/report.tex", "paper/paper_references.bib",

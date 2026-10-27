@@ -17,6 +17,7 @@ paper/*.toc
 paper/*.synctex.gz
 paper/ccn.sty
 paper/apacite.bst
+paper/figures/
 # Local scratch files
 *.tmp
 .ipynb_checkpoints/

@@ -6,8 +6,7 @@ GitHub commit aff05ae34597f28309dc94561adbcd962901e2f4.
 Sources: results/segmentation.csv, results/bigram.csv,
 results/archivelens/estimands.csv, results/archivelens/followup/summary.json.
 
-Do not replace this script with AI-generated image crops: those introduced wrong
-XH-language names and incorrect equal-issue/equal-month values.
+Check any edited values against the listed CSV and JSON evidence sources.
 """
 from pathlib import Path
 import matplotlib as mpl
