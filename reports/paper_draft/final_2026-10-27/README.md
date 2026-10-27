@@ -35,3 +35,13 @@ The paper now explicitly treats archived **text exposure** as the common measure
 New supplementary structural check (not a new causal experiment): `analysis/verify_page_structure.py` independently parses the author-provided original archive ZIP, checks its SHA-256 and reports XH-eligible four-gram positions by year and page position. The derived non-textual table `analysis/page_position_eligible_positions.csv` records the Imvo page-2/page-1 ratios 4.24 (1885), 3.69 (1888), compared with Isigidimi largest/smallest page-position means of 1.30 and 1.42. These are **post-hoc descriptive results**, not findings about editorials, author identities or political themes. The original source ZIP is not redistributed.
 
 Source files `report.tex` and `make_figures.py` now match the compiled, visually reviewed research PDF made available with the 27 October 2026 editorial package. All prior experimental results and frozen evidence are unchanged.
+
+
+## Submission forms — author-review draft
+
+- [Complete original 15-question NeurIPS 2024 checklist with proposed answers](neurips_2024_AUTHOR_REVIEW.tex): all official question/guideline text retained, but **author confirmation still required**.
+- [Faculty AI tool-use disclosure guidance](AI_USE_DISCLOSURE_AUTHOR_REVIEW.md): explicitly includes ChatGPT and explains why the existing signed form needs correction.
+- [Individual contributions worksheet](AUTHOR_CONTRIBUTIONS_AUTHOR_REVIEW.md): no responsibilities attributed without author confirmation.
+- [Submission status and outstanding ethics/rights checks](SUBMISSION_STATUS_AUTHOR_REVIEW.md).
+
+**Privacy:** The previously uploaded signed AI declaration is stored only in the private author-review package and is **not** committed to this public repository. The public repository has the latest editable manuscript and fixed figure generator; the compiled PDF and signed document are supplied separately to the group.
