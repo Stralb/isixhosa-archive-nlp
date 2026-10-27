@@ -34,3 +34,48 @@ jobs:
           git diff --exit-code -- paper/analysis/supp_page_position_summary.csv
           test -s paper/supp_page_position_compact.pdf
       - run: python src/run.py reproduce --data data/source-not-included.zip --out /tmp/replay --dry-run
+
+  paper:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: python -m pip install -r requirements.txt
+      - name: Install CCN-compatible LaTeX dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-bibtex-extra poppler-utils
+      - name: Assemble the full paper and standalone supplementary preview
+        run: |
+          cd paper
+          make pdf
+          make supplement
+      - name: Check required sections and page limits
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import subprocess
+          report=Path("paper/report.pdf")
+          supplement=Path("paper/supplement_preview.pdf")
+          assert report.stat().st_size>20000
+          pages=subprocess.check_output(["pdfinfo",str(supplement)],text=True)
+          assert "Pages:           3" in pages, pages
+          text=subprocess.check_output(["pdftotext","-layout",str(report),"-"],text=True)
+          positions=[text.find(x) for x in ("References","NeurIPS Paper Checklist","Supplementary Material","Contribution Statement")]
+          assert all(p>=0 for p in positions), positions
+          assert positions==sorted(positions), positions
+          assert text.count("Question:")>=15, text.count("Question:")
+          first2=subprocess.check_output(["pdftotext","-f","1","-l","2",str(report),"-"],text=True)
+          assert "Discussion" in first2
+          assert "NeurIPS Paper Checklist" not in first2
+          assert "Supplementary Material" not in first2
+          assert "Contribution Statement" not in first2
+          print("PASS: compiled complete report, required order, 3-page supplement")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Project2-assembled-paper
+          path: paper/report.pdf
