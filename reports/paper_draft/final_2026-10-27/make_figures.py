@@ -93,11 +93,12 @@ plt.close(fig)
 # calculated estimands with their correct bootstrap intervals.
 fig=plt.figure(figsize=(3.43,2.30),dpi=230)
 a=fig.add_axes([.265,.645,.68,.18])
-b=fig.add_axes([.305,.17,.64,.24])
+b=fig.add_axes([.305,.17,.54,.24])
 fig.text(.04,.964,'(a) Reversal counts and permutation null',fontsize=8.05,
          fontweight='bold',ha='left',va='top')
 fig.text(.04,.505,"(b) Imvo: 'ants' rate change",fontsize=8.05,
          fontweight='bold',ha='left',va='top')
+fig.text(.867,.429,"Estimate",fontsize=6.4,color=GREY,ha="left",va="bottom")
 
 # null central 95%, mean, observed, per source
 nulls=[('Imvo', 23,29.01520304060812,19,40),
@@ -133,10 +134,11 @@ for i,(name,v,lo,hi,vtext) in enumerate(ants):
     y=3-i
     clr=EN if name=='Equal page' else INK
     interval(b,v,lo,hi,y,clr,open_marker=False,size=4.0)
-    # Exact values give the near-zero estimates visible meaning. CI endpoints
-    # are expressed by whiskers; see figure caption for interval definition.
-    b.annotate(vtext,(v,y),xytext=(0,5.6),textcoords='offset points',
-               fontsize=6.3,color=clr,ha='center',va='bottom',fontweight='bold')
+    # Point estimates are shown in a separate, aligned right-hand column.
+    # This prevents value labels colliding with whiskers or adjacent rows.
+    b.text(1.052,y,vtext,transform=b.get_yaxis_transform(),
+           fontsize=6.6,color=clr,ha='left',va='center',fontweight='bold',
+           clip_on=False)
 
 for ext in ('pdf','png','svg'):
     fig.savefig(OUT/f'archivelens_audit.{ext}',dpi=290)
