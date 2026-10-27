@@ -85,3 +85,27 @@ jobs:
         with:
           name: Project2-assembled-paper-without-private-declaration
           path: paper/report.pdf
+
+  submission-snapshot:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package the tracked coursework source without personal signatures
+        run: |
+          test -f README.txt
+          test -f requirements.txt
+          test -f data/TxtLangFiles1870-1894_TB.zip
+          test -f data/TxtFiles1870-1894_TB.zip
+          mkdir -p _submission_export/Code
+          cp -a README.txt requirements.txt src data results paper reports .github .gitignore _submission_export/Code/
+          cd _submission_export
+          zip -q -r Project2_Code_Source.zip Code
+          unzip -tqq Project2_Code_Source.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Project2-code-source-snapshot
+          path: _submission_export/Project2_Code_Source.zip
+          retention-days: 2
+          compression-level: 0
