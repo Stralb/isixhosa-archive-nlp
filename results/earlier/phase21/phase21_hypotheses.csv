@@ -1,4 +1,0 @@
-hypothesis,contrast_percentage_points,ci95_low,ci95_high,imvo_pp,isigidimi_pp,passed
-H21a_edit2_char20_minus_word20_recall20,-36.667,-50.0,-23.333,-43.333,-30.0,False
-H21b_edit2_hybrid_fuzzy_minus_word_fuzzy_top1,-5.0,-11.667,0.0,-3.333,-6.667,False
-H21c_keyword_hybrid_minus_word_top1,-61.667,-71.667,-51.667,-86.667,-36.667,False

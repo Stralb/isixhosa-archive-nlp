@@ -7,3 +7,15 @@ __pycache__/
 .DS_Store
 runs/
 outputs/
+# Paper compilation auxiliaries (keep source figures / final reviewed PDF separately)
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.toc
+paper/*.synctex.gz
+paper/figures/
+# Local scratch files
+*.tmp
+.ipynb_checkpoints/

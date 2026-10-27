@@ -1,6 +1,0 @@
-method,external_top1,edited_top1,external_recall20,edited_recall20,top1_delta_pp,recall20_delta_pp
-BM25,0.5,0.625,0.75,1.0,-12.5,-25.0
-BM25_FUZZY20,0.625,0.625,0.75,1.0,0.0,-25.0
-CHAR3_TFIDF,0.25,0.125,0.5,0.5,12.5,0.0
-CHAR3_FUZZY20,0.375,0.375,0.5,0.5,0.0,0.0
-XH_BM25_FUZZY20,0.625,0.625,0.75,1.0,0.0,-25.0
